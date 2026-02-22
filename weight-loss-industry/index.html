@@ -5,112 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Weight Loss Industry — Weight Loss Davie</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-
+<link rel="stylesheet" href="styles.css">
 <style>
-  /* Page-specific styles */
-  .content-image {
+  .full-image-wrap {
+    background: var(--deep);
+    padding: 0 40px 70px;
+  }
+  .full-image-wrap img {
     display: block;
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     height: auto;
     margin: 0 auto;
-    border-radius: 12px;
+    border-radius: 16px;
+    box-shadow: 0 12px 50px rgba(0,0,0,0.3);
+  }
+  .full-image-wrap-light {
+    padding: 0 40px 70px;
+  }
+  .full-image-wrap-light img {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 16px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.10);
   }
-
-  .industry-section {
-    padding: 80px 40px;
-  }
-
-  .industry-section:nth-child(even) {
-    background: var(--white);
-  }
-
-  .industry-section:nth-child(odd) {
-    background: var(--off-white);
-  }
-
-  .industry-section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    margin-bottom: 48px;
-  }
-
-  .section-header h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(36px, 4vw, 52px);
-    font-weight: 900;
-    text-transform: uppercase;
-    color: var(--deep);
-    line-height: 1;
-    letter-spacing: -0.01em;
-    margin-top: 12px;
-  }
-
-  .bullet-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 48px;
-  }
-
-  .bullet-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--muted);
-  }
-
-  .bullet-dot {
-    width: 10px;
-    height: 10px;
-    min-width: 10px;
-    background: var(--blue);
-    border-radius: 50%;
-    margin-top: 8px;
-  }
-
-  .intro-section {
-    background: var(--deep);
-    color: white;
-    padding: 90px 40px;
-    text-align: center;
-  }
-
-  .intro-section .section-tag {
-    background: rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.7);
-  }
-
-  .intro-section h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(40px, 5vw, 64px);
-    font-weight: 900;
-    text-transform: uppercase;
-    color: white;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    margin: 14px 0 28px;
-  }
-
-  .intro-section p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.68);
-    max-width: 760px;
-    margin: 0 auto 48px;
-  }
-
   @media (max-width: 600px) {
-    .industry-section { padding: 60px 24px; }
-    .intro-section { padding: 70px 24px; }
+    .full-image-wrap, .full-image-wrap-light { padding: 0 24px 50px; }
   }
 </style>
 </head>
@@ -123,82 +46,118 @@
   <p class="hero-desc">An overview of trends, challenges, and developments within the weight management landscape.</p>
 </section>
 
-<!-- INTRODUCTION + HEADER IMAGE -->
-<section class="intro-section">
-  <span class="section-tag">Introduction</span>
-  <h2>Industry Overview</h2>
-  <p>The weight management industry continues to expand as more individuals seek information, services, and professional guidance related to weight and overall wellness. It includes a broad range of programs, tools, and support services focused on education, structure, and long-term management rather than short-term outcomes.</p>
-  <img src="BASE64_IMAGE_DATA" alt="The Weight Loss Industry: Trends, Challenges & Developments" class="content-image">
+<!-- INTRODUCTION -->
+<section class="dark-section">
+  <div class="section">
+    <div class="s1-grid">
+      <div class="s1-left">
+        <span class="section-tag">Introduction</span>
+        <h2>Industry<br>Overview</h2>
+      </div>
+      <div class="s1-right">
+        <div class="info-block">
+          <h3>The Weight Loss Industry</h3>
+          <p>The weight management industry continues to expand as more individuals seek information, services, and professional guidance related to weight and overall wellness.</p>
+        </div>
+        <div class="info-block">
+          <h3>Long-Term Focus</h3>
+          <p>It includes a broad range of programs, tools, and support services focused on education, structure, and long-term management rather than short-term outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-image-wrap">
+    <img src="BASE64_IMAGE_DATA" alt="The Weight Loss Industry: Trends, Challenges & Developments">
+  </div>
 </section>
 
 <!-- CURRENT TRENDS -->
-<section class="industry-section">
-  <div class="industry-section-inner">
-    <div class="section-header">
-      <span class="section-tag">Industry Insight</span>
-      <h2>Current Trends</h2>
+<section style="background: var(--white);">
+  <div class="section">
+    <div class="s1-grid">
+      <div class="s1-left">
+        <span class="section-tag">Industry Insight</span>
+        <h2>Current<br>Trends</h2>
+        <p>The weight management landscape is evolving rapidly, with a growing focus on professional guidance, technology, and evidence-based care.</p>
+      </div>
+      <div class="s1-right">
+        <div class="info-block">
+          <h3>Individualized Approaches</h3>
+          <p>Increased interest in individualized weight management approaches that emphasize professional guidance and structured support.</p>
+        </div>
+        <div class="info-block">
+          <h3>Technology Integration</h3>
+          <p>Growing use of technology, such as digital platforms and tracking tools, to support communication, monitoring, and patient engagement.</p>
+        </div>
+        <div class="info-block">
+          <h3>Evidence-Based Information</h3>
+          <p>Greater emphasis on evidence-based information and informed decision-making when exploring weight management options.</p>
+        </div>
+      </div>
     </div>
-    <ul class="bullet-list">
-      <li>
-        <div class="bullet-dot"></div>
-        <span>Increased interest in individualized weight management approaches that emphasize professional guidance and structured support.</span>
-      </li>
-      <li>
-        <div class="bullet-dot"></div>
-        <span>Growing use of technology, such as digital platforms and tracking tools, to support communication, monitoring, and engagement.</span>
-      </li>
-      <li>
-        <div class="bullet-dot"></div>
-        <span>Greater emphasis on evidence-based information and informed decision-making when exploring weight management options.</span>
-      </li>
-    </ul>
-    <img src="BASE64_IMAGE_DATA" alt="Current Trends in Weight Management" class="content-image">
+  </div>
+  <div class="full-image-wrap-light" style="background: var(--white);">
+    <img src="BASE64_IMAGE_DATA" alt="Current Trends in Weight Management">
   </div>
 </section>
 
 <!-- INDUSTRY CHALLENGES -->
-<section class="industry-section">
-  <div class="industry-section-inner">
-    <div class="section-header">
-      <span class="section-tag">Landscape</span>
-      <h2>Industry Challenges</h2>
+<section class="dark-section">
+  <div class="section">
+    <div class="s1-grid">
+      <div class="s1-right">
+        <div class="info-block">
+          <h3>Misleading Information & Confusion</h3>
+          <p>The presence of misleading or oversimplified information that can create confusion for individuals seeking weight management services.</p>
+        </div>
+        <div class="info-block">
+          <h3>Highly Competitive Landscape</h3>
+          <p>A highly competitive market that requires careful evaluation of available programs and providers before making decisions.</p>
+        </div>
+      </div>
+      <div class="s1-left">
+        <span class="section-tag">Landscape</span>
+        <h2>Industry<br>Challenges</h2>
+        <p>Navigating the weight management industry requires awareness of common obstacles that can affect the quality of care and outcomes.</p>
+      </div>
     </div>
-    <ul class="bullet-list">
-      <li>
-        <div class="bullet-dot"></div>
-        <span>The presence of misleading or oversimplified information that can create confusion for individuals seeking weight management services.</span>
-      </li>
-      <li>
-        <div class="bullet-dot"></div>
-        <span>A highly competitive landscape that requires careful evaluation of available programs and providers.</span>
-      </li>
-    </ul>
-    <img src="BASE64_IMAGE_DATA" alt="Industry Challenges" class="content-image">
+  </div>
+  <div class="full-image-wrap">
+    <img src="BASE64_IMAGE_DATA" alt="Industry Challenges">
   </div>
 </section>
 
 <!-- OPPORTUNITIES FOR GROWTH -->
-<section class="industry-section">
-  <div class="industry-section-inner">
-    <div class="section-header">
-      <span class="section-tag">Looking Ahead</span>
-      <h2>Opportunities for Growth</h2>
+<section style="background: var(--off-white);">
+  <div class="section">
+    <div class="s3-grid">
+      <div class="highlight-box">
+        <h2>Opportunities<br>for Growth</h2>
+        <p>The industry is positioned for meaningful advancement through better tools, collaboration, and education.</p>
+        <div class="badge-row">
+          <span class="badge">Data-Driven Tools</span>
+          <span class="badge">Collaborative Care</span>
+          <span class="badge">Education</span>
+        </div>
+      </div>
+      <div class="s3-right">
+        <div class="info-block">
+          <h3>Data-Driven Tools</h3>
+          <p>Continued development of data-driven tools to support education, monitoring, and patient engagement.</p>
+        </div>
+        <div class="info-block">
+          <h3>Collaborative Care</h3>
+          <p>Increased collaboration between medical providers and support services to deliver professionally guided care.</p>
+        </div>
+        <div class="info-block">
+          <h3>Educational Resources</h3>
+          <p>Expansion of educational resources that help individuals better understand weight management processes and available options.</p>
+        </div>
+      </div>
     </div>
-    <ul class="bullet-list">
-      <li>
-        <div class="bullet-dot"></div>
-        <span>Continued development of data-driven tools to support education, monitoring, and patient engagement.</span>
-      </li>
-      <li>
-        <div class="bullet-dot"></div>
-        <span>Increased collaboration between medical providers and support services to deliver professionally guided care.</span>
-      </li>
-      <li>
-        <div class="bullet-dot"></div>
-        <span>Expansion of educational resources that help individuals better understand weight management processes and available options.</span>
-      </li>
-    </ul>
-    <img src="BASE64_IMAGE_DATA" alt="Opportunities for Growth" class="content-image">
+  </div>
+  <div class="full-image-wrap-light" style="background: var(--off-white);">
+    <img src="BASE64_IMAGE_DATA" alt="Opportunities for Growth">
   </div>
 </section>
 
