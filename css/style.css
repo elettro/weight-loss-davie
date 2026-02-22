@@ -1,1 +1,407 @@
+/* ============================================================
+   Weight Loss Davie — Global Stylesheet
+   Font dependency: Barlow + Barlow Condensed (Google Fonts)
+   Add to <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+   ============================================================ */
 
+/* ─── VARIABLES ─── */
+:root {
+  --blue:      #1a3fcf;
+  --deep:      #0d1f6e;
+  --light:     #e8edff;
+  --off-white: #f7f8fc;
+  --white:     #ffffff;
+  --text:      #1a1a2e;
+  --muted:     #4a5068;
+}
+
+/* ─── RESET ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ─── BASE ─── */
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--deep);
+  color: white;
+  padding: 100px 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.015) 40px,
+    rgba(255,255,255,0.015) 80px
+  );
+}
+
+.hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(52px, 9vw, 110px);
+  font-weight: 900;
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.hero h1 span {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+}
+
+.hero-desc {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  position: relative;
+}
+
+/* ─── FEATURE CARDS (Image Strip) ─── */
+.features-strip {
+  background: var(--blue);
+  padding: 70px 40px;
+}
+
+.features-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.feat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.feat-card img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ─── SECTION WRAPPER ─── */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* ─── SECTION TAG (Eyebrow Label) ─── */
+.section-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--light);
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* ─── TWO-COLUMN GRIDS ─── */
+.s1-grid,
+.s3-grid,
+.s4-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.s3-grid { gap: 48px; align-items: start; }
+
+/* ─── LEFT COLUMN (Heading + Intro) ─── */
+.s1-left h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--deep);
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+}
+
+.s1-left p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* ─── RIGHT COLUMN (Info Blocks) ─── */
+.s1-right,
+.s3-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-block {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.info-block:last-child {
+  border-bottom: none;
+}
+
+.info-block h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.info-block p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ─── DARK SECTION ─── */
+.dark-section {
+  background: var(--deep);
+  color: white;
+}
+
+.dark-section .section-tag {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+}
+
+.dark-section h2 {
+  color: white !important;
+}
+
+.dark-section .info-block {
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.dark-section .info-block h3 {
+  color: #7b9fff;
+}
+
+.dark-section .info-block p,
+.dark-section p {
+  color: rgba(255,255,255,0.65) !important;
+}
+
+/* ─── HIGHLIGHT BOX (Blue Card) ─── */
+.highlight-box {
+  background: var(--blue);
+  color: white;
+  border-radius: 20px;
+  padding: 48px 40px;
+}
+
+.highlight-box h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.highlight-box p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+}
+
+.highlight-box .badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+/* ─── BADGES ─── */
+.badge {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ─── CHECKLIST ─── */
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.check-icon {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.check-icon::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.checklist li strong {
+  color: var(--deep);
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  background: var(--blue);
+  text-align: center;
+  padding: 80px 40px;
+  color: white;
+}
+
+.cta-section h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: white;
+  color: var(--blue);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 18px 48px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1,
+.hero-desc,
+.hero-eyebrow {
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero h1       { animation-delay: 0.1s; }
+.hero-desc     { animation-delay: 0.25s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .features-strip-inner { grid-template-columns: repeat(3, 1fr); }
+  .s1-grid, .s3-grid, .s4-grid { grid-template-columns: 1fr; gap: 36px; }
+  .highlight-box { padding: 36px 28px; }
+}
+
+@media (max-width: 600px) {
+  .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 60px 24px; }
+  .features-strip { padding: 50px 24px; }
+}
