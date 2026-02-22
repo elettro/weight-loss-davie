@@ -4,249 +4,354 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Weight Loss Davie</title>
-  <meta name="description" content="Contact Weight Loss Davie in Davie, Florida for provider-led medical weight management consultations and questions.">
+  <meta name="description" content="Contact Weight Loss Davie in Davie, Florida for provider-led medical weight management questions, registration help, and next steps.">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 
-  <!-- Page-specific form styles to match your global design -->
   <style>
-    .contact-form-card {
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-card {
       background: var(--white);
+      border: 1px solid rgba(13,31,110,0.08);
       border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      padding: 22px 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
     }
 
-    .contact-form {
-      display: grid;
-      gap: 16px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field label {
+    .contact-card h3 {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--deep);
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      border: 1px solid rgba(13, 31, 110, 0.14);
-      background: var(--white);
-      color: var(--text);
-      border-radius: 10px;
-      padding: 14px 14px;
-      font: inherit;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(26, 63, 207, 0.10);
-    }
-
-    .field textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .contact-submit {
-      display: inline-block;
-      border: none;
-      cursor: pointer;
-      background: var(--blue);
-      color: var(--white);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 17px;
+      font-size: 22px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 16px 22px;
-      border-radius: 8px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: var(--deep);
+      line-height: 1.1;
+      margin-bottom: 10px;
     }
 
-    .contact-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    .contact-note {
-      font-size: 14px;
+    .contact-card p {
       color: var(--muted);
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 12px;
     }
 
-    .contact-links a {
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-list li {
+      background: rgba(26,63,207,0.04);
+      border: 1px solid rgba(26,63,207,0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .contact-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    .contact-value,
+    .contact-value a {
+      color: var(--deep);
       text-decoration: none;
+      font-weight: 600;
+      line-height: 1.5;
       word-break: break-word;
     }
 
-    .contact-links a:hover {
+    .contact-value a:hover {
       text-decoration: underline;
     }
 
-    .contact-callout {
-      margin-top: 18px;
+    .contact-note {
+      background: rgba(26, 63, 207, 0.05);
+      border: 1px solid rgba(26, 63, 207, 0.10);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .mini-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-steps li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .mini-step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .mini-step-text strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      color: var(--deep);
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .mini-step-text span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
     }
 
     @media (max-width: 900px) {
-      .form-row {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
-      .contact-form-card {
-        padding: 22px;
+    }
+
+    /* NAV SPACING TWEAK */
+    @media (min-width: 1051px) {
+      .site-nav a.nav-cta {
+        margin-left: 12px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/weight-loss-davie/" aria-label="Weight Loss Davie Home">
+        <span class="brand-text">Weight Loss Davie</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        Menu
+      </button>
+
+      <nav id="main-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/weight-loss-davie/">Home</a>
+        <a href="/weight-loss-davie/why-us/">Why Us</a>
+        <a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a>
+        <a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a>
+        <a href="/weight-loss-davie/testimonials/">Testimonials</a>
+        <a href="/weight-loss-davie/faqs/">FAQs</a>
+        <a href="/weight-loss-davie/provider/">Provider</a>
+        <a href="/weight-loss-davie/contact-us/" class="active">Contact</a>
+        <a href="/weight-loss-davie/register/" class="nav-cta">Register</a>
+        <a href="/weight-loss-davie/login/" class="nav-ghost">Login</a>
+      </nav>
+    </div>
+  </header>
+
   <section class="hero">
     <div class="hero-eyebrow">Contact Weight Loss Davie</div>
     <h1>Contact<br><span>Us</span></h1>
     <p class="hero-desc">
-      We are here to help. Contact our team in Davie, Florida to ask questions, request details, or schedule a provider consultation.
+      Get in touch with Weight Loss Davie for general questions, registration support, and next-step guidance for provider-led medical weight management in Davie, Florida.
     </p>
   </section>
 
-  <!-- CONTACT PAGE MAIN -->
   <section class="section">
-    <div class="section-tag">Get In Touch</div>
-    <div class="s1-grid">
-      <!-- LEFT COLUMN -->
-      <div class="s1-left">
-        <h2>Speak With Our Team</h2>
+    <div class="section-tag">Contact Information</div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Reach Our Office</h3>
         <p>
-          Reach out to Weight Loss Davie for questions about provider-led weight management services, consultations, and next steps.
-        </p>
-        <p>
-          We support patients in South Florida from our Davie, Florida location, with a focus on personalized care and clear communication.
+          Contact us for general questions about the intake process, registration, provider-led care, and next steps.
         </p>
 
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Phone</span>
+            <div class="contact-value">
+              <a href="tel:+13104086687">310.408.6687</a>
+            </div>
+          </li>
+
+          <li>
+            <span class="contact-label">Email</span>
+            <div class="contact-value">
+              <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a>
+            </div>
+          </li>
+
+          <li>
+            <span class="contact-label">Service Area</span>
+            <div class="contact-value">
+              Davie, Broward County, South Florida
+            </div>
+          </li>
+
+          <li>
+            <span class="contact-label">Practice Type</span>
+            <div class="contact-value">
+              Provider-led medical weight management
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-card">
+        <h3>What To Do Next</h3>
+        <ul class="mini-steps">
+          <li>
+            <div class="mini-step-num">1</div>
+            <div class="mini-step-text">
+              <strong>Contact Us</strong>
+              <span>Ask general questions and get guidance on the next step for registration and intake.</span>
+            </div>
+          </li>
+          <li>
+            <div class="mini-step-num">2</div>
+            <div class="mini-step-text">
+              <strong>Register Online</strong>
+              <span>Create your account on the Register page to begin the intake process.</span>
+            </div>
+          </li>
+          <li>
+            <div class="mini-step-num">3</div>
+            <div class="mini-step-text">
+              <strong>Complete Intake Steps</strong>
+              <span>Follow the instructions provided for provider review and scheduling.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section">
+    <div class="section-tag">Before You Contact Us</div>
+    <div class="s4-grid">
+      <div>
         <ul class="checklist">
           <li>
             <span class="check-icon"></span>
             <div>
-              <strong>Provider-Led Care</strong>
-              Ask questions about consultations, treatment planning, and ongoing support.
+              <strong>General Questions Welcome</strong>
+              Contact us for help understanding the process, registration, and next steps.
             </div>
           </li>
           <li>
             <span class="check-icon"></span>
             <div>
-              <strong>South Florida Service Area</strong>
-              Based in Broward County, Davie, Florida.
+              <strong>Use Register For Intake</strong>
+              Start your account on the Register page to begin the intake and provider review process.
             </div>
           </li>
           <li>
             <span class="check-icon"></span>
             <div>
-              <strong>Clear Next Steps</strong>
-              Contact us to learn how to begin the intake and consultation process.
+              <strong>Use Login If Returning</strong>
+              If you already created an account, use the Login page to continue your next steps.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Protect Private Health Details</strong>
+              Do not send sensitive medical details through general contact messages.
             </div>
           </li>
         </ul>
+      </div>
 
-        <div class="info-block contact-callout">
-          <h3>Contact Information</h3>
-          <p class="contact-links">
-            Phone: <a href="tel:+13104086687">310.408.6687</a><br>
-            Email: <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a><br>
-            Website: <a href="https://weightlossdavie.com/contact-us">weightlossdavie.com/contact-us</a>
+      <div>
+        <div class="contact-note">
+          This page is for general contact and informational questions. Individual care recommendations, eligibility, and treatment planning are determined by a licensed provider during the intake and consultation process.
+        </div>
+
+        <div class="info-block" style="margin-top:16px;">
+          <h3>Need Answers First</h3>
+          <p>
+            Visit the FAQs page for common questions about the process, provider-led care, and next steps.
           </p>
         </div>
 
         <div class="info-block">
-          <h3>Office Location</h3>
+          <h3>Meet The Provider</h3>
           <p>
-            Davie, Florida. Serving patients in Broward County and South Florida.
+            Visit the Provider page to learn more about Marie-Claude Dubuc, PA-C and the clinical experience behind the practice.
+          </p>
+        </div>
+
+        <div class="info-block">
+          <h3>Ready To Begin</h3>
+          <p>
+            Use the Register page to create your account and begin the intake process.
           </p>
         </div>
       </div>
-
-      <!-- RIGHT COLUMN / FORM -->
-      <div class="s1-right">
-        <div class="contact-form-card">
-          <form class="contact-form" action="#" method="post">
-            <div class="form-row">
-              <div class="field">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-              </div>
-              <div class="field">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="How can we help?" required>
-            </div>
-
-            <div class="field">
-              <label for="message">Your Message</label>
-              <textarea id="message" name="message" placeholder="Tell us a little about your question or goals" required></textarea>
-            </div>
-
-            <button type="submit" class="contact-submit">Send Message</button>
-
-            <p class="contact-note">
-              Do not include sensitive medical details in this form. A provider will review clinical information during your consultation.
-            </p>
-          </form>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- OPTIONAL BLUE HIGHLIGHT -->
   <section class="section">
     <div class="highlight-box">
-      <h2>Need Help Getting Started</h2>
+      <h2>Clear Answers. Professional Support.</h2>
       <p>
-        If you are ready to begin, call our office or send a message through the contact form. We will help you understand the intake process and scheduling options.
+        Contact Weight Loss Davie for help getting started with a provider-led, structured medical weight management process in Davie, Florida.
       </p>
       <div class="badge-row">
-        <span class="badge">Davie, FL</span>
+        <span class="badge">Davie, Florida</span>
+        <span class="badge">Provider-Led Care</span>
+        <span class="badge">Registration Support</span>
         <span class="badge">South Florida</span>
-        <span class="badge">Provider-Led</span>
-        <span class="badge">Personalized Care</span>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta-section">
-    <h2>Ready To Take The Next Step</h2>
+    <h2>Ready To Start</h2>
     <p>
-      Contact Weight Loss Davie to request information and schedule your provider consultation.
+      Begin your intake process with provider-led guidance and a structured path designed to support safe, individualized care planning.
     </p>
-    <a class="cta-btn" href="tel:+13104086687">Call 310.408.6687</a>
+    <a class="cta-btn" href="/weight-loss-davie/register/">Register</a>
   </section>
+
+  <script>
+    (function () {
+      var navToggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('main-nav');
+      if (!navToggle || !nav) return;
+
+      navToggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+  </script>
 
 </body>
 </html>
-
