@@ -151,8 +151,20 @@ body {
 }
 
 /* ─── TWO-COLUMN GRIDS ─── */
-.s1-grid,
-.s3-grid,
+.s1-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.s3-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
 .s4-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,9 +172,7 @@ body {
   align-items: center;
 }
 
-.s3-grid { gap: 48px; align-items: start; }
-
-/* ─── LEFT COLUMN (Heading + Intro) ─── */
+/* ─── LEFT COLUMN ─── */
 .s1-left h2 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(36px, 4vw, 54px);
@@ -181,13 +191,14 @@ body {
   margin-bottom: 16px;
 }
 
-/* ─── RIGHT COLUMN (Info Blocks) ─── */
+/* ─── RIGHT COLUMNS ─── */
 .s1-right,
 .s3-right {
   display: flex;
   flex-direction: column;
 }
 
+/* ─── INFO BLOCKS ─── */
 .info-block {
   padding: 28px 0;
   border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -228,6 +239,14 @@ body {
   color: white !important;
 }
 
+.dark-section .s1-left h2 {
+  color: white !important;
+}
+
+.dark-section .s1-left p {
+  color: rgba(255,255,255,0.65) !important;
+}
+
 .dark-section .info-block {
   border-bottom-color: rgba(255,255,255,0.1);
 }
@@ -239,6 +258,14 @@ body {
 .dark-section .info-block p,
 .dark-section p {
   color: rgba(255,255,255,0.65) !important;
+}
+
+.dark-section .checklist li {
+  color: rgba(255,255,255,0.65);
+}
+
+.dark-section .checklist li strong {
+  color: white;
 }
 
 /* ─── HIGHLIGHT BOX (Blue Card) ─── */
@@ -256,6 +283,7 @@ body {
   text-transform: uppercase;
   line-height: 1;
   margin-bottom: 18px;
+  color: white;
 }
 
 .highlight-box p {
@@ -333,6 +361,58 @@ body {
   margin-bottom: 2px;
 }
 
+/* ─── TESTIMONIAL IMAGES ─── */
+.testimonial-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+.full-testimonial-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.full-testimonial-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+/* ─── FULL WIDTH IMAGE WRAP (Industry page) ─── */
+.full-image-wrap {
+  padding: 0 40px 70px;
+}
+
+.full-image-wrap img {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.3);
+}
+
+.full-image-wrap-light {
+  padding: 0 40px 70px;
+}
+
+.full-image-wrap-light img {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+}
+
 /* ─── CTA SECTION ─── */
 .cta-section {
   background: var(--blue);
@@ -404,4 +484,7 @@ body {
   .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 60px 24px; }
   .features-strip { padding: 50px 24px; }
+  .full-image-wrap,
+  .full-image-wrap-light,
+  .full-testimonial-wrap { padding: 0 24px 50px; }
 }
