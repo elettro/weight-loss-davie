@@ -5,20 +5,336 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Top 10 Reasons to Start — Weight Loss Davie</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
 <style>
-  .features-strip-inner-10 {
+  /* === FULL CSS FROM WHY-US === */
+  :root {
+    --blue:      #1a3fcf;
+    --deep:      #0d1f6e;
+    --light:     #e8edff;
+    --off-white: #f7f8fc;
+    --white:     #ffffff;
+    --text:      #1a1a2e;
+    --muted:     #4a5068;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  .hero {
+    background: var(--deep);
+    color: white;
+    padding: 100px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 80px
+    );
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 900;
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+  }
+
+  .hero-desc {
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    position: relative;
+  }
+
+  .features-strip {
+    background: var(--blue);
+    padding: 70px 40px;
+  }
+
+  .features-strip-inner {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    gap: 24px;
   }
+
+  .feat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 20px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .feat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  }
+
+  .feat-card img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 0;
+  }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--light);
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .s1-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .s1-left h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--deep);
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .s1-left p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .s1-right { display: flex; flex-direction: column; gap: 0; }
+
+  .info-block { padding: 28px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .info-block:last-child { border-bottom: none; }
+
+  .info-block h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .info-block p { font-size: 15px; line-height: 1.7; color: var(--muted); }
+
+  .dark-section { background: var(--deep); color: white; }
+  .dark-section .section-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+  .dark-section h2 { color: white !important; }
+  .dark-section .info-block { border-bottom-color: rgba(255,255,255,0.1); }
+  .dark-section .info-block h3 { color: #7b9fff; }
+  .dark-section .info-block p,
+  .dark-section p { color: rgba(255,255,255,0.65) !important; }
+
+  .s3-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .highlight-box {
+    background: var(--blue);
+    color: white;
+    border-radius: 20px;
+    padding: 48px 40px;
+  }
+
+  .highlight-box h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+
+  .highlight-box p { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75); }
+
+  .highlight-box .badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .s3-right { display: flex; flex-direction: column; gap: 0; }
+
+  .s4-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-top: 30px; }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .check-icon {
+    width: 22px; height: 22px; min-width: 22px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+
+  .check-icon::after { content: '✓'; color: white; font-size: 12px; font-weight: 700; }
+
+  .checklist li strong {
+    color: var(--deep);
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }
+
+  .cta-section {
+    background: var(--blue);
+    text-align: center;
+    padding: 80px 40px;
+    color: white;
+  }
+
+  .cta-section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    max-width: 500px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: white;
+    color: var(--blue);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 18px 48px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1, .hero-desc, .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-desc { animation-delay: 0.25s; }
+
   @media (max-width: 900px) {
-    .features-strip-inner-10 { grid-template-columns: repeat(3, 1fr); }
+    .features-strip-inner { grid-template-columns: repeat(3, 1fr); }
+    .s1-grid, .s3-grid, .s4-grid { grid-template-columns: 1fr; gap: 36px; }
+    .highlight-box { padding: 36px 28px; }
   }
+
   @media (max-width: 600px) {
-    .features-strip-inner-10 { grid-template-columns: repeat(2, 1fr); }
+    .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 60px 24px; }
+    .features-strip { padding: 50px 24px; }
   }
 </style>
 </head>
@@ -28,213 +344,130 @@
 <section class="hero">
   <p class="hero-eyebrow">Weight Loss Davie &nbsp;·&nbsp; Davie, Florida</p>
   <h1>Top 10 Reasons <span>to Start</span></h1>
-  <p class="hero-desc">Learn why individuals choose to explore medical weight-loss services through a provider-led consultation.</p>
+  <p class="hero-desc">Learn why individuals choose to explore medical weight loss services through a provider-led consultation.</p>
 </section>
 
-<!-- REASONS OVERVIEW STRIP -->
+<!-- IMAGE STRIP -->
 <section class="features-strip">
-  <div class="features-strip-inner-10">
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">01</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Personalized Support</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">02</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Provider-Led Approach</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">03</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">No Insurance Required</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">04</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Experienced Background</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">05</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">First Step Today</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">06</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Long-Term Wellness</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">07</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Direct Provider Access</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">08</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Multilingual Care</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">09</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Respectful Environment</div>
-    </div>
-    <div class="feat-card">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:8px;">10</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--deep);line-height:1.3;text-align:center;">Competitive Pricing</div>
-    </div>
+  <div class="features-strip-inner">
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Personalized Support"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Experienced Clinical Background"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="No Insurance Required"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Direct Access to Your Provider"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Multilingual Care"></div>
   </div>
 </section>
 
-<!-- REASONS 1 & 2 -->
+<!-- SECTION 1 — white -->
 <section style="background: var(--white);">
   <div class="section">
     <div class="s1-grid">
       <div class="s1-left">
-        <span class="section-tag">Reasons 1 &amp; 2</span>
+        <span class="section-tag">Reasons 1, 2 &amp; 3</span>
         <h2>Personalized,<br>Provider-Led<br>Care</h2>
-        <p>Every aspect of your care is guided by a licensed medical provider in a structured, professional setting focused on individual needs and clinical oversight.</p>
+        <p>Every aspect of your weight loss journey is guided by a licensed medical provider in a structured, professional setting tailored to your individual needs.</p>
+        <p>No insurance is required, making quality care straightforward and accessible for everyone.</p>
       </div>
       <div class="s1-right">
         <div class="info-block">
           <h3>01 — Personalized Support</h3>
-          <p>Care is guided by a licensed provider, with individualized attention and clear communication throughout the process.</p>
+          <p>Care is guided by a licensed provider, with individualized attention and clear communication throughout the entire process.</p>
         </div>
         <div class="info-block">
           <h3>02 — Provider-Led Approach</h3>
-          <p>Services are delivered in a structured, professional setting focused on medical oversight and individualized care.</p>
+          <p>Services are delivered in a structured, professional setting focused on medical oversight and individualized care at every stage.</p>
         </div>
-        <div class="info-block" style="border-bottom:none;padding-bottom:0;">
-          <div style="display:flex;gap:20px;align-items:center;">
-            <img src="BASE64_IMAGE_DATA" alt="Personalized Support" style="width:90px;height:90px;object-fit:contain;">
-            <img src="BASE64_IMAGE_DATA" alt="Provider-Led" style="width:90px;height:90px;object-fit:contain;">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REASONS 3 & 4 -->
-<section class="dark-section">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-right">
         <div class="info-block">
           <h3>03 — No Insurance Required</h3>
           <p>Our services are available without requiring insurance, making the process straightforward and accessible for everyone.</p>
         </div>
-        <div class="info-block">
-          <h3>04 — Experienced Clinical Background</h3>
-          <p>Care is provided by an experienced medical professional with over 15 years in emergency medicine, using established clinical standards and guidelines.</p>
-        </div>
-        <div class="info-block" style="border-bottom:none;padding-bottom:0;">
-          <div style="display:flex;gap:20px;align-items:center;">
-            <img src="BASE64_IMAGE_DATA" alt="No Insurance Required" style="width:90px;height:90px;object-fit:contain;filter:brightness(0) invert(1);">
-            <img src="BASE64_IMAGE_DATA" alt="Experienced Background" style="width:90px;height:90px;object-fit:contain;filter:brightness(0) invert(1);">
-          </div>
-        </div>
-      </div>
-      <div class="s1-left">
-        <span class="section-tag">Reasons 3 &amp; 4</span>
-        <h2>Accessible &amp;<br>Experienced<br>Care</h2>
-        <p>No insurance barriers, no hidden processes — just direct access to a clinically experienced provider focused on your individual health goals.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- REASONS 5 & 6 -->
-<section style="background: var(--off-white);">
-  <div class="section">
-    <div class="s3-grid">
-      <div class="highlight-box">
-        <h2>Take the<br>First Step</h2>
-        <p>Scheduling a consultation allows you to discuss your goals, ask questions, and understand all available options — with no commitment required.</p>
-        <div class="badge-row">
-          <span class="badge">No Commitment</span>
-          <span class="badge">Ask Questions</span>
-          <span class="badge">Understand Options</span>
-        </div>
-      </div>
-      <div class="s3-right">
-        <div class="info-block">
-          <h3>05 — Take the First Step Today</h3>
-          <p>Scheduling a consultation allows you to discuss your goals, ask questions, and understand available options without pressure or obligation.</p>
-        </div>
-        <div class="info-block">
-          <h3>06 — Focus on Long-Term Wellness</h3>
-          <p>Medical weight management emphasizes sustainable habits and ongoing support tailored to individual needs, not short-term fixes.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REASONS 7 & 8 -->
-<section style="background: var(--white);">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-left">
-        <span class="section-tag">Reasons 7 &amp; 8</span>
-        <h2>Direct Access &amp;<br>Multilingual<br>Support</h2>
-        <p>Stay connected with your provider throughout your care journey, with services available in English and French for clear, inclusive communication.</p>
-      </div>
-      <div class="s1-right">
-        <div class="info-block">
-          <h3>07 — Direct Access to Your Provider</h3>
-          <p>Patients have direct access for questions, follow-up, and continued communication as part of their ongoing care.</p>
-        </div>
-        <div class="info-block">
-          <h3>08 — Multilingual Care</h3>
-          <p>Services are available in English and French to support clear communication for a diverse patient population.</p>
-        </div>
-        <div class="info-block" style="border-bottom:none;padding-bottom:0;">
-          <div style="display:flex;gap:20px;align-items:center;">
-            <img src="BASE64_IMAGE_DATA" alt="Direct Access" style="width:90px;height:90px;object-fit:contain;">
-            <img src="BASE64_IMAGE_DATA" alt="Multilingual Care" style="width:90px;height:90px;object-fit:contain;">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REASONS 9 & 10 -->
+<!-- SECTION 2 — dark -->
 <section class="dark-section">
   <div class="section">
     <div class="s1-grid">
       <div class="s1-right">
         <div class="info-block">
-          <h3>09 — Professional, Respectful Environment</h3>
-          <p>Care is provided in a confidential, judgment-free setting focused on professionalism and patient respect at every stage.</p>
+          <h3>04 — Experienced Clinical Background</h3>
+          <p>Care is provided by a medical professional with over 15 years of experience in emergency medicine, applying established clinical standards and evidence-based guidelines.</p>
         </div>
         <div class="info-block">
-          <h3>10 — Competitive Pricing</h3>
-          <p>Transparent, competitive pricing with flexible payment options makes quality medical care accessible without financial surprises.</p>
+          <h3>05 — Take the First Step Today</h3>
+          <p>Scheduling a consultation allows you to discuss your goals, ask questions, and understand all available options with no pressure or commitment required.</p>
+        </div>
+        <div class="info-block">
+          <h3>06 — Focus on Long-Term Wellness</h3>
+          <p>Medical weight management emphasizes sustainable habits and ongoing structured support tailored to each individual's needs — not short-term fixes.</p>
         </div>
       </div>
       <div class="s1-left">
-        <span class="section-tag">Reasons 9 &amp; 10</span>
-        <h2>Respectful &amp;<br>Affordable<br>Care</h2>
-        <p>A professional, judgment-free environment paired with transparent, competitive pricing — because quality care should be both accessible and dignified.</p>
+        <span class="section-tag">Reasons 4, 5 &amp; 6</span>
+        <h2>Experienced,<br>Long-Term<br>Approach</h2>
+        <p>With over 15 years of clinical experience, our provider-led approach focuses on sustainable wellness built around your individual health profile.</p>
+        <p>A single consultation is all it takes to explore your options and move forward — with no obligation to commit.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ALL 10 AT A GLANCE -->
+<!-- SECTION 3 — off-white, highlight-box -->
 <section style="background: var(--off-white);">
+  <div class="section">
+    <div class="s3-grid">
+      <div class="highlight-box">
+        <h2>Direct Access &amp;<br>Multilingual<br>Support</h2>
+        <p>Stay directly connected with your provider throughout care. Services are available in English and French for inclusive, clear communication at every stage.</p>
+        <div class="badge-row">
+          <span class="badge">English</span>
+          <span class="badge">French</span>
+          <span class="badge">Direct Provider Access</span>
+          <span class="badge">Ongoing Follow-Up</span>
+        </div>
+      </div>
+      <div class="s3-right">
+        <div class="info-block">
+          <h3>07 — Direct Access to Your Provider</h3>
+          <p>Patients have direct access for questions, follow-up, and continued communication as part of their ongoing care — not routed through intermediaries.</p>
+        </div>
+        <div class="info-block">
+          <h3>08 — Multilingual Care</h3>
+          <p>Services are available in English and French to support clear, effective communication for a diverse patient population throughout the care process.</p>
+        </div>
+        <div class="info-block">
+          <h3>09 — Professional, Respectful Environment</h3>
+          <p>Care is provided in a confidential, judgment-free setting with consistent focus on professionalism, dignity, and patient respect at every stage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — white, checklist -->
+<section style="background: var(--white);">
   <div class="section">
     <div class="s4-grid">
       <div>
-        <span class="section-tag">Summary</span>
-        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,4vw,54px);font-weight:900;text-transform:uppercase;line-height:1;color:var(--deep);margin:16px 0 20px;letter-spacing:-0.01em;">All 10<br>Reasons<br>at a Glance</h2>
-        <p style="font-size:16px;line-height:1.75;color:var(--muted);">A structured, provider-led approach to medical weight management designed around your individual needs, goals, and eligibility.</p>
+        <span class="section-tag">Reason 10 &amp; Summary</span>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,4vw,54px);font-weight:900;text-transform:uppercase;line-height:1;color:var(--deep);margin:16px 0 20px;letter-spacing:-0.01em;">Competitive<br>Pricing &amp;<br>All 10 Reasons</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--muted);">Transparent, competitive pricing with flexible payment options makes quality medical care accessible — no hidden fees, no long-term contracts, no surprises.</p>
+        <p style="font-size:16px;line-height:1.75;color:var(--muted);margin-top:14px;">A structured, provider-led approach designed around your individual needs, goals, and eligibility from day one.</p>
       </div>
       <div>
         <ul class="checklist">
-          <li><div class="check-icon"></div><div><strong>Personalized Support</strong> Care is guided by a licensed provider, with individualized attention and clear communication throughout the process.</div></li>
-          <li><div class="check-icon"></div><div><strong>Provider-Led Approach</strong> Services are delivered in a structured, professional setting focused on medical oversight and individualized care.</div></li>
-          <li><div class="check-icon"></div><div><strong>No Insurance Required</strong> Our services are available without requiring insurance, making the process straightforward and accessible.</div></li>
-          <li><div class="check-icon"></div><div><strong>Experienced Clinical Background</strong> Care is provided by an experienced medical professional using established clinical standards.</div></li>
-          <li><div class="check-icon"></div><div><strong>Take the First Step Today</strong> Scheduling a consultation allows you to discuss your goals, ask questions, and understand available options.</div></li>
-          <li><div class="check-icon"></div><div><strong>Focus on Long-Term Wellness</strong> Medical weight management emphasizes sustainable habits and ongoing support tailored to individual needs.</div></li>
-          <li><div class="check-icon"></div><div><strong>Direct Access to Your Provider</strong> Patients have direct access for questions, follow-up, and continued communication as part of their care.</div></li>
-          <li><div class="check-icon"></div><div><strong>Multilingual Care</strong> Services are available in English and French to support clear communication for a diverse patient population.</div></li>
-          <li><div class="check-icon"></div><div><strong>Professional, Respectful Environment</strong> Care is provided in a confidential, judgment-free setting focused on professionalism and patient respect.</div></li>
-          <li><div class="check-icon"></div><div><strong>Competitive Pricing</strong> Transparent, competitive pricing with flexible payment options makes quality medical care accessible without financial surprises.</div></li>
+          <li><div class="check-icon"></div><div><strong>01 — Personalized Support</strong> Individualized attention and clear communication guided by a licensed provider.</div></li>
+          <li><div class="check-icon"></div><div><strong>02 — Provider-Led Approach</strong> Structured, professional setting with medical oversight at every stage.</div></li>
+          <li><div class="check-icon"></div><div><strong>03 — No Insurance Required</strong> Straightforward access without insurance barriers.</div></li>
+          <li><div class="check-icon"></div><div><strong>04 — Experienced Clinical Background</strong> 15+ years of emergency medicine and clinical expertise.</div></li>
+          <li><div class="check-icon"></div><div><strong>05 — Take the First Step Today</strong> One consultation to explore your goals — no commitment required.</div></li>
+          <li><div class="check-icon"></div><div><strong>06 — Focus on Long-Term Wellness</strong> Sustainable habits and structured support over short-term fixes.</div></li>
+          <li><div class="check-icon"></div><div><strong>07 — Direct Access to Your Provider</strong> Questions and follow-ups handled directly.</div></li>
+          <li><div class="check-icon"></div><div><strong>08 — Multilingual Care</strong> Services available in English and French.</div></li>
+          <li><div class="check-icon"></div><div><strong>09 — Professional, Respectful Environment</strong> Confidential, judgment-free, dignified care.</div></li>
+          <li><div class="check-icon"></div><div><strong>10 — Competitive Pricing</strong> Transparent pricing with flexible payment options and no hidden fees.</div></li>
         </ul>
       </div>
     </div>
