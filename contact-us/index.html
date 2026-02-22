@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Weight Loss Davie</title>
+  <meta name="description" content="Contact Weight Loss Davie in Davie, Florida for provider-led medical weight management consultations and questions.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Page-specific form styles to match your global design -->
+  <style>
+    .contact-form-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--deep);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(13, 31, 110, 0.14);
+      background: var(--white);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 14px 14px;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(26, 63, 207, 0.10);
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-submit {
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 16px 22px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .contact-note {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .contact-links a {
+      color: var(--blue);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-callout {
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .contact-form-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Contact Weight Loss Davie</div>
+    <h1>Contact<br><span>Us</span></h1>
+    <p class="hero-desc">
+      We are here to help. Contact our team in Davie, Florida to ask questions, request details, or schedule a provider consultation.
+    </p>
+  </section>
+
+  <!-- CONTACT PAGE MAIN -->
+  <section class="section">
+    <div class="section-tag">Get In Touch</div>
+    <div class="s1-grid">
+      <!-- LEFT COLUMN -->
+      <div class="s1-left">
+        <h2>Speak With Our Team</h2>
+        <p>
+          Reach out to Weight Loss Davie for questions about provider-led weight management services, consultations, and next steps.
+        </p>
+        <p>
+          We support patients in South Florida from our Davie, Florida location, with a focus on personalized care and clear communication.
+        </p>
+
+        <ul class="checklist">
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Provider-Led Care</strong>
+              Ask questions about consultations, treatment planning, and ongoing support.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>South Florida Service Area</strong>
+              Based in Broward County, Davie, Florida.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Clear Next Steps</strong>
+              Contact us to learn how to begin the intake and consultation process.
+            </div>
+          </li>
+        </ul>
+
+        <div class="info-block contact-callout">
+          <h3>Contact Information</h3>
+          <p class="contact-links">
+            Phone: <a href="tel:+13104086687">310.408.6687</a><br>
+            Email: <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a><br>
+            Website: <a href="https://weightlossdavie.com/contact-us">weightlossdavie.com/contact-us</a>
+          </p>
+        </div>
+
+        <div class="info-block">
+          <h3>Office Location</h3>
+          <p>
+            Davie, Florida. Serving patients in Broward County and South Florida.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN / FORM -->
+      <div class="s1-right">
+        <div class="contact-form-card">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="How can we help?" required>
+            </div>
+
+            <div class="field">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" placeholder="Tell us a little about your question or goals" required></textarea>
+            </div>
+
+            <button type="submit" class="contact-submit">Send Message</button>
+
+            <p class="contact-note">
+              Do not include sensitive medical details in this form. A provider will review clinical information during your consultation.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONAL BLUE HIGHLIGHT -->
+  <section class="section">
+    <div class="highlight-box">
+      <h2>Need Help Getting Started</h2>
+      <p>
+        If you are ready to begin, call our office or send a message through the contact form. We will help you understand the intake process and scheduling options.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Davie, FL</span>
+        <span class="badge">South Florida</span>
+        <span class="badge">Provider-Led</span>
+        <span class="badge">Personalized Care</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready To Take The Next Step</h2>
+    <p>
+      Contact Weight Loss Davie to request information and schedule your provider consultation.
+    </p>
+    <a class="cta-btn" href="tel:+13104086687">Call 310.408.6687</a>
+  </section>
+
+</body>
+</html>
 
