@@ -1,1 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Experiences — Weight Loss Davie</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
 
+  <link rel="stylesheet" href="styles.css">
+  :root {
+    --blue:      #1a3fcf;
+    --deep:      #0d1f6e;
+    --light:     #e8edff;
+    --off-white: #f7f8fc;
+    --white:     #ffffff;
+    --text:      #1a1a2e;
+    --muted:     #4a5068;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  .hero {
+    background: var(--deep);
+    color: white;
+    padding: 100px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 80px
+    );
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 900;
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+  }
+
+  .hero-desc {
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    position: relative;
+  }
+
+  .features-strip {
+    background: var(--blue);
+    padding: 70px 40px;
+  }
+
+  .features-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+
+  .feat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 20px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .feat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  }
+
+  .feat-card img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 0;
+  }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--light);
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .s1-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .s1-left h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--deep);
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .s1-left p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .s1-right { display: flex; flex-direction: column; gap: 0; }
+
+  .info-block { padding: 28px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .info-block:last-child { border-bottom: none; }
+
+  .info-block h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .info-block p { font-size: 15px; line-height: 1.7; color: var(--muted); }
+
+  .dark-section { background: var(--deep); color: white; }
+  .dark-section .section-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+  .dark-section h2 { color: white !important; }
+  .dark-section .info-block { border-bottom-color: rgba(255,255,255,0.1); }
+  .dark-section .info-block h3 { color: #7b9fff; }
+  .dark-section .info-block p,
+  .dark-section p { color: rgba(255,255,255,0.65) !important; }
+
+  .s3-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .highlight-box {
+    background: var(--blue);
+    color: white;
+    border-radius: 20px;
+    padding: 48px 40px;
+  }
+
+  .highlight-box h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+
+  .highlight-box p { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75); }
+  .highlight-box .badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .s3-right { display: flex; flex-direction: column; gap: 0; }
+
+  .s4-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-top: 30px; }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .check-icon {
+    width: 22px; height: 22px; min-width: 22px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+
+  .check-icon::after { content: '✓'; color: white; font-size: 12px; font-weight: 700; }
+
+  .checklist li strong {
+    color: var(--deep);
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }
+
+  .dark-section .checklist li { color: rgba(255,255,255,0.65); }
+  .dark-section .checklist li strong { color: white; }
+
+  .cta-section {
+    background: var(--blue);
+    text-align: center;
+    padding: 80px 40px;
+    color: white;
+  }
+
+  .cta-section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    max-width: 500px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: white;
+    color: var(--blue);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 18px 48px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  }
+
+  .testimonial-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+
+  .full-testimonial-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  .full-testimonial-wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1, .hero-desc, .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-desc { animation-delay: 0.25s; }
+
+  @media (max-width: 900px) {
+    .features-strip-inner { grid-template-columns: repeat(3, 1fr); }
+    .s1-grid, .s3-grid, .s4-grid { grid-template-columns: 1fr; gap: 36px; }
+    .highlight-box { padding: 36px 28px; }
+  }
+
+  @media (max-width: 600px) {
+    .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 60px 24px; }
+    .features-strip { padding: 50px 24px; }
+    .full-testimonial-wrap { padding: 0 24px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Weight Loss Davie &nbsp;·&nbsp; Davie, Florida</p>
+  <h1>Patient <span>Experiences</span></h1>
+  <p class="hero-desc">Feedback from individuals describing their experience with our clinic and care process.</p>
+</section>
+
+<!-- IMAGE STRIP -->
+<section class="features-strip">
+  <div class="features-strip-inner">
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Professional Environment"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Experienced Clinical Background"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="No Insurance Required"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Direct Access to Your Provider"></div>
+    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Multilingual Care"></div>
+  </div>
+</section>
+
+<!-- SECTION 1 — Sarah, James, Julia — white -->
+<section style="background: var(--white);">
+  <div class="section">
+    <div class="s1-grid">
+      <div class="s1-left">
+        <span class="section-tag">Patient Experiences</span>
+        <h2>Supported<br>from Day<br>One</h2>
+        <p>Patients consistently describe feeling informed and supported throughout the consultation and care process — with clear communication at every stage.</p>
+        <p>Individual experiences vary. These are personal accounts shared by patients about their care journey.</p>
+      </div>
+      <div class="s1-right">
+        <div class="info-block">
+          <h3>Sarah M.</h3>
+          <p>"From the first consultation, I felt supported and informed. The process was clear, and I appreciated the ongoing communication throughout my care."</p>
+        </div>
+        <div class="info-block">
+          <h3>James K.</h3>
+          <p>"I valued the personalized attention and the ability to ask questions along the way. The structure and follow-up made the experience positive."</p>
+        </div>
+        <div class="info-block">
+          <h3>Julia S.</h3>
+          <p>"I appreciated the professional approach and clear expectations. The support made it easier to stay engaged throughout the process."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — Emily R. — dark -->
+<section class="dark-section">
+  <div class="section">
+    <div class="s1-grid">
+      <div class="s1-right">
+        <div class="info-block">
+          <h3>Emily R. — Improved Overall Health</h3>
+          <p>"I feel more confident and better informed about managing my health. The program helped me stay consistent and focused."</p>
+        </div>
+        <div class="info-block">
+          <h3>Weight Loss</h3>
+          <p>Structured medical oversight and individualized care supported Emily's journey toward improved health outcomes.</p>
+        </div>
+        <div class="info-block">
+          <h3>Increased Energy &amp; Better Health</h3>
+          <p>Patients who follow their individualized care plan often report improvements in energy, focus, and overall wellbeing over time.</p>
+        </div>
+      </div>
+      <div class="s1-left">
+        <span class="section-tag">Emily R.</span>
+        <h2>Improved<br>Overall<br>Health</h2>
+        <p>Emily's experience highlights the value of provider-led care and individualized attention in achieving consistent health progress.</p>
+      </div>
+    </div>
+  </div>
+  <div class="full-testimonial-wrap">
+    <img src="BASE64_IMAGE_DATA" alt="Emily R. — Improved Overall Health">
+  </div>
+</section>
+
+<!-- SECTION 3 — Janine K. — off-white -->
+<section style="background: var(--off-white);">
+  <div class="section">
+    <div class="s3-grid">
+      <div class="highlight-box">
+        <h2>Achieved<br>Target Weight<br>in 4 Months</h2>
+        <p>Janine K.'s journey demonstrates the impact of structured, provider-led care and consistent follow-up over a defined timeline.</p>
+        <div class="badge-row">
+          <span class="badge">Month 1</span>
+          <span class="badge">Month 2</span>
+          <span class="badge">Month 3</span>
+          <span class="badge">Month 4 ★</span>
+        </div>
+      </div>
+      <div class="s3-right">
+        <div class="info-block">
+          <h3>Janine K. — Weight Loss Journey</h3>
+          <p>"I finally feel like myself again. The personal attention and expertise from the team made all the difference!"</p>
+        </div>
+        <div class="info-block">
+          <h3>Structured Follow-Up</h3>
+          <p>Monthly check-ins and ongoing provider communication supported Janine's progress and helped her stay on track throughout her care plan.</p>
+        </div>
+        <div class="info-block">
+          <h3>Target Achieved</h3>
+          <p>Consistent engagement with the care process — including follow-up visits and adherence to the individualized plan — contributed to her outcome.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-testimonial-wrap">
+    <img src="BASE64_IMAGE_DATA" alt="Janine K. Weight Loss Journey">
+  </div>
+</section>
+
+<!-- SECTION 4 — Cheryl L. & Noah L. — white -->
+<section style="background: var(--white);">
+  <div class="section">
+    <div class="s1-grid">
+      <div class="s1-left">
+        <span class="section-tag">Cheryl L.</span>
+        <h2>Became<br>More<br>Active</h2>
+        <p>Cheryl's experience reflects the importance of feeling comfortable and confident in the care environment — especially for patients who are hesitant at first.</p>
+        <p>A judgment-free, professional setting helps patients engage consistently and make meaningful progress over time.</p>
+      </div>
+      <div class="s1-right">
+        <div class="info-block">
+          <h3>Cheryl L. — Became More Active</h3>
+          <p>"I was hesitant at first, but I'm so glad I joined. I feel better than I have in years!"</p>
+        </div>
+        <div class="info-block">
+          <h3>Noah L.</h3>
+          <p>"I was hesitant at first, but the consultation answered my questions. The experience was straightforward and supportive."</p>
+        </div>
+        <div class="info-block">
+          <h3>A Judgment-Free Environment</h3>
+          <p>Many patients describe initial hesitation before their first consultation. Our care process is designed to be clear, welcoming, and pressure-free from the very first visit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-testimonial-wrap">
+    <img src="BASE64_IMAGE_DATA" alt="Cheryl L. — Became More Active">
+  </div>
+</section>
+
+<!-- SUMMARY — dark -->
+<section class="dark-section">
+  <div class="section">
+    <div class="s4-grid">
+      <div>
+        <span class="section-tag">Patient Feedback</span>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,4vw,54px);font-weight:900;text-transform:uppercase;line-height:1;color:white;margin:16px 0 20px;letter-spacing:-0.01em;">What<br>Patients<br>Are Saying</h2>
+        <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,0.65);">Individual results and experiences vary. These accounts reflect personal patient perspectives on their care journey at Weight Loss Davie.</p>
+        <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,0.65);margin-top:14px;">Outcomes depend on individual medical history, adherence to the care plan, lifestyle factors, and provider recommendations.</p>
+      </div>
+      <div>
+        <ul class="checklist">
+          <li><div class="check-icon"></div><div><strong>Sarah M.</strong> Felt supported and informed from the very first consultation.</div></li>
+          <li><div class="check-icon"></div><div><strong>James K.</strong> Valued personalized attention and structured follow-up throughout care.</div></li>
+          <li><div class="check-icon"></div><div><strong>Emily R.</strong> Improved overall health — more confident and consistent in managing her goals.</div></li>
+          <li><div class="check-icon"></div><div><strong>Janine K.</strong> Achieved target weight in 4 months with provider-led structured support.</div></li>
+          <li><div class="check-icon"></div><div><strong>Julia S.</strong> Appreciated the professional approach and clear expectations throughout.</div></li>
+          <li><div class="check-icon"></div><div><strong>Noah L.</strong> Initial hesitation resolved after a clear, straightforward consultation.</div></li>
+          <li><div class="check-icon"></div><div><strong>Cheryl L.</strong> Became more active — feels better than she has in years.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Begin<br>Your Journey?</h2>
+  <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
+  <a href="#" class="cta-btn">Schedule a Consultation</a>
+</section>
+
+</body>
+</html>
