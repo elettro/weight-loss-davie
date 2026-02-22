@@ -1,507 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQs — Weight Loss Davie</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-
-  :root {
-    --blue:      #1a3fcf;
-    --deep:      #0d1f6e;
-    --light:     #e8edff;
-    --off-white: #f7f8fc;
-    --white:     #ffffff;
-    --text:      #1a1a2e;
-    --muted:     #4a5068;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--off-white);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  .hero {
-    background: var(--deep);
-    color: white;
-    padding: 100px 40px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent, transparent 40px,
-      rgba(255,255,255,0.015) 40px,
-      rgba(255,255,255,0.015) 80px
-    );
-  }
-
-  .hero-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 20px;
-    position: relative;
-  }
-
-  .hero h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(52px, 9vw, 110px);
-    font-weight: 900;
-    line-height: 0.92;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    position: relative;
-    margin-bottom: 32px;
-  }
-
-  .hero h1 span {
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255,255,255,0.3);
-  }
-
-  .hero-desc {
-    max-width: 620px;
-    margin: 0 auto;
-    font-size: 17px;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.7);
-    font-weight: 300;
-    position: relative;
-  }
-
-  .features-strip {
-    background: var(--blue);
-    padding: 70px 40px;
-  }
-
-  .features-strip-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
-  }
-
-  .feat-card {
-    background: white;
-    border-radius: 16px;
-    padding: 28px 20px 24px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .feat-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-  }
-
-  .feat-card img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 0;
-  }
-
-  .section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px;
-  }
-
-  .section-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--blue);
-    background: var(--light);
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-
-  .s1-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .s1-left h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(36px, 4vw, 54px);
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 1;
-    color: var(--deep);
-    margin-bottom: 22px;
-    letter-spacing: -0.01em;
-  }
-
-  .s1-left p {
-    font-size: 16px;
-    line-height: 1.75;
-    color: var(--muted);
-    margin-bottom: 16px;
-  }
-
-  .s1-right { display: flex; flex-direction: column; gap: 0; }
-
-  .info-block { padding: 28px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
-  .info-block:last-child { border-bottom: none; }
-
-  .info-block h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--blue);
-    margin-bottom: 8px;
-  }
-
-  .info-block p { font-size: 15px; line-height: 1.7; color: var(--muted); }
-
-  .dark-section { background: var(--deep); color: white; }
-  .dark-section .section-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
-  .dark-section h2 { color: white !important; }
-  .dark-section .info-block { border-bottom-color: rgba(255,255,255,0.1); }
-  .dark-section .info-block h3 { color: #7b9fff; }
-  .dark-section .info-block p,
-  .dark-section p { color: rgba(255,255,255,0.65) !important; }
-
-  .s4-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .checklist { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-top: 30px; }
-
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--muted);
-  }
-
-  .check-icon {
-    width: 22px; height: 22px; min-width: 22px;
-    background: var(--blue);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 2px;
-  }
-
-  .check-icon::after { content: '✓'; color: white; font-size: 12px; font-weight: 700; }
-
-  .checklist li strong {
-    color: var(--deep);
-    display: block;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 2px;
-  }
-
-  .cta-section {
-    background: var(--blue);
-    text-align: center;
-    padding: 80px 40px;
-    color: white;
-  }
-
-  .cta-section h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
-
-  .cta-section p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    max-width: 500px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-  }
-
-  .cta-btn {
-    display: inline-block;
-    background: white;
-    color: var(--blue);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 18px 48px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .cta-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero h1, .hero-desc, .hero-eyebrow { animation: fadeUp 0.7s ease both; }
-  .hero h1 { animation-delay: 0.1s; }
-  .hero-desc { animation-delay: 0.25s; }
-
-  @media (max-width: 900px) {
-    .features-strip-inner { grid-template-columns: repeat(3, 1fr); }
-    .s1-grid, .s4-grid { grid-template-columns: 1fr; gap: 36px; }
-  }
-
-  @media (max-width: 600px) {
-    .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
-    .section { padding: 60px 24px; }
-    .features-strip { padding: 50px 24px; }
-  }
-</style>
-
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs | Weight Loss Davie</title>
+  <meta name="description" content="Frequently asked questions about provider-led medical weight management at Weight Loss Davie in Davie, Florida.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .faq-wrap {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid rgba(13,31,110,0.08);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+    }
+
+    .faq-item h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--deep);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .faq-disclaimer {
+      background: rgba(26, 63, 207, 0.05);
+      border: 1px solid rgba(26, 63, 207, 0.10);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <p class="hero-eyebrow">Weight Loss Davie &nbsp;·&nbsp; Davie, Florida</p>
-  <h1>Frequently Asked <span>Questions</span></h1>
-  <p class="hero-desc">Answers to the most common questions about our provider-led medical weight loss services, medications, and care process.</p>
-</section>
+  <!-- GLOBAL HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/weight-loss-davie/" aria-label="Weight Loss Davie Home">
+        <span class="brand-text">Weight Loss Davie</span>
+      </a>
 
-<!-- IMAGE STRIP -->
-<section class="features-strip">
-  <div class="features-strip-inner">
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Professional Environment"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Experienced Clinical Background"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="No Insurance Required"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Direct Access to Your Provider"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Multilingual Care"></div>
-  </div>
-</section>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        Menu
+      </button>
 
-<!-- QUESTIONS 1–5 — white -->
-<section style="background: var(--white);">
-  <div class="section">
+      <nav id="main-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/weight-loss-davie/">Home</a>
+        <a href="/weight-loss-davie/why-us/">Why Us</a>
+        <a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a>
+        <a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a>
+        <a href="/weight-loss-davie/faqs/" class="active">FAQs</a>
+        <a href="/weight-loss-davie/provider/">Provider</a>
+        <a href="/weight-loss-davie/contact-us/">Contact</a>
+        <a href="/weight-loss-davie/register/" class="nav-cta">Register</a>
+        <a href="/weight-loss-davie/login/" class="nav-ghost">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Frequently Asked Questions</div>
+    <h1>Weight Loss<br><span>Davie FAQs</span></h1>
+    <p class="hero-desc">
+      Answers to common questions about provider-led medical weight management, consultations, eligibility review, and the intake process.
+    </p>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="section-tag">FAQ Overview</div>
     <div class="s1-grid">
       <div class="s1-left">
-        <span class="section-tag">Questions 1–5</span>
-        <h2>Getting<br>Started</h2>
-        <p>Everything you need to know about our medications, how they work, and how to begin your care journey at Weight Loss Davie.</p>
+        <h2>Common Questions. Clear Answers.</h2>
+        <p>
+          This page provides general information about Weight Loss Davie services, the intake process, and provider-led care.
+        </p>
+        <p>
+          Treatment decisions, eligibility, and recommendations are based on provider evaluation, medical history, and clinical appropriateness.
+        </p>
+        <p>
+          If you need help getting started, contact our office or create an account to begin the registration and intake process.
+        </p>
       </div>
+
       <div class="s1-right">
         <div class="info-block">
-          <h3>What are semaglutide and tirzepatide, and how do they work?</h3>
-          <p>Semaglutide and tirzepatide are prescription medications used in certain patients for blood sugar management and, in some cases, weight management when prescribed by a licensed healthcare provider. These medications affect hormones involved in appetite and blood sugar regulation. Eligibility and treatment decisions are made during a medical evaluation.</p>
+          <h3>Provider-Led Care</h3>
+          <p>Care is guided by a licensed medical provider with a focus on communication, safety, and individualized planning.</p>
         </div>
         <div class="info-block">
-          <h3>How do I get started?</h3>
-          <p>Call us at 310.408.6687 or visit WeightLossDavie.com to begin the intake process. You will complete a patient profile and schedule a consultation with a licensed provider to review your medical history, goals, and treatment options.</p>
+          <h3>Davie, Florida</h3>
+          <p>Based in Davie, Florida and serving patients in South Florida.</p>
         </div>
         <div class="info-block">
-          <h3>What makes Weight Loss Davie different?</h3>
-          <p>Weight Loss Davie provides provider-led, individualized weight management care with direct communication, follow-up visits, and treatment planning based on your medical history, progress, and safety considerations.</p>
-        </div>
-        <div class="info-block">
-          <h3>What is WeightLossDavie.com?</h3>
-          <p>WeightLossDavie.com is the website for our medical weight management practice in Davie, Florida. It provides information about our services, consultations, eligibility review, and follow-up care.</p>
-        </div>
-        <div class="info-block">
-          <h3>How does the Weight Loss Davie program work?</h3>
-          <p>The program begins with an initial consultation and medical review. If appropriate, your provider develops an individualized care plan. Follow-up visits and ongoing monitoring are used to review progress, adjust care, and support long-term health goals.</p>
+          <h3>Need Help</h3>
+          <p>Call <a href="tel:+13104086687" style="color:var(--blue);text-decoration:none;">310.408.6687</a> or email <a href="mailto:contact@weightlossdavie.com" style="color:var(--blue);text-decoration:none;">contact@weightlossdavie.com</a>.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- QUESTIONS 6–10 — dark -->
-<section class="dark-section">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-right">
-        <div class="info-block">
-          <h3>Do I need insurance to begin care?</h3>
-          <p>No. We offer self-pay options, and insurance is not required to begin an evaluation.</p>
-        </div>
-        <div class="info-block">
-          <h3>What payment methods do you accept?</h3>
-          <p>We accept approved payment methods, including cash and electronic payment options. Please contact our office for the current list of accepted payment methods.</p>
-        </div>
-        <div class="info-block">
-          <h3>Is there a long-term contract or membership requirement?</h3>
-          <p>There is no long-term membership contract. Treatment timelines vary by patient. Any decision to start, pause, or stop treatment should be discussed with your provider as part of your care plan.</p>
-        </div>
-        <div class="info-block">
-          <h3>Who is a candidate for these treatments?</h3>
-          <p>Candidates are typically adults who meet clinical criteria for weight management treatment. Eligibility is determined by a licensed provider based on BMI, medical history, current conditions, medications, and overall health status.</p>
-        </div>
-        <div class="info-block">
-          <h3>How much weight can I expect to lose?</h3>
-          <p>Weight loss outcomes vary by individual. Your provider will discuss realistic expectations based on your medical history, treatment plan, nutrition, activity level, and follow-up adherence.</p>
-        </div>
-      </div>
-      <div class="s1-left">
-        <span class="section-tag">Questions 6–10</span>
-        <h2>Access &amp;<br>Eligibility</h2>
-        <p>No insurance needed, no long-term contracts. Learn who qualifies, how payments work, and what results to expect from treatment.</p>
-      </div>
+  <!-- FAQ LIST -->
+  <section class="section">
+    <div class="section-tag">Questions & Answers</div>
+
+    <div class="faq-disclaimer" style="margin-bottom:18px;">
+      This FAQ provides general educational information only and does not replace a medical evaluation. Individual treatment plans and medication decisions are made by a licensed provider after review of your health history and clinical eligibility.
     </div>
-  </div>
-</section>
 
-<!-- QUESTIONS 11–15 — off-white -->
-<section style="background: var(--off-white);">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-left">
-        <span class="section-tag">Questions 11–15</span>
-        <h2>Treatment &amp;<br>Side Effects</h2>
-        <p>Understand how medications are administered, common side effects, treatment duration, and what happens when care changes over time.</p>
+    <div class="faq-wrap">
+
+      <div class="faq-item">
+        <h3>1. What does Weight Loss Davie offer?</h3>
+        <p>
+          Weight Loss Davie provides provider-led medical weight management services for adults seeking structured care, individualized planning, and ongoing clinical support.
+        </p>
       </div>
-      <div class="s1-right">
-        <div class="info-block">
-          <h3>How are these medications administered?</h3>
-          <p>If prescribed, these medications are typically administered as a once-weekly subcutaneous injection. Your provider will review instructions, proper use, and safety guidance.</p>
-        </div>
-        <div class="info-block">
-          <h3>What are common side effects?</h3>
-          <p>Side effects vary by patient and medication. Some people experience gastrointestinal symptoms such as nausea, diarrhea, or constipation. Your provider will review potential side effects, risk factors, and when to seek medical care.</p>
-        </div>
-        <div class="info-block">
-          <h3>How long will I need to stay on medication?</h3>
-          <p>Treatment duration varies based on your health history, response to treatment, goals, and provider recommendations. Your care plan is reviewed over time and adjusted as needed.</p>
-        </div>
-        <div class="info-block">
-          <h3>What happens if I stop the medication?</h3>
-          <p>Changes in appetite, weight, or blood sugar may occur after stopping medication. Your provider can help you plan next steps and discuss nutrition, activity, and follow-up strategies to support long-term health goals.</p>
-        </div>
-        <div class="info-block">
-          <h3>Can I use these medications if I have diabetes?</h3>
-          <p>Some medications used in weight management were originally developed for blood sugar management in certain patients. Whether a medication is appropriate depends on your diagnosis, medical history, and provider evaluation.</p>
-        </div>
+
+      <div class="faq-item">
+        <h3>2. Where are you located?</h3>
+        <p>
+          Weight Loss Davie is based in Davie, Florida in Broward County and serves patients in South Florida.
+        </p>
       </div>
+
+      <div class="faq-item">
+        <h3>3. How do I get started?</h3>
+        <p>
+          You can contact the office directly or create an account on the registration page to begin the intake process and next-step scheduling.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>4. Is care provider-led?</h3>
+        <p>
+          Yes. Care is delivered through a provider-led process that includes review of your history, treatment planning, patient education, and follow-up support.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>5. Who is the provider?</h3>
+        <p>
+          Weight Loss Davie care is led by Marie-Claude Dubuc, PA-C, an experienced Physician Associate with extensive clinical experience in South Florida.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>6. Who might be a candidate for medical weight management?</h3>
+        <p>
+          Candidacy depends on multiple factors, including your medical history, current health status, goals, and provider evaluation. A consultation is required to determine eligibility and appropriate options.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>7. Are treatment recommendations the same for everyone?</h3>
+        <p>
+          No. Treatment planning is individualized. Recommendations depend on your health history, provider assessment, and clinical appropriateness.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>8. Do I need a consultation before treatment?</h3>
+        <p>
+          Yes. A provider consultation is part of the process to review your health information, discuss goals, and determine safe and appropriate next steps.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>9. Do you provide patient education and support?</h3>
+        <p>
+          Yes. Patient education and ongoing support are core parts of the Weight Loss Davie process, along with practical guidance and follow-through.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>10. How long does the process take?</h3>
+        <p>
+          Timing varies by patient and depends on registration completion, intake information, scheduling availability, and provider review.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>11. Do results vary by person?</h3>
+        <p>
+          Yes. Progress and outcomes vary based on individual factors, medical history, adherence to the plan, and provider recommendations.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>12. Is ongoing follow-up part of care?</h3>
+        <p>
+          Yes. Ongoing follow-up supports monitoring, communication, and adjustments to the care plan when appropriate.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>13. Do I need insurance to contact or start the process?</h3>
+        <p>
+          You can contact the office and begin the registration and intake process directly. For specific payment or administrative questions, contact the office for current details.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>14. Can I ask questions before registering?</h3>
+        <p>
+          Yes. You can call or email the office with general questions before creating an account.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>15. What should I have ready before my consultation?</h3>
+        <p>
+          Be prepared to provide accurate health history information and any requested records or documents. The office will guide you on what is needed for your appointment.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>16. Do not include medical details in the contact form?</h3>
+        <p>
+          Correct. Do not submit sensitive medical details through the general contact form. Clinical information can be shared during your intake and provider consultation.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>17. Can I register online?</h3>
+        <p>
+          Yes. Use the Register page to create your account and begin the intake process.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>18. I already created an account. What now?</h3>
+        <p>
+          Use the Login page to access your account and continue with your intake steps or scheduling process.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>19. How can I contact Weight Loss Davie?</h3>
+        <p>
+          Call <a href="tel:+13104086687" style="color:var(--blue);text-decoration:none;">310.408.6687</a> or email <a href="mailto:contact@weightlossdavie.com" style="color:var(--blue);text-decoration:none;">contact@weightlossdavie.com</a>.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>20. Where can I learn more about your provider?</h3>
+        <p>
+          Visit the Provider page to learn more about Marie-Claude Dubuc, PA-C, her background, and the provider-led care approach.
+        </p>
+      </div>
+
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- QUESTIONS 16–20 — dark -->
-<section class="dark-section">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-right">
-        <div class="info-block">
-          <h3>What kind of support will I receive?</h3>
-          <p>Patients receive provider-led guidance, follow-up visits, progress reviews, and individualized counseling on treatment adherence and lifestyle habits as part of their care plan.</p>
-        </div>
-        <div class="info-block">
-          <h3>Do I need to follow a specific diet or exercise plan?</h3>
-          <p>Your provider will discuss nutrition and activity recommendations based on your health history and goals. Lifestyle changes are often an important part of weight management and ongoing care.</p>
-        </div>
-        <div class="info-block">
-          <h3>Are these treatments covered by insurance?</h3>
-          <p>Insurance coverage varies by plan, diagnosis, and treatment. We offer self-pay options for patients who prefer or require out-of-pocket care. Contact our office for current pricing information.</p>
-        </div>
-        <div class="info-block">
-          <h3>What should I do to prepare for treatment?</h3>
-          <p>You may be asked to complete a medical history form, provide current medications, and share recent lab work or other records if available. Your provider will review what is needed during the consultation.</p>
-        </div>
-        <div class="info-block">
-          <h3>Are there contraindications or reasons someone should not use these medications?</h3>
-          <p>These medications are not appropriate for everyone. Certain medical conditions, medication interactions, or health histories may affect eligibility. A licensed provider will review your medical history and determine whether treatment is appropriate and safe for you.</p>
-        </div>
-      </div>
-      <div class="s1-left">
-        <span class="section-tag">Questions 16–20</span>
-        <h2>Support &amp;<br>Preparation</h2>
-        <p>From lifestyle guidance to contraindications, learn what support you receive and how to prepare for your consultation and ongoing care.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Still Have Questions</h2>
+    <p>
+      Contact Weight Loss Davie to ask questions and get clear next steps for registration, intake, and provider consultation.
+    </p>
+    <a class="cta-btn" href="/weight-loss-davie/contact-us/">Contact Us</a>
+  </section>
 
-<!-- ALL 20 AT A GLANCE -->
-<section style="background: var(--off-white);">
-  <div class="section">
-    <div class="s4-grid">
-      <div>
-        <span class="section-tag">All 20 Questions</span>
-        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,4vw,54px);font-weight:900;text-transform:uppercase;line-height:1;color:var(--deep);margin:16px 0 20px;letter-spacing:-0.01em;">Full FAQ<br>at a<br>Glance</h2>
-        <p style="font-size:16px;line-height:1.75;color:var(--muted);">All 20 frequently asked questions covered in this guide. Schedule a consultation to discuss any of these topics directly with your provider.</p>
-        <p style="font-size:16px;line-height:1.75;color:var(--muted);margin-top:14px;">Call us at <strong style="color:var(--blue);">310.408.6687</strong> or visit <strong style="color:var(--blue);">WeightLossDavie.com</strong> to get started.</p>
-      </div>
-      <div>
-        <ul class="checklist">
-          <li><div class="check-icon"></div><div><strong>What are semaglutide and tirzepatide, and how do they work?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>How do I get started?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>What makes Weight Loss Davie different?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>What is WeightLossDavie.com?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>How does the Weight Loss Davie program work?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>Do I need insurance to begin care?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>What payment methods do you accept?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>Is there a long-term contract or membership requirement?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>Who is a candidate for these treatments?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>How much weight can I expect to lose?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>How are these medications administered?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>What are common side effects?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>How long will I need to stay on medication?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>What happens if I stop the medication?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>Can I use these medications if I have diabetes?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>What kind of support will I receive?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>Do I need to follow a specific diet or exercise plan?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>Are these treatments covered by insurance?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>What should I do to prepare for treatment?</strong></div></li>
-          <li><div class="check-icon"></div><div><strong>Are there contraindications or reasons someone should not use these medications?</strong></div></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- MOBILE NAV SCRIPT -->
+  <script>
+    (function () {
+      var navToggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('main-nav');
+      if (!navToggle || !nav) return;
 
-<!-- CTA -->
-<section class="cta-section">
-  <h2>Still Have<br>Questions?</h2>
-  <p>Schedule a consultation with our licensed provider and get answers specific to your health history and goals.</p>
-  <a href="#" class="cta-btn">Schedule a Consultation</a>
-</section>
+      navToggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+  </script>
 
 </body>
 </html>
