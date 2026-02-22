@@ -4,276 +4,453 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Weight Loss Davie</title>
-  <meta name="description" content="Log in to your Weight Loss Davie account to continue your patient intake and provider-led weight management process.">
+  <meta name="description" content="Login to your Weight Loss Davie account to continue your intake process and access next-step guidance for provider-led medical weight management.">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    .login-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-    }
-
-    .login-form {
+    .login-grid {
       display: grid;
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
     }
 
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--deep);
-    }
-
-    .field input {
-      width: 100%;
-      border: 1px solid rgba(13, 31, 110, 0.14);
+    .panel {
       background: var(--white);
-      color: var(--text);
-      border-radius: 10px;
-      padding: 14px 14px;
-      font: inherit;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(13,31,110,0.08);
+      border-radius: 16px;
+      padding: 22px 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
     }
 
-    .field input:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(26, 63, 207, 0.10);
+    .panel h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--deep);
+      line-height: 1.1;
+      margin-bottom: 10px;
     }
 
-    .login-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+    .panel p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 12px;
     }
 
-    .remember-me {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .login-note {
+      background: rgba(26, 63, 207, 0.05);
+      border: 1px solid rgba(26, 63, 207, 0.10);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .form-placeholder {
+      border: 1px dashed rgba(26,63,207,0.25);
+      background: rgba(26,63,207,0.03);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .form-placeholder h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .form-placeholder p {
+      margin: 0 0 10px 0;
       font-size: 14px;
       color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .field-preview {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .fake-field {
+      background: var(--white);
+      border: 1px solid rgba(13,31,110,0.10);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #7b8197;
+      font-size: 14px;
       line-height: 1.4;
     }
 
-    .remember-me input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      accent-color: var(--blue);
-    }
-
-    .text-link {
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    .text-link:hover {
-      text-decoration: underline;
-    }
-
-    .login-submit {
+    .fake-btn {
       display: inline-block;
-      border: none;
-      cursor: pointer;
+      margin-top: 2px;
+      width: fit-content;
       background: var(--blue);
       color: var(--white);
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 15px;
+    }
+
+    .helper-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .helper-pill {
+      display: inline-block;
+      background: rgba(26,63,207,0.05);
+      border: 1px solid rgba(26,63,207,0.10);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .helper-pill:hover {
+      background: rgba(26,63,207,0.08);
+    }
+
+    .steps-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(13,31,110,0.06);
+    }
+
+    .steps-list li:last-child {
+      border-bottom: none;
+    }
+
+    .step-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .step-copy strong {
+      display: block;
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 17px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 16px 22px;
-      border-radius: 8px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: var(--deep);
+      margin-bottom: 3px;
     }
 
-    .login-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    .login-footer {
-      margin-top: 8px;
-      font-size: 14px;
+    .step-copy span {
       color: var(--muted);
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.55;
     }
 
-    .login-footer a {
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 600;
+    .quick-links {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
     }
 
-    .login-footer a:hover {
-      text-decoration: underline;
-    }
-
-    .security-note {
-      background: rgba(26, 63, 207, 0.05);
-      border: 1px solid rgba(26, 63, 207, 0.10);
+    .quick-link {
+      display: block;
+      background: rgba(26,63,207,0.04);
+      border: 1px solid rgba(26,63,207,0.08);
       border-radius: 12px;
-      padding: 14px 16px;
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .contact-links a {
-      color: var(--blue);
+      padding: 12px 14px;
       text-decoration: none;
-      word-break: break-word;
+      color: inherit;
     }
 
-    .contact-links a:hover {
-      text-decoration: underline;
+    .quick-link strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 2px;
+    }
+
+    .quick-link span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .quick-link:hover {
+      border-color: rgba(26,63,207,0.18);
+      background: rgba(26,63,207,0.06);
+    }
+
+    @media (max-width: 900px) {
+      .login-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* NAV SPACING TWEAK */
+    @media (min-width: 1051px) {
+      .site-nav a.nav-cta {
+        margin-left: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/weight-loss-davie/" aria-label="Weight Loss Davie Home">
+        <span class="brand-text">Weight Loss Davie</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        Menu
+      </button>
+
+      <nav id="main-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/weight-loss-davie/">Home</a>
+        <a href="/weight-loss-davie/why-us/">Why Us</a>
+        <a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a>
+        <a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a>
+        <a href="/weight-loss-davie/testimonials/">Testimonials</a>
+        <a href="/weight-loss-davie/faqs/">FAQs</a>
+        <a href="/weight-loss-davie/provider/">Provider</a>
+        <a href="/weight-loss-davie/contact-us/">Contact</a>
+        <a href="/weight-loss-davie/register/" class="nav-cta">Register</a>
+        <a href="/weight-loss-davie/login/" class="nav-ghost active">Login</a>
+      </nav>
+    </div>
+  </header>
+
   <section class="hero">
-    <div class="hero-eyebrow">Patient Login</div>
-    <h1>Sign In To<br><span>Your Account</span></h1>
+    <div class="hero-eyebrow">Account Access</div>
+    <h1>Login<br><span>Portal</span></h1>
     <p class="hero-desc">
-      Log in to continue your intake process, review your account information, and move forward with provider-led next steps.
+      Log in to your Weight Loss Davie account to continue your intake process, review next-step instructions, and access your account information.
     </p>
   </section>
 
-  <!-- MAIN LOGIN SECTION -->
   <section class="section">
     <div class="section-tag">Login</div>
-    <div class="s1-grid">
-      <!-- LEFT COLUMN -->
-      <div class="s1-left">
-        <h2>Access Your Patient Account</h2>
+    <div class="login-grid">
+      <div class="panel">
+        <h3>Access Your Account</h3>
         <p>
-          Sign in to your Weight Loss Davie account to continue the intake and scheduling process.
-        </p>
-        <p>
-          If you are new to Weight Loss Davie, create an account first to begin registration.
+          Use this page if you have already created an account. Log in to continue your intake process and follow the next-step guidance provided.
         </p>
 
-        <ul class="checklist">
+        <div class="login-note">
+          This page is for account access only. Individual care recommendations, eligibility, and treatment planning are determined by a licensed provider during the intake and consultation process.
+        </div>
+
+        <div class="form-placeholder">
+          <h4>Login Form Placement</h4>
+          <p>
+            Replace this section with your live login form embed, portal widget, or custom login code.
+          </p>
+          <p>
+            If your portal is hosted elsewhere, you can replace this with a secure login button link.
+          </p>
+
+          <div class="field-preview">
+            <div class="fake-field">Email Address</div>
+            <div class="fake-field">Password</div>
+            <div class="fake-btn">Login</div>
+          </div>
+
+          <div class="helper-row">
+            <a class="helper-pill" href="#">Forgot Password</a>
+            <a class="helper-pill" href="/weight-loss-davie/register/">Create Account</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Need Help Logging In</h3>
+
+        <ul class="steps-list">
           <li>
-            <span class="check-icon"></span>
-            <div>
-              <strong>Continue Your Intake</strong>
-              Return to your account to complete the next steps in the provider-led process.
+            <div class="step-num">1</div>
+            <div class="step-copy">
+              <strong>Check Your Email</strong>
+              <span>Use the email address you entered when you created your account.</span>
             </div>
           </li>
           <li>
-            <span class="check-icon"></span>
-            <div>
-              <strong>Secure Access</strong>
-              Use your registered email address and password to sign in.
+            <div class="step-num">2</div>
+            <div class="step-copy">
+              <strong>Try Password Reset</strong>
+              <span>If your platform supports it, use the password reset option on your login form.</span>
             </div>
           </li>
           <li>
-            <span class="check-icon"></span>
-            <div>
-              <strong>Need Help</strong>
-              Contact our office if you have trouble accessing your account.
+            <div class="step-num">3</div>
+            <div class="step-copy">
+              <strong>Contact The Office</strong>
+              <span>Reach out for general account access support if you are unable to log in.</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div class="step-copy">
+              <strong>Continue Your Intake Steps</strong>
+              <span>Once logged in, follow the instructions for provider review and scheduling.</span>
             </div>
           </li>
         </ul>
 
-        <div class="info-block">
-          <h3>Account Support</h3>
-          <p class="contact-links">
-            Phone: <a href="tel:+13104086687">310.408.6687</a><br>
-            Email: <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a>
-          </p>
-        </div>
+        <div class="quick-links">
+          <a class="quick-link" href="/weight-loss-davie/register/">
+            <strong>New To Weight Loss Davie</strong>
+            <span>Go to the Register page to create your account and begin the intake process.</span>
+          </a>
 
-        <div class="info-block">
-          <h3>New Patient</h3>
-          <p>
-            Need to create an account first? Visit the registration page to begin.
-          </p>
-        </div>
-      </div>
+          <a class="quick-link" href="/weight-loss-davie/faqs/">
+            <strong>Questions About The Process</strong>
+            <span>Review common questions and next-step information on the FAQs page.</span>
+          </a>
 
-      <!-- RIGHT COLUMN / LOGIN FORM -->
-      <div class="s1-right">
-        <div class="login-card">
-          <form class="login-form" action="#" method="post">
-            <div class="field">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            </div>
-
-            <div class="field">
-              <label for="password">Password</label>
-              <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-
-            <div class="login-row">
-              <label class="remember-me">
-                <input type="checkbox" name="remember_me">
-                <span>Remember me</span>
-              </label>
-
-              <a class="text-link" href="/weight-loss-davie/forgot-password/">Forgot password?</a>
-            </div>
-
-            <div class="security-note">
-              Do not use a shared device for account access if you are entering personal information. Log out after use.
-            </div>
-
-            <button type="submit" class="login-submit">Login</button>
-
-            <p class="login-footer">
-              Do not have an account?
-              <a href="/weight-loss-davie/register/">Register here</a>
-            </p>
-          </form>
+          <a class="quick-link" href="/weight-loss-davie/contact-us/">
+            <strong>Need General Support</strong>
+            <span>Contact Weight Loss Davie for help with registration or account access questions.</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HIGHLIGHT SECTION -->
+  <section class="section dark-section">
+    <div class="section-tag">Security & Account Access</div>
+    <div class="s4-grid">
+      <div>
+        <ul class="checklist">
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Use Your Registered Email</strong>
+              Log in with the same email address used during account registration.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Keep Credentials Secure</strong>
+              Store your login information safely and avoid sharing account access details.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Use Secure Connections</strong>
+              Access your account from trusted devices and secure internet connections when possible.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Contact Support For Access Issues</strong>
+              Reach out to the office for general assistance if you have trouble accessing your account.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="info-block">
+          <h3>New Patient Registration</h3>
+          <p>
+            If you do not yet have an account, visit the Register page to begin the intake process.
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>General Support</h3>
+          <p>
+            Call <a href="tel:+13104086687" style="color:#7b9fff;text-decoration:none;">310.408.6687</a> or email
+            <a href="mailto:contact@weightlossdavie.com" style="color:#7b9fff;text-decoration:none;">contact@weightlossdavie.com</a>.
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>Provider-Led Process</h3>
+          <p>
+            Logging in gives you access to your account and process steps. Clinical decisions and recommendations are made by a licensed provider during review.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="highlight-box">
-      <h2>Provider-Led Care Starts With A Secure Account</h2>
+      <h2>Continue Your Intake Process</h2>
       <p>
-        Use your Weight Loss Davie account to continue the intake process and prepare for provider review, scheduling, and next-step planning.
+        Log in to access your account, review next steps, and continue the provider-led intake process with Weight Loss Davie.
       </p>
       <div class="badge-row">
-        <span class="badge">Login</span>
-        <span class="badge">Patient Account</span>
-        <span class="badge">Provider-Led</span>
-        <span class="badge">Davie, FL</span>
+        <span class="badge">Account Access</span>
+        <span class="badge">Structured Intake</span>
+        <span class="badge">Provider-Led Care</span>
+        <span class="badge">South Florida</span>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta-section">
-    <h2>Need To Register First</h2>
+    <h2>Need To Create An Account</h2>
     <p>
-      Create a new account to begin the intake and consultation process with Weight Loss Davie.
+      Start with registration to begin your intake process and receive next-step guidance for provider review.
     </p>
-    <a class="cta-btn" href="/weight-loss-davie/register/">Create Account</a>
+    <a class="cta-btn" href="/weight-loss-davie/register/">Register</a>
   </section>
+
+  <script>
+    (function () {
+      var navToggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('main-nav');
+      if (!navToggle || !nav) return;
+
+      navToggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+  </script>
 
 </body>
 </html>
