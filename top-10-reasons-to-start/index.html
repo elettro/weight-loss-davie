@@ -1,154 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Top 10 Reasons to Start — Weight Loss Davie</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 10 Reasons to Start | Weight Loss Davie</title>
+  <meta name="description" content="Top 10 reasons to start provider-led medical weight management at Weight Loss Davie in Davie, Florida.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .reason-card {
+      background: var(--white);
+      border: 1px solid rgba(13,31,110,0.08);
+      border-radius: 16px;
+      padding: 20px 18px 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+    }
+
+    .reason-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .reason-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--deep);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .reason-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .page-note {
+      background: rgba(26, 63, 207, 0.05);
+      border: 1px solid rgba(26, 63, 207, 0.10);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* NAV SPACING TWEAK */
+    @media (min-width: 1051px) {
+      .site-nav a.nav-cta {
+        margin-left: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <p class="hero-eyebrow">Weight Loss Davie &nbsp;·&nbsp; Davie, Florida</p>
-  <h1>Top 10 Reasons <span>to Start</span></h1>
-  <p class="hero-desc">Learn why individuals choose to explore medical weight loss services through a provider-led consultation.</p>
-</section>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/weight-loss-davie/" aria-label="Weight Loss Davie Home">
+        <span class="brand-text">Weight Loss Davie</span>
+      </a>
 
-<!-- IMAGE STRIP -->
-<section class="features-strip">
-  <div class="features-strip-inner">
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Personalized Support"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Experienced Clinical Background"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="No Insurance Required"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Direct Access to Your Provider"></div>
-    <div class="feat-card"><img src="BASE64_IMAGE_DATA" alt="Multilingual Care"></div>
-  </div>
-</section>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        Menu
+      </button>
 
-<!-- SECTION 1 — white -->
-<section style="background: var(--white);">
-  <div class="section">
+      <nav id="main-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/weight-loss-davie/">Home</a>
+        <a href="/weight-loss-davie/why-us/">Why Us</a>
+        <a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a>
+        <a href="/weight-loss-davie/top-10-reasons-to-start/" class="active">Top 10 Reasons</a>
+        <a href="/weight-loss-davie/testimonials/">Testimonials</a>
+        <a href="/weight-loss-davie/faqs/">FAQs</a>
+        <a href="/weight-loss-davie/provider/">Provider</a>
+        <a href="/weight-loss-davie/contact-us/">Contact</a>
+        <a href="/weight-loss-davie/register/" class="nav-cta">Register</a>
+        <a href="/weight-loss-davie/login/" class="nav-ghost">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Why Start Now</div>
+    <h1>Top 10 Reasons<br><span>To Start</span></h1>
+    <p class="hero-desc">
+      A practical overview of why many adults choose a provider-led, structured approach to medical weight management with ongoing support and clinical oversight.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-tag">Overview</div>
     <div class="s1-grid">
       <div class="s1-left">
-        <span class="section-tag">Reasons 1, 2 &amp; 3</span>
-        <h2>Personalized,<br>Provider-Led<br>Care</h2>
-        <p>Every aspect of your weight loss journey is guided by a licensed medical provider in a structured, professional setting tailored to your individual needs.</p>
-        <p>No insurance is required, making quality care straightforward and accessible for everyone.</p>
+        <h2>A Structured Start Makes A Difference</h2>
+        <p>
+          Many people delay getting help because they feel overwhelmed, frustrated, or unsure where to begin.
+        </p>
+        <p>
+          A provider-led process creates a clear starting point with medical review, individualized planning, and realistic next steps.
+        </p>
+        <p>
+          This page highlights ten strong reasons to begin a guided weight management process with professional support.
+        </p>
       </div>
+
       <div class="s1-right">
         <div class="info-block">
-          <h3>01 — Personalized Support</h3>
-          <p>Care is guided by a licensed provider, with individualized attention and clear communication throughout the entire process.</p>
+          <h3>Provider-Led Process</h3>
+          <p>Evaluation, education, and treatment planning guided by a licensed medical provider.</p>
         </div>
         <div class="info-block">
-          <h3>02 — Provider-Led Approach</h3>
-          <p>Services are delivered in a structured, professional setting focused on medical oversight and individualized care at every stage.</p>
+          <h3>Davie, Florida</h3>
+          <p>Based in Davie and serving South Florida with a professional, structured care approach.</p>
         </div>
         <div class="info-block">
-          <h3>03 — No Insurance Required</h3>
-          <p>Our services are available without requiring insurance, making the process straightforward and accessible for everyone.</p>
+          <h3>Built For Consistency</h3>
+          <p>Ongoing follow-up and practical support help patients stay focused on long-term progress.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SECTION 2 — dark -->
-<section class="dark-section">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-right">
-        <div class="info-block">
-          <h3>04 — Experienced Clinical Background</h3>
-          <p>Care is provided by a medical professional with over 15 years of experience in emergency medicine, applying established clinical standards and evidence-based guidelines.</p>
-        </div>
-        <div class="info-block">
-          <h3>05 — Take the First Step Today</h3>
-          <p>Scheduling a consultation allows you to discuss your goals, ask questions, and understand all available options with no pressure or commitment required.</p>
-        </div>
-        <div class="info-block">
-          <h3>06 — Focus on Long-Term Wellness</h3>
-          <p>Medical weight management emphasizes sustainable habits and ongoing structured support tailored to each individual's needs — not short-term fixes.</p>
-        </div>
+  <section class="section dark-section">
+    <div class="section-tag">Top 10 Reasons</div>
+
+    <div class="page-note" style="margin-bottom:18px;">
+      This page provides general educational information and does not replace medical advice or a clinical evaluation. Treatment recommendations and eligibility are determined by a licensed provider based on individual medical history and clinical appropriateness.
+    </div>
+
+    <div class="reasons-grid">
+
+      <div class="reason-card">
+        <div class="reason-number">1</div>
+        <h3>Provider-Led Guidance From The Start</h3>
+        <p>
+          You begin with a clinical process instead of trial and error. A provider reviews your history, goals, and current needs before recommending next steps.
+        </p>
       </div>
-      <div class="s1-left">
-        <span class="section-tag">Reasons 4, 5 &amp; 6</span>
-        <h2>Experienced,<br>Long-Term<br>Approach</h2>
-        <p>With over 15 years of clinical experience, our provider-led approach focuses on sustainable wellness built around your individual health profile.</p>
-        <p>A single consultation is all it takes to explore your options and move forward — with no obligation to commit.</p>
+
+      <div class="reason-card">
+        <div class="reason-number">2</div>
+        <h3>Personalized Planning</h3>
+        <p>
+          Weight management is not one-size-fits-all. A structured plan tailored to your health profile creates a stronger foundation for progress.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">3</div>
+        <h3>Clinical Oversight And Safety</h3>
+        <p>
+          Provider oversight supports informed decision-making, monitoring, and adjustments when appropriate based on your response and needs.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">4</div>
+        <h3>Clearer Next Steps</h3>
+        <p>
+          Many people stall because they are unsure what to do next. A provider-led process gives you a clear sequence to follow from intake through follow-up.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">5</div>
+        <h3>Accountability And Follow-Through</h3>
+        <p>
+          Ongoing check-ins and communication support consistency. This helps many patients stay engaged instead of starting and stopping repeatedly.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">6</div>
+        <h3>Better Education Around Your Options</h3>
+        <p>
+          Patients benefit from clear explanations, realistic expectations, and provider guidance that supports informed choices.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">7</div>
+        <h3>Focus On Long-Term Progress</h3>
+        <p>
+          The goal is not only getting started. A structured program supports habits, consistency, and practical planning for sustained progress over time.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">8</div>
+        <h3>Support For Busy Adults</h3>
+        <p>
+          A guided process helps reduce guesswork and saves time by organizing the steps, information, and follow-up needed to move forward.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">9</div>
+        <h3>Professional Care In A Local Setting</h3>
+        <p>
+          Weight Loss Davie offers a provider-led experience based in Davie, Florida with a focus on professionalism, communication, and individualized care.
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-number">10</div>
+        <h3>Starting Now Builds Momentum</h3>
+        <p>
+          Delaying often increases frustration. Starting with a structured consultation and intake process creates momentum and helps turn intention into action.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="highlight-box">
+      <h2>Ready To Take The First Step</h2>
+      <p>
+        Start with a provider-led process focused on communication, individualized planning, and practical next steps based on your health history and goals.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Provider-Led Care</span>
+        <span class="badge">Individualized Planning</span>
+        <span class="badge">Ongoing Support</span>
+        <span class="badge">South Florida</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SECTION 3 — off-white, highlight-box -->
-<section style="background: var(--off-white);">
-  <div class="section">
-    <div class="s3-grid">
-      <div class="highlight-box">
-        <h2>Direct Access &amp;<br>Multilingual<br>Support</h2>
-        <p>Stay directly connected with your provider throughout care. Services are available in English and French for inclusive, clear communication at every stage.</p>
-        <div class="badge-row">
-          <span class="badge">English</span>
-          <span class="badge">French</span>
-          <span class="badge">Direct Provider Access</span>
-          <span class="badge">Ongoing Follow-Up</span>
-        </div>
-      </div>
-      <div class="s3-right">
-        <div class="info-block">
-          <h3>07 — Direct Access to Your Provider</h3>
-          <p>Patients have direct access for questions, follow-up, and continued communication as part of their ongoing care — not routed through intermediaries.</p>
-        </div>
-        <div class="info-block">
-          <h3>08 — Multilingual Care</h3>
-          <p>Services are available in English and French to support clear, effective communication for a diverse patient population throughout the care process.</p>
-        </div>
-        <div class="info-block">
-          <h3>09 — Professional, Respectful Environment</h3>
-          <p>Care is provided in a confidential, judgment-free setting with consistent focus on professionalism, dignity, and patient respect at every stage.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 4 — white, checklist -->
-<section style="background: var(--white);">
-  <div class="section">
+  <section class="section">
+    <div class="section-tag">What To Do Next</div>
     <div class="s4-grid">
       <div>
-        <span class="section-tag">Reason 10 &amp; Summary</span>
-        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,4vw,54px);font-weight:900;text-transform:uppercase;line-height:1;color:var(--deep);margin:16px 0 20px;letter-spacing:-0.01em;">Competitive<br>Pricing &amp;<br>All 10 Reasons</h2>
-        <p style="font-size:16px;line-height:1.75;color:var(--muted);">Transparent, competitive pricing with flexible payment options makes quality medical care accessible — no hidden fees, no long-term contracts, no surprises.</p>
-        <p style="font-size:16px;line-height:1.75;color:var(--muted);margin-top:14px;">A structured, provider-led approach designed around your individual needs, goals, and eligibility from day one.</p>
-      </div>
-      <div>
         <ul class="checklist">
-          <li><div class="check-icon"></div><div><strong>01 — Personalized Support</strong> Individualized attention and clear communication guided by a licensed provider.</div></li>
-          <li><div class="check-icon"></div><div><strong>02 — Provider-Led Approach</strong> Structured, professional setting with medical oversight at every stage.</div></li>
-          <li><div class="check-icon"></div><div><strong>03 — No Insurance Required</strong> Straightforward access without insurance barriers.</div></li>
-          <li><div class="check-icon"></div><div><strong>04 — Experienced Clinical Background</strong> 15+ years of emergency medicine and clinical expertise.</div></li>
-          <li><div class="check-icon"></div><div><strong>05 — Take the First Step Today</strong> One consultation to explore your goals — no commitment required.</div></li>
-          <li><div class="check-icon"></div><div><strong>06 — Focus on Long-Term Wellness</strong> Sustainable habits and structured support over short-term fixes.</div></li>
-          <li><div class="check-icon"></div><div><strong>07 — Direct Access to Your Provider</strong> Questions and follow-ups handled directly.</div></li>
-          <li><div class="check-icon"></div><div><strong>08 — Multilingual Care</strong> Services available in English and French.</div></li>
-          <li><div class="check-icon"></div><div><strong>09 — Professional, Respectful Environment</strong> Confidential, judgment-free, dignified care.</div></li>
-          <li><div class="check-icon"></div><div><strong>10 — Competitive Pricing</strong> Transparent pricing with flexible payment options and no hidden fees.</div></li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Contact The Office</strong>
+              Ask general questions and get guidance on the next step for registration and intake.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Create Your Account</strong>
+              Use the Register page to begin the intake process and prepare for provider review.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Prepare Your Information</strong>
+              Have your health history details ready for a more efficient consultation process.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Start With A Plan</strong>
+              Move forward with a clear, provider-led plan built around your needs and goals.
+            </div>
+          </li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <h2>Ready to Take<br>the First Step?</h2>
-  <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
-  <a href="#" class="cta-btn">Schedule a Consultation</a>
-</section>
+      <div>
+        <div class="info-block">
+          <h3>Questions Before You Start</h3>
+          <p>
+            Visit the FAQs page for answers to common questions about the process, eligibility review, and follow-up care.
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>Meet The Provider</h3>
+          <p>
+            Learn more about Marie-Claude Dubuc, PA-C and the provider-led approach on the Provider page.
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>Contact Weight Loss Davie</h3>
+          <p>
+            Call <a href="tel:+13104086687" style="color:var(--blue);text-decoration:none;">310.408.6687</a> or email
+            <a href="mailto:contact@weightlossdavie.com" style="color:var(--blue);text-decoration:none;">contact@weightlossdavie.com</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Start Your Intake Process</h2>
+    <p>
+      Begin with provider-led guidance and a structured process designed to support safe, individualized weight management planning.
+    </p>
+    <a class="cta-btn" href="/weight-loss-davie/register/">Register</a>
+  </section>
+
+  <script>
+    (function () {
+      var navToggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('main-nav');
+      if (!navToggle || !nav) return;
+
+      navToggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+  </script>
 
 </body>
 </html>
