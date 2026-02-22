@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Weight Loss Davie</title>
+  <meta name="description" content="Create your account with Weight Loss Davie to begin the intake process for provider-led medical weight management.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .register-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+
+    .register-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--deep);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      border: 1px solid rgba(13, 31, 110, 0.14);
+      background: var(--white);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 14px 14px;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(26, 63, 207, 0.10);
+    }
+
+    .phone-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+    }
+
+    .helper-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-top: -4px;
+    }
+
+    .register-submit {
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 16px 22px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .register-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .register-footer {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .register-footer a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .register-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .disclosure-box {
+      background: rgba(26, 63, 207, 0.05);
+      border: 1px solid rgba(26, 63, 207, 0.10);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .checkbox-row {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--blue);
+    }
+
+    @media (max-width: 900px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-row {
+        grid-template-columns: 1fr;
+      }
+
+      .register-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Patient Registration</div>
+    <h1>Create Your<br><span>Account</span></h1>
+    <p class="hero-desc">
+      Start the intake process with Weight Loss Davie. Create your account to begin provider-led evaluation and next-step scheduling.
+    </p>
+  </section>
+
+  <!-- MAIN REGISTER SECTION -->
+  <section class="section">
+    <div class="section-tag">Registration</div>
+    <div class="s1-grid">
+      <!-- LEFT COLUMN -->
+      <div class="s1-left">
+        <h2>Start Your Intake Process</h2>
+        <p>
+          Create your account to begin the patient intake process for provider-led medical weight management in Davie, Florida.
+        </p>
+        <p>
+          After registration, you can continue with the next steps for intake, scheduling, and provider review.
+        </p>
+
+        <ul class="checklist">
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Simple Account Setup</strong>
+              Enter your contact information to create a secure account profile.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Provider-Led Next Steps</strong>
+              Continue into the intake and consultation process after registration.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>South Florida Care</strong>
+              Based in Davie, Florida and serving South Florida patients.
+            </div>
+          </li>
+        </ul>
+
+        <div class="info-block">
+          <h3>Registration Support</h3>
+          <p>
+            If you need help creating your account, contact our office for assistance.
+          </p>
+        </div>
+
+        <div class="info-block">
+          <h3>Contact</h3>
+          <p>
+            Phone: <a href="tel:+13104086687" style="color:var(--blue);text-decoration:none;">310.408.6687</a><br>
+            Email: <a href="mailto:contact@weightlossdavie.com" style="color:var(--blue);text-decoration:none;">contact@weightlossdavie.com</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN / REGISTER FORM -->
+      <div class="s1-right">
+        <div class="register-card">
+          <form class="register-form" action="#" method="post">
+            <div class="form-row">
+              <div class="field">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Enter first name" required>
+              </div>
+              <div class="field">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Enter last name" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <div class="phone-row">
+                <select id="country-code" name="country_code" aria-label="Country code">
+                  <option value="+1" selected>+1</option>
+                  <option value="+33">+33</option>
+                  <option value="+509">+509</option>
+                </select>
+                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+              </div>
+              <p class="helper-text">Use a number you check regularly for scheduling updates.</p>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create password" required>
+              </div>
+              <div class="field">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm password" required>
+              </div>
+            </div>
+
+            <div class="disclosure-box">
+              Do not include sensitive medical details during registration. Clinical information can be shared during the provider intake and consultation process.
+            </div>
+
+            <label class="checkbox-row">
+              <input type="checkbox" name="terms_ack" required>
+              <span>I confirm the information entered is accurate and I agree to be contacted regarding my account registration and scheduling.</span>
+            </label>
+
+            <button type="submit" class="register-submit">Register</button>
+
+            <p class="register-footer">
+              Already registered?
+              <a href="/weight-loss-davie/login/">Sign in here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT SECTION -->
+  <section class="section">
+    <div class="highlight-box">
+      <h2>Provider-Led Intake. Clear Next Steps.</h2>
+      <p>
+        Weight Loss Davie uses a provider-led process focused on communication, safety, and practical planning. Create your account to begin your intake and consultation path.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Registration</span>
+        <span class="badge">Intake Process</span>
+        <span class="badge">Davie, FL</span>
+        <span class="badge">South Florida</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Need Help Registering</h2>
+    <p>
+      Contact our office if you have questions about account setup, intake, or the next steps in the process.
+    </p>
+    <a class="cta-btn" href="mailto:contact@weightlossdavie.com">Email Us</a>
+  </section>
+
+</body>
+</html>
