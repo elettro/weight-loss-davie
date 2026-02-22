@@ -1,172 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Weight Loss Industry — Weight Loss Davie</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-<style>
-  .full-image-wrap {
-    background: var(--deep);
-    padding: 0 40px 70px;
-  }
-  .full-image-wrap img {
-    display: block;
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 16px;
-    box-shadow: 0 12px 50px rgba(0,0,0,0.3);
-  }
-  .full-image-wrap-light {
-    padding: 0 40px 70px;
-  }
-  .full-image-wrap-light img {
-    display: block;
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
-  }
-  @media (max-width: 600px) {
-    .full-image-wrap, .full-image-wrap-light { padding: 0 24px 50px; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight Loss Industry | Weight Loss Davie</title>
+  <meta name="description" content="Learn about the weight loss industry and why provider-led, medically supervised care offers a more structured approach for many adults.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .industry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .industry-card {
+      background: var(--white);
+      border: 1px solid rgba(13,31,110,0.08);
+      border-radius: 16px;
+      padding: 20px 18px 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+    }
+
+    .industry-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--deep);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .industry-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .industry-card ul {
+      margin: 8px 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .industry-card li {
+      margin-bottom: 6px;
+    }
+
+    .industry-note {
+      background: rgba(26, 63, 207, 0.05);
+      border: 1px solid rgba(26, 63, 207, 0.10);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .industry-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* NAV SPACING TWEAK */
+    @media (min-width: 1051px) {
+      .site-nav a.nav-cta {
+        margin-left: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <p class="hero-eyebrow">Weight Loss Davie &nbsp;·&nbsp; Davie, Florida</p>
-  <h1>The Weight Loss <span>Industry</span></h1>
-  <p class="hero-desc">An overview of trends, challenges, and developments within the weight management landscape.</p>
-</section>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/weight-loss-davie/" aria-label="Weight Loss Davie Home">
+        <span class="brand-text">Weight Loss Davie</span>
+      </a>
 
-<!-- INTRODUCTION -->
-<section class="dark-section">
-  <div class="section">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        Menu
+      </button>
+
+      <nav id="main-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/weight-loss-davie/">Home</a>
+        <a href="/weight-loss-davie/why-us/">Why Us</a>
+        <a href="/weight-loss-davie/weight-loss-industry/" class="active">Weight Loss Industry</a>
+        <a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a>
+        <a href="/weight-loss-davie/testimonials/">Testimonials</a>
+        <a href="/weight-loss-davie/faqs/">FAQs</a>
+        <a href="/weight-loss-davie/provider/">Provider</a>
+        <a href="/weight-loss-davie/contact-us/">Contact</a>
+        <a href="/weight-loss-davie/register/" class="nav-cta">Register</a>
+        <a href="/weight-loss-davie/login/" class="nav-ghost">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Industry Education</div>
+    <h1>Weight Loss<br><span>Industry</span></h1>
+    <p class="hero-desc">
+      A practical look at the modern weight loss industry and why many adults prefer a provider-led, medically supervised path with clear guidance and clinical oversight.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-tag">Overview</div>
     <div class="s1-grid">
       <div class="s1-left">
-        <span class="section-tag">Introduction</span>
-        <h2>Industry<br>Overview</h2>
+        <h2>A Crowded Industry. Many Different Approaches.</h2>
+        <p>
+          The weight loss industry includes a wide range of programs, products, clinics, apps, and coaching models. This can make it difficult for patients to compare options and choose a path that fits their health needs.
+        </p>
+        <p>
+          Some solutions focus on convenience or marketing. Others focus on individualized care, clinical review, and ongoing support.
+        </p>
+        <p>
+          Weight Loss Davie is built around a provider-led model designed to support informed decisions, individualized planning, and consistent follow-through.
+        </p>
       </div>
+
       <div class="s1-right">
         <div class="info-block">
-          <h3>The Weight Loss Industry</h3>
-          <p>The weight management industry continues to expand as more individuals seek information, services, and professional guidance related to weight and overall wellness.</p>
+          <h3>Many Options Exist</h3>
+          <p>Patients often see a mix of online programs, supplements, coaching offers, and medical clinics.</p>
         </div>
         <div class="info-block">
-          <h3>Long-Term Focus</h3>
-          <p>It includes a broad range of programs, tools, and support services focused on education, structure, and long-term management rather than short-term outcomes.</p>
+          <h3>Guidance Matters</h3>
+          <p>A provider-led process helps reduce confusion by organizing next steps around medical history and clinical review.</p>
+        </div>
+        <div class="info-block">
+          <h3>Structured Support</h3>
+          <p>Education, monitoring, and follow-up are key parts of a medically supervised approach.</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="full-image-wrap">
-    <img src="BASE64_IMAGE_DATA" alt="The Weight Loss Industry: Trends, Challenges & Developments">
-  </div>
-</section>
+  </section>
 
-<!-- CURRENT TRENDS -->
-<section style="background: var(--white);">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-left">
-        <span class="section-tag">Industry Insight</span>
-        <h2>Current<br>Trends</h2>
-        <p>The weight management landscape is evolving rapidly, with a growing focus on professional guidance, technology, and evidence-based care.</p>
+  <section class="section dark-section">
+    <div class="section-tag">What Patients Often Face</div>
+
+    <div class="industry-note" style="margin-bottom:18px;">
+      This page provides general educational information about the weight loss industry and care models. It does not replace medical advice, diagnosis, or treatment. Individual care decisions should be made with a licensed medical provider based on personal history and clinical appropriateness.
+    </div>
+
+    <div class="industry-grid">
+
+      <div class="industry-card">
+        <h3>Too Many Claims, Not Enough Clarity</h3>
+        <p>
+          Patients are often exposed to aggressive marketing, broad promises, and mixed messages. It can be hard to tell which services offer real medical oversight and which do not.
+        </p>
       </div>
-      <div class="s1-right">
+
+      <div class="industry-card">
+        <h3>One-Size-Fits-All Programs</h3>
+        <p>
+          Many programs use generalized templates. A provider-led process focuses on individualized planning based on health history, goals, and clinical needs.
+        </p>
+      </div>
+
+      <div class="industry-card">
+        <h3>Short-Term Focus</h3>
+        <p>
+          Some services focus mainly on getting people started, with limited long-term structure. Ongoing follow-up and practical support are important for many patients.
+        </p>
+      </div>
+
+      <div class="industry-card">
+        <h3>Confusion About Eligibility And Safety</h3>
+        <p>
+          Patients often have questions about whether an approach is appropriate for their situation. Clinical evaluation and provider review help support safe, informed decisions.
+        </p>
+      </div>
+
+      <div class="industry-card">
+        <h3>Limited Personal Support</h3>
+        <p>
+          Some systems feel transactional or difficult to navigate. Clear communication and direct provider guidance can improve confidence and follow-through.
+        </p>
+      </div>
+
+      <div class="industry-card">
+        <h3>Information Overload</h3>
+        <p>
+          With so many opinions online, many adults delay taking action. A structured intake and consultation process creates a clear starting point.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-tag">Why A Provider-Led Model Stands Out</div>
+    <div class="s4-grid">
+      <div>
+        <ul class="checklist">
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Clinical Review</strong>
+              Care decisions begin with provider evaluation, health history review, and individualized planning.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Patient Education</strong>
+              Clear communication supports informed decisions and realistic expectations.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Ongoing Oversight</strong>
+              Follow-up and monitoring support consistency and adjustments when appropriate.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon"></span>
+            <div>
+              <strong>Professional Standards</strong>
+              A clinical setting prioritizes safety, documentation, and individualized care.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
         <div class="info-block">
-          <h3>Individualized Approaches</h3>
-          <p>Increased interest in individualized weight management approaches that emphasize professional guidance and structured support.</p>
+          <h3>Weight Loss Davie Approach</h3>
+          <p>
+            Weight Loss Davie is a provider-led medical weight management practice in Davie, Florida focused on individualized planning, clinical oversight, and ongoing support.
+          </p>
         </div>
         <div class="info-block">
-          <h3>Technology Integration</h3>
-          <p>Growing use of technology, such as digital platforms and tracking tools, to support communication, monitoring, and patient engagement.</p>
+          <h3>Local, Professional Care</h3>
+          <p>
+            Patients benefit from a structured process based in South Florida with clear communication and practical next steps.
+          </p>
         </div>
         <div class="info-block">
-          <h3>Evidence-Based Information</h3>
-          <p>Greater emphasis on evidence-based information and informed decision-making when exploring weight management options.</p>
+          <h3>Provider Experience</h3>
+          <p>
+            Learn more about Marie-Claude Dubuc, PA-C on the Provider page and the clinical experience behind the practice.
+          </p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="full-image-wrap-light" style="background: var(--white);">
-    <img src="BASE64_IMAGE_DATA" alt="Current Trends in Weight Management">
-  </div>
-</section>
+  </section>
 
-<!-- INDUSTRY CHALLENGES -->
-<section class="dark-section">
-  <div class="section">
-    <div class="s1-grid">
-      <div class="s1-right">
-        <div class="info-block">
-          <h3>Misleading Information & Confusion</h3>
-          <p>The presence of misleading or oversimplified information that can create confusion for individuals seeking weight management services.</p>
-        </div>
-        <div class="info-block">
-          <h3>Highly Competitive Landscape</h3>
-          <p>A highly competitive market that requires careful evaluation of available programs and providers before making decisions.</p>
-        </div>
-      </div>
-      <div class="s1-left">
-        <span class="section-tag">Landscape</span>
-        <h2>Industry<br>Challenges</h2>
-        <p>Navigating the weight management industry requires awareness of common obstacles that can affect the quality of care and outcomes.</p>
+  <section class="section">
+    <div class="highlight-box">
+      <h2>Choose Clarity Over Confusion</h2>
+      <p>
+        In a crowded weight loss industry, a provider-led process gives you a structured path with clinical oversight, patient education, and individualized support.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Provider-Led Care</span>
+        <span class="badge">Clinical Oversight</span>
+        <span class="badge">Patient Education</span>
+        <span class="badge">Davie, Florida</span>
       </div>
     </div>
-  </div>
-  <div class="full-image-wrap">
-    <img src="BASE64_IMAGE_DATA" alt="Industry Challenges">
-  </div>
-</section>
+  </section>
 
-<!-- OPPORTUNITIES FOR GROWTH -->
-<section style="background: var(--off-white);">
-  <div class="section">
-    <div class="s3-grid">
-      <div class="highlight-box">
-        <h2>Opportunities<br>for Growth</h2>
-        <p>The industry is positioned for meaningful advancement through better tools, collaboration, and education.</p>
-        <div class="badge-row">
-          <span class="badge">Data-Driven Tools</span>
-          <span class="badge">Collaborative Care</span>
-          <span class="badge">Education</span>
-        </div>
+  <section class="section">
+    <div class="section-tag">How To Get Started</div>
+    <div class="industry-grid">
+      <div class="industry-card">
+        <h3>Step 1: Contact The Office</h3>
+        <p>
+          Reach out with general questions about the process, registration, and next steps.
+        </p>
+        <ul>
+          <li>Phone: <a href="tel:+13104086687" style="color:var(--blue);text-decoration:none;">310.408.6687</a></li>
+          <li>Email: <a href="mailto:contact@weightlossdavie.com" style="color:var(--blue);text-decoration:none;">contact@weightlossdavie.com</a></li>
+        </ul>
       </div>
-      <div class="s3-right">
-        <div class="info-block">
-          <h3>Data-Driven Tools</h3>
-          <p>Continued development of data-driven tools to support education, monitoring, and patient engagement.</p>
-        </div>
-        <div class="info-block">
-          <h3>Collaborative Care</h3>
-          <p>Increased collaboration between medical providers and support services to deliver professionally guided care.</p>
-        </div>
-        <div class="info-block">
-          <h3>Educational Resources</h3>
-          <p>Expansion of educational resources that help individuals better understand weight management processes and available options.</p>
-        </div>
+
+      <div class="industry-card">
+        <h3>Step 2: Register Online</h3>
+        <p>
+          Use the Register page to create your account and begin the intake process for provider review.
+        </p>
+      </div>
+
+      <div class="industry-card">
+        <h3>Step 3: Review FAQs</h3>
+        <p>
+          Visit the FAQs page for answers about the process, what to expect, and how care is structured.
+        </p>
+      </div>
+
+      <div class="industry-card">
+        <h3>Step 4: Meet The Provider</h3>
+        <p>
+          Learn more about Marie-Claude Dubuc, PA-C and the provider-led care model on the Provider page.
+        </p>
       </div>
     </div>
-  </div>
-  <div class="full-image-wrap-light" style="background: var(--off-white);">
-    <img src="BASE64_IMAGE_DATA" alt="Opportunities for Growth">
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <h2>Ready to Get<br>Started?</h2>
-  <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
-  <a href="#" class="cta-btn">Schedule a Consultation</a>
-</section>
+  <section class="cta-section">
+    <h2>Start With A Provider-Led Process</h2>
+    <p>
+      Begin with structured guidance, individualized planning, and ongoing support in a professional medical weight management setting.
+    </p>
+    <a class="cta-btn" href="/weight-loss-davie/register/">Register</a>
+  </section>
+
+  <script>
+    (function () {
+      var navToggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('main-nav');
+      if (!navToggle || !nav) return;
+
+      navToggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+  </script>
 
 </body>
 </html>
