@@ -334,5 +334,200 @@
     })();
   </script>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer Preview — Weight Loss Davie</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:      #1a3fcf;
+    --deep:      #0d1f6e;
+    --light:     #e8edff;
+    --off-white: #f7f8fc;
+    --white:     #ffffff;
+    --text:      #1a1a2e;
+    --muted:     #4a5068;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Barlow', sans-serif; background: var(--off-white); }
+
+  /* Fake CTA above just so footer isn't floating alone */
+  .fake-cta {
+    background: var(--blue);
+    text-align: center;
+    padding: 80px 40px;
+    color: white;
+  }
+  .fake-cta h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .fake-cta p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    max-width: 500px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: white;
+    color: var(--blue);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 18px 48px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  /* ─── FOOTER ─── */
+  .site-footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.6);
+    padding: 60px 40px 30px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.5);
+    max-width: 300px;
+  }
+
+  .footer-brand a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-brand a:hover { color: white; }
+
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  @media (max-width: 900px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .site-footer { padding: 48px 24px 24px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<section class="fake-cta">
+  <h2>Ready to Begin<br>Your Journey?</h2>
+  <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
+  <a href="#" class="cta-btn">Schedule a Consultation</a>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Weight Loss Davie</h3>
+      <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
+      <p style="margin-top:16px;">📞 <a href="tel:+13104086687">310.408.6687</a></p>
+      <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
+      <p style="margin-top:8px;color:rgba(255,255,255,0.4);font-size:13px;">Davie, Florida</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Why Us</a></li>
+        <li><a href="#">Weight Loss Industry</a></li>
+        <li><a href="#">Top 10 Reasons</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Account</h4>
+      <ul>
+        <li><a href="#">Provider</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Weight Loss Davie. All rights reserved.</span>
+    <span>Davie, Florida</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
+  
 </body>
 </html>
