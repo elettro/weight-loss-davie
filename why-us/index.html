@@ -49,17 +49,32 @@
       line-height: 1.6;
     }
 
+    /* Full-width image section above footer */
+    .full-image-section {
+      padding: 0 40px 70px;
+    }
+
+    .full-image-section img {
+      display: block;
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 12px 50px rgba(0,0,0,0.12);
+    }
+
     @media (max-width: 900px) {
-      .whyus-grid {
-        grid-template-columns: 1fr;
-      }
+      .whyus-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .full-image-section { padding: 0 24px 50px; }
     }
 
     /* NAV SPACING TWEAK */
     @media (min-width: 1051px) {
-      .site-nav a.nav-cta {
-        margin-left: 12px;
-      }
+      .site-nav a.nav-cta { margin-left: 12px; }
     }
   </style>
 </head>
@@ -104,22 +119,18 @@
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">Provider-Led</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Licensed medical provider oversight</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">Personalized</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Individualized care planning</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">Davie, FL</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">South Florida local care</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">Support</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Education and follow-through</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">Professional</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Clinical standards of care</p>
@@ -153,7 +164,7 @@
         <div class="info-block">
           <h3>Individualized Planning</h3>
           <p>
-            We do not use a one-size-fits-all approach. Care planning is tailored to each patient’s needs and clinical profile.
+            We do not use a one-size-fits-all approach. Care planning is tailored to each patient's needs and clinical profile.
           </p>
         </div>
         <div class="info-block">
@@ -180,35 +191,30 @@
           Care is led by an experienced medical provider with extensive clinical experience in South Florida, including emergency room practice and patient care leadership.
         </p>
       </div>
-
       <div class="whyus-card">
         <h3>Patient Education First</h3>
         <p>
           We focus on clear communication so patients understand the process, what to expect, and how to move forward with confidence.
         </p>
       </div>
-
       <div class="whyus-card">
         <h3>Safety And Clinical Oversight</h3>
         <p>
           A provider-led model supports informed decision-making, individualized review, and ongoing monitoring when appropriate.
         </p>
       </div>
-
       <div class="whyus-card">
         <h3>Personalized Care Planning</h3>
         <p>
-          We take time to understand each patient’s history, goals, and challenges, then build a practical plan around those factors.
+          We take time to understand each patient's history, goals, and challenges, then build a practical plan around those factors.
         </p>
       </div>
-
       <div class="whyus-card">
         <h3>Professional Local Care</h3>
         <p>
           Based in Davie, Florida, Weight Loss Davie offers a structured medical weight management experience with a local, professional standard of care.
         </p>
       </div>
-
       <div class="whyus-card">
         <h3>Long-Term Mindset</h3>
         <p>
@@ -234,7 +240,7 @@
             <span class="check-icon"></span>
             <div>
               <strong>Compassionate Approach</strong>
-              Care is delivered with professionalism and empathy, with attention to each patient’s goals and concerns.
+              Care is delivered with professionalism and empathy, with attention to each patient's goals and concerns.
             </div>
           </li>
           <li>
@@ -300,12 +306,56 @@
     <a class="cta-btn" href="/weight-loss-davie/register/">Register</a>
   </section>
 
+  <!-- ─── FULL IMAGE ABOVE FOOTER ─── -->
+  <div class="full-image-section">
+    <img
+      src="../images/why-choose-us-9x16-1.png"
+      alt="Why Choose Weight Loss Davie — Provider-Led Medical Weight Management in Davie Florida"
+    >
+  </div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Weight Loss Davie</h3>
+        <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
+        <p style="margin-top:16px;">📞 <a href="tel:+13104086687">310.408.6687</a></p>
+        <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
+        <p style="margin-top:8px;color:rgba(255,255,255,0.4);font-size:13px;">Davie, Florida</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/weight-loss-davie/">Home</a></li>
+          <li><a href="/weight-loss-davie/why-us/">Why Us</a></li>
+          <li><a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a></li>
+          <li><a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a></li>
+          <li><a href="/weight-loss-davie/testimonials/">Testimonials</a></li>
+          <li><a href="/weight-loss-davie/faqs/">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="/weight-loss-davie/provider/">Provider</a></li>
+          <li><a href="/weight-loss-davie/contact-us/">Contact</a></li>
+          <li><a href="/weight-loss-davie/register/">Register</a></li>
+          <li><a href="/weight-loss-davie/login/">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Weight Loss Davie. All rights reserved.</span>
+      <span>Davie, Florida</span>
+    </div>
+  </footer>
+
   <script>
     (function () {
       var navToggle = document.querySelector('.nav-toggle');
       var nav = document.getElementById('main-nav');
       if (!navToggle || !nav) return;
-
       navToggle.addEventListener('click', function () {
         var isOpen = nav.classList.toggle('open');
         navToggle.setAttribute('aria-expanded', String(isOpen));
@@ -313,200 +363,5 @@
     })();
   </script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Footer Preview — Weight Loss Davie</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --blue:      #1a3fcf;
-    --deep:      #0d1f6e;
-    --light:     #e8edff;
-    --off-white: #f7f8fc;
-    --white:     #ffffff;
-    --text:      #1a1a2e;
-    --muted:     #4a5068;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Barlow', sans-serif; background: var(--off-white); }
-
-  /* Fake CTA above just so footer isn't floating alone */
-  .fake-cta {
-    background: var(--blue);
-    text-align: center;
-    padding: 80px 40px;
-    color: white;
-  }
-  .fake-cta h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
-  .fake-cta p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    max-width: 500px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-  }
-  .cta-btn {
-    display: inline-block;
-    background: white;
-    color: var(--blue);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 18px 48px;
-    border-radius: 8px;
-    text-decoration: none;
-  }
-
-  /* ─── FOOTER ─── */
-  .site-footer {
-    background: var(--deep);
-    color: rgba(255,255,255,0.6);
-    padding: 60px 40px 30px;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .footer-brand h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: white;
-    margin-bottom: 12px;
-  }
-
-  .footer-brand p {
-    font-size: 14px;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.5);
-    max-width: 300px;
-  }
-
-  .footer-brand a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-brand a:hover { color: white; }
-
-  .footer-col h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 16px;
-  }
-
-  .footer-col ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-col ul li a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
-  }
-
-  .footer-col ul li a:hover { color: white; }
-
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-  }
-
-  @media (max-width: 900px) {
-    .footer-inner { grid-template-columns: 1fr 1fr; }
-    .footer-brand { grid-column: 1 / -1; }
-  }
-
-  @media (max-width: 600px) {
-    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-    .site-footer { padding: 48px 24px 24px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<section class="fake-cta">
-  <h2>Ready to Begin<br>Your Journey?</h2>
-  <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
-  <a href="#" class="cta-btn">Schedule a Consultation</a>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h3>Weight Loss Davie</h3>
-      <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
-      <p style="margin-top:16px;">📞 <a href="tel:+13104086687">310.408.6687</a></p>
-      <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
-      <p style="margin-top:8px;color:rgba(255,255,255,0.4);font-size:13px;">Davie, Florida</p>
-    </div>
-    <div class="footer-col">
-      <h4>Pages</h4>
-      <ul>
-        <li><a href="/weight-loss-davie/">Home</a></li>
-        <li><a href="/weight-loss-davie/why-us/">Why Us</a></li>
-        <li><a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a></li>
-        <li><a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a></li>
-        <li><a href="/weight-loss-davie/testimonials/">Testimonials</a></li>
-        <li><a href="/weight-loss-davie/faqs/">FAQs</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Account</h4>
-      <ul>
-        <li><a href="/weight-loss-davie/provider/">Provider</a></li>
-        <li><a href="/weight-loss-davie/contact-us/">Contact</a></li>
-        <li><a href="/weight-loss-davie/register/">Register</a></li>
-        <li><a href="/weight-loss-davie/login/">Login</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Weight Loss Davie. All rights reserved.</span>
-    <span>Davie, Florida</span>
-  </div>
-</footer>
-
-</body>
-</html>
-
-  
 </body>
 </html>
