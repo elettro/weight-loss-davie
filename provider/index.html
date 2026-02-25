@@ -6,56 +6,645 @@
   <title>Provider | Marie-Claude Dubuc, PA-C | Weight Loss Davie</title>
   <meta name="description" content="Meet Marie-Claude Dubuc, PA-C. Provider-led medical weight management in Davie, Florida serving South Florida.">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    /* NAV SPACING TWEAK: add a little space before Register on desktop */
-    @media (min-width: 1051px) {
-      .site-nav a.nav-cta {
-        margin-left: 12px;
+    /* ─── VARIABLES ─── */
+    :root {
+      --blue:      #1a3fcf;
+      --deep:      #0d1f6e;
+      --light:     #e8edff;
+      --off-white: #f7f8fc;
+      --white:     #ffffff;
+      --text:      #1a1a2e;
+      --muted:     #4a5068;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── GLOBAL CONTAINER ─── */
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ─── HEADER / NAV ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1200;
+      background: rgba(247, 248, 252, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(13, 31, 110, 0.08);
+    }
+
+    .nav-wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--deep);
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      color: var(--deep);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      transition: background-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .site-nav a:hover { background: var(--light); color: var(--blue); transform: translateY(-1px); }
+    .site-nav a.active { background: var(--blue); color: var(--white); }
+    .site-nav a.nav-cta { background: var(--blue); color: var(--white); margin-left: 12px; }
+    .site-nav a.nav-cta:hover { background: var(--deep); }
+    .site-nav a.nav-ghost { border: 1px solid rgba(13,31,110,0.12); background: var(--white); }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid rgba(13,31,110,0.14);
+      background: var(--white);
+      color: var(--deep);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-weight: 700;
+      font-family: 'Barlow', sans-serif;
+      cursor: pointer;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--deep);
+      color: white;
+      padding: 80px 40px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 80px
+      );
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      position: relative;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 900;
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      position: relative;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero h1 span {
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+    }
+
+    .hero-desc {
+      max-width: 580px;
+      margin: 0 auto 48px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      position: relative;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    /* ─── HERO PHOTO ─── */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .hero-photo-wrap img {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      border-radius: 20px 20px 0 0;
+      object-fit: cover;
+      object-position: top center;
+      box-shadow: 0 -20px 80px rgba(0,0,0,0.4), 0 40px 0 var(--deep);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Decorative glow behind photo */
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(26,63,207,0.5) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    /* ─── FEATURE STRIP ─── */
+    .features-strip {
+      background: var(--blue);
+      padding: 60px 40px;
+    }
+
+    .features-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .feat-card {
+      background: white;
+      border-radius: 14px;
+      padding: 24px 16px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .feat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    /* ─── SECTION TAG ─── */
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--light);
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    /* ─── TWO-COLUMN GRIDS ─── */
+    .s1-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .s3-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .s4-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* ─── LEFT COLUMN ─── */
+    .s1-left h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--deep);
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+
+    .s1-left p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* ─── INFO BLOCKS ─── */
+    .info-block {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .info-block:last-child { border-bottom: none; }
+
+    .info-block h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .info-block p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ─── SECTION PHOTO ─── */
+    .section-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 12px 50px rgba(13,31,110,0.15);
+    }
+
+    .photo-frame {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    /* Subtle corner accent */
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      top: 16px; left: 16px;
+      right: -8px; bottom: -8px;
+      border: 2px solid var(--blue);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    /* ─── DARK SECTION ─── */
+    .dark-section {
+      background: var(--deep);
+      color: white;
+      padding: 80px 40px;
+    }
+
+    .dark-section .section-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .dark-section .section-tag {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .dark-section h2,
+    .dark-section .s1-left h2 { color: white !important; }
+
+    .dark-section .s1-left p,
+    .dark-section p { color: rgba(255,255,255,0.65) !important; }
+
+    .dark-section .info-block { border-bottom-color: rgba(255,255,255,0.1); }
+    .dark-section .info-block h3 { color: #7b9fff; }
+    .dark-section .info-block p { color: rgba(255,255,255,0.65) !important; }
+
+    /* ─── HIGHLIGHT BOX ─── */
+    .highlight-box {
+      background: var(--blue);
+      color: white;
+      border-radius: 20px;
+      padding: 48px 40px;
+    }
+
+    .highlight-box h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 18px;
+      color: white;
+    }
+
+    .highlight-box p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── CHECKLIST ─── */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .check-icon::after {
+      content: '✓';
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .checklist li strong {
+      color: var(--deep);
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: var(--blue);
+      text-align: center;
+      padding: 80px 40px;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.7);
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: white;
+      color: var(--blue);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 18px 48px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: var(--deep);
+      color: rgba(255,255,255,0.6);
+      padding: 60px 40px 30px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.5);
+      max-width: 300px;
+    }
+
+    .footer-brand a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-brand a:hover { color: white; }
+
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: white; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1050px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
       }
+      .site-nav {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        padding: 6px 0 10px;
+      }
+      .site-nav.open { display: flex; }
+      .site-nav a {
+        background: rgba(255,255,255,0.75);
+        border: 1px solid rgba(13,31,110,0.06);
+      }
+      .site-nav a.nav-cta,
+      .site-nav a.active { border: none; }
+      .nav-wrap { min-height: 72px; flex-wrap: wrap; padding: 10px 0; }
+    }
+
+    @media (max-width: 900px) {
+      .features-strip-inner { grid-template-columns: repeat(3, 1fr); }
+      .s1-grid, .s3-grid, .s4-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .s1-grid .photo-frame,
+      .s3-grid .photo-frame,
+      .s4-grid .photo-frame { order: -1; }
+      .section-photo { min-height: 280px; max-height: 360px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 600px) {
+      .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 60px 24px; }
+      .dark-section { padding: 60px 24px; }
+      .features-strip { padding: 50px 24px; }
+      .hero { padding: 60px 24px 0; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .site-footer { padding: 48px 24px 24px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .highlight-box { padding: 32px 24px; }
     }
   </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://weightlossdavie.com/provider/#provider",
-      "name": "Marie-Claude Dubuc, PA-C",
-      "jobTitle": "Weight Loss Provider",
-      "worksFor": {
-        "@id": "https://weightlossdavie.com/#organization"
-      },
-      "knowsLanguage": [
-        "English",
-        "French",
-        "Haitian Creole"
-      ],
-      "image": "REPLACE_PROVIDER_IMAGE_URL",
-      "description": "Marie-Claude Dubuc, PA-C is a South Florida-based weight loss provider offering medically supervised weight management, patient education, and treatment planning with in-person care in Davie and telehealth follow-up across Florida when appropriate."
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://weightlossdavie.com/provider/#webpage",
-      "url": "https://weightlossdavie.com/provider/",
-      "name": "Provider | Weight Loss Davie",
-      "about": {
-        "@id": "https://weightlossdavie.com/provider/#provider"
-      },
-      "isPartOf": {
-        "@id": "https://weightlossdavie.com/#website"
-      }
-    }
-  ]
-}
-</script>
-  
 </head>
 <body>
 
+  <!-- ─── HEADER ─── -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="/weight-loss-davie/" aria-label="Weight Loss Davie Home">
@@ -81,36 +670,41 @@
     </div>
   </header>
 
+  <!-- ─── HERO ─── -->
   <section class="hero">
     <div class="hero-eyebrow">Provider Profile</div>
     <h1>Marie-Claude<br><span>Dubuc, PA-C</span></h1>
     <p class="hero-desc">
       Provider-led medical weight management in Davie, Florida with a focus on patient education, safety, and individualized care planning.
     </p>
+    <div class="hero-photo-wrap">
+      <img
+        src="../images/__marie-claude-dubuc-pa-c-primary-provider-image-1.png__"
+        alt="Marie-Claude Dubuc, PA-C — Weight Loss Provider, Davie Florida"
+        width="520"
+      >
+    </div>
   </section>
 
+  <!-- ─── FEATURE STRIP ─── -->
   <section class="features-strip">
     <div class="features-strip-inner">
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">South Florida</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Serving patients across South Florida</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">Davie, FL</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Based in Broward County</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">15+ Years</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Clinical experience in patient care</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">Languages</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">English, French, Creole</p>
       </div>
-
       <div class="feat-card">
         <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#0d1f6e;text-transform:uppercase;margin-bottom:8px;">ER PA</h3>
         <p style="font-size:14px;line-height:1.5;color:#4a5068;">Active Emergency Room PA</p>
@@ -118,6 +712,7 @@
     </div>
   </section>
 
+  <!-- ─── SECTION 1: CLINICAL EXPERIENCE ─── -->
   <section class="section">
     <div class="section-tag">Meet Your Provider</div>
     <div class="s1-grid">
@@ -135,61 +730,50 @@
       </div>
 
       <div class="s1-right">
-        <div class="info-block">
-          <h3>Primary Featured Info</h3>
-          <p>
-            Marie-Claude Dubuc, PA-C. Serving South Florida. Based in Broward County, Davie, FL. Fluent in English, French, and Creole. Active Emergency Room PA with 15+ years of experience.
-          </p>
-        </div>
-        <div class="info-block">
-          <h3>Care Focus</h3>
-          <p>
-            Medically supervised weight loss services including patient education, treatment planning, and ongoing clinical oversight based on individual needs and eligibility.
-          </p>
-        </div>
-        <div class="info-block">
-          <h3>Practice Standard</h3>
-          <p>
-            Safety, communication, and consistent follow-through with provider-led guidance.
-          </p>
+        <div class="photo-frame">
+          <img
+            class="section-photo"
+            src="../images/marie-claude-dubuc-pa-c-davie-weightloss-with-patient-2.png"
+            alt="Marie-Claude Dubuc PA-C with patient at Weight Loss Davie"
+          >
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section dark-section">
-    <div class="section-tag">Education & Background</div>
-    <div class="s3-grid">
-      <div class="s1-left">
-        <h2>Education And Professional Foundation</h2>
-        <p>
-          Originally from Canada, Marie-Claude has lived in the United States for more than 30 years and is fluent in English and French, helping her communicate comfortably with a diverse patient population.
-        </p>
-        <p>
-          She earned her undergraduate degree from Hunter College in New York City, where she studied Biology and Psychology and completed a minor in Mathematics.
-        </p>
-        <p>
-          She later earned her Master of Medical Science from Nova Southeastern University in 2009 and became a Physician Associate.
-        </p>
-      </div>
+  <!-- ─── SECTION 2: EDUCATION (DARK) ─── -->
+  <section class="dark-section">
+    <div class="section-wrap">
+      <div class="section-tag">Education &amp; Background</div>
+      <div class="s3-grid">
+        <div class="s1-left">
+          <h2>Education And Professional Foundation</h2>
+          <p>
+            Originally from Canada, Marie-Claude has lived in the United States for more than 30 years and is fluent in English and French, helping her communicate comfortably with a diverse patient population.
+          </p>
+          <p>
+            She earned her undergraduate degree from Hunter College in New York City, where she studied Biology and Psychology and completed a minor in Mathematics.
+          </p>
+          <p>
+            She later earned her Master of Medical Science from Nova Southeastern University in 2009 and became a Physician Associate.
+          </p>
+        </div>
 
-      <div class="s3-right">
-        <div class="info-block">
-          <h3>Undergraduate Degree</h3>
-          <p>Hunter College, New York City. Biology and Psychology, minor in Mathematics.</p>
-        </div>
-        <div class="info-block">
-          <h3>Graduate Degree</h3>
-          <p>Master of Medical Science, Nova Southeastern University (2009).</p>
-        </div>
-        <div class="info-block">
-          <h3>Language Support</h3>
-          <p>English, French, and Creole.</p>
+        <div>
+          <div class="photo-frame">
+            <img
+              class="section-photo"
+              src="../images/marie-claude-dubuc-pa-c-davie-weightloss-with-patient-3.png"
+              alt="Marie-Claude Dubuc PA-C with patient — Weight Loss Davie Florida"
+              style="box-shadow: 0 12px 50px rgba(0,0,0,0.4);"
+            >
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ─── SECTION 3: HIGHLIGHT BOX ─── -->
   <section class="section">
     <div class="highlight-box">
       <h2>Provider-Led Weight Management In Davie, Florida</h2>
@@ -205,6 +789,7 @@
     </div>
   </section>
 
+  <!-- ─── SECTION 4: WHAT PATIENTS VALUE ─── -->
   <section class="section">
     <div class="section-tag">What Patients Value</div>
     <div class="s4-grid">
@@ -221,7 +806,7 @@
             <span class="check-icon"></span>
             <div>
               <strong>Personalized Planning</strong>
-              Care plans are tailored to each patient’s health history, goals, and clinical eligibility.
+              Care plans are tailored to each patient's health history, goals, and clinical eligibility.
             </div>
           </li>
           <li>
@@ -241,29 +826,17 @@
         </ul>
       </div>
 
-      <div>
-        <div class="info-block">
-          <h3>Hospital-Level Experience</h3>
-          <p>
-            Years of emergency room experience support strong clinical judgment and consistent standards of care.
-          </p>
-        </div>
-        <div class="info-block">
-          <h3>Compassionate Approach</h3>
-          <p>
-            Patients value her calm, professional presence and commitment to personalized support.
-          </p>
-        </div>
-        <div class="info-block">
-          <h3>Eligibility-Based Care</h3>
-          <p>
-            Treatment decisions are based on provider evaluation, patient needs, and clinical appropriateness.
-          </p>
-        </div>
+      <div class="photo-frame">
+        <img
+          class="section-photo"
+          src="../images/marie-claude-dubuc-pa-c-davie-weightloss-with-patient-4.png"
+          alt="Marie-Claude Dubuc PA-C patient consultation — Weight Loss Davie"
+        >
       </div>
     </div>
   </section>
 
+  <!-- ─── CTA ─── -->
   <section class="cta-section">
     <h2>Schedule A Provider Consultation</h2>
     <p>
@@ -272,12 +845,48 @@
     <a class="cta-btn" href="/weight-loss-davie/contact-us/">Contact Us</a>
   </section>
 
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Weight Loss Davie</h3>
+        <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
+        <p style="margin-top:16px;">📞 <a href="tel:+13104086687">310.408.6687</a></p>
+        <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
+        <p style="margin-top:8px;color:rgba(255,255,255,0.4);font-size:13px;">Davie, Florida</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/weight-loss-davie/">Home</a></li>
+          <li><a href="/weight-loss-davie/why-us/">Why Us</a></li>
+          <li><a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a></li>
+          <li><a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a></li>
+          <li><a href="/weight-loss-davie/testimonials/">Testimonials</a></li>
+          <li><a href="/weight-loss-davie/faqs/">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="/weight-loss-davie/provider/">Provider</a></li>
+          <li><a href="/weight-loss-davie/contact-us/">Contact</a></li>
+          <li><a href="/weight-loss-davie/register/">Register</a></li>
+          <li><a href="/weight-loss-davie/login/">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Weight Loss Davie. All rights reserved.</span>
+      <span>Davie, Florida</span>
+    </div>
+  </footer>
+
   <script>
     (function () {
       var navToggle = document.querySelector('.nav-toggle');
       var nav = document.getElementById('main-nav');
       if (!navToggle || !nav) return;
-
       navToggle.addEventListener('click', function () {
         var isOpen = nav.classList.toggle('open');
         navToggle.setAttribute('aria-expanded', String(isOpen));
@@ -285,201 +894,5 @@
     })();
   </script>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Footer Preview — Weight Loss Davie</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --blue:      #1a3fcf;
-    --deep:      #0d1f6e;
-    --light:     #e8edff;
-    --off-white: #f7f8fc;
-    --white:     #ffffff;
-    --text:      #1a1a2e;
-    --muted:     #4a5068;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Barlow', sans-serif; background: var(--off-white); }
-
-  /* Fake CTA above just so footer isn't floating alone */
-  .fake-cta {
-    background: var(--blue);
-    text-align: center;
-    padding: 80px 40px;
-    color: white;
-  }
-  .fake-cta h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
-  .fake-cta p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    max-width: 500px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-  }
-  .cta-btn {
-    display: inline-block;
-    background: white;
-    color: var(--blue);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 18px 48px;
-    border-radius: 8px;
-    text-decoration: none;
-  }
-
-  /* ─── FOOTER ─── */
-  .site-footer {
-    background: var(--deep);
-    color: rgba(255,255,255,0.6);
-    padding: 60px 40px 30px;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .footer-brand h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: white;
-    margin-bottom: 12px;
-  }
-
-  .footer-brand p {
-    font-size: 14px;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.5);
-    max-width: 300px;
-  }
-
-  .footer-brand a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-brand a:hover { color: white; }
-
-  .footer-col h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 16px;
-  }
-
-  .footer-col ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-col ul li a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
-  }
-
-  .footer-col ul li a:hover { color: white; }
-
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-  }
-
-  @media (max-width: 900px) {
-    .footer-inner { grid-template-columns: 1fr 1fr; }
-    .footer-brand { grid-column: 1 / -1; }
-  }
-
-  @media (max-width: 600px) {
-    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-    .site-footer { padding: 48px 24px 24px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<section class="fake-cta">
-  <h2>Ready to Begin<br>Your Journey?</h2>
-  <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
-  <a href="#" class="cta-btn">Schedule a Consultation</a>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h3>Weight Loss Davie</h3>
-      <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
-      <p style="margin-top:16px;">📞 <a href="tel:+13104086687">310.408.6687</a></p>
-      <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
-      <p style="margin-top:8px;color:rgba(255,255,255,0.4);font-size:13px;">Davie, Florida</p>
-    </div>
-    <div class="footer-col">
-      <h4>Pages</h4>
-      <ul>
-        <li><a href="/weight-loss-davie/">Home</a></li>
-        <li><a href="/weight-loss-davie/why-us/">Why Us</a></li>
-        <li><a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a></li>
-        <li><a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a></li>
-        <li><a href="/weight-loss-davie/testimonials/">Testimonials</a></li>
-        <li><a href="/weight-loss-davie/faqs/">FAQs</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Account</h4>
-      <ul>
-        <li><a href="/weight-loss-davie/provider/">Provider</a></li>
-        <li><a href="/weight-loss-davie/contact-us/">Contact</a></li>
-        <li><a href="/weight-loss-davie/register/">Register</a></li>
-        <li><a href="/weight-loss-davie/login/">Login</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Weight Loss Davie. All rights reserved.</span>
-    <span>Davie, Florida</span>
-  </div>
-</footer>
-
-</body>
-</html>
-
-  
 </body>
 </html>
