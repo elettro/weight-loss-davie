@@ -1,556 +1,1245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us | Weight Loss Davie</title>
-  <meta name="description" content="Contact Weight Loss Davie in Davie, Florida for provider-led medical weight management questions, registration help, and next steps.">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+  <meta name="description" content="Contact Weight Loss Davie to ask questions, request information, or get started with provider-led medical weight loss in Davie, FL. Call, email, or fill out the form." />
+
+  <!-- Google Fonts — matches site exactly -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+    /* ============================================================
+       Weight Loss Davie — Global Stylesheet (verbatim from repo)
+       ============================================================ */
+
+    /* ─── VARIABLES ─── */
+    :root {
+      --blue:      #1a3fcf;
+      --deep:      #0d1f6e;
+      --light:     #e8edff;
+      --off-white: #f7f8fc;
+      --white:     #ffffff;
+      --text:      #1a1a2e;
+      --muted:     #4a5068;
+    }
+
+    /* ─── RESET ─── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ─── BASE ─── */
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── CONTAINER ─── */
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ─── GLOBAL HEADER / NAV ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1200;
+      background: rgba(247, 248, 252, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(13, 31, 110, 0.08);
+    }
+
+    .nav-wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--deep);
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      color: var(--deep);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1;
+      padding: 10px 12px;
+      border-radius: 8px;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .site-nav a:hover {
+      background: var(--light);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .site-nav a.active {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .site-nav a.nav-cta {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .site-nav a.nav-cta:hover {
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    .site-nav a.nav-ghost {
+      border: 1px solid rgba(13, 31, 110, 0.12);
+      background: var(--white);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid rgba(13, 31, 110, 0.14);
+      background: var(--white);
+      color: var(--deep);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-weight: 700;
+      font-family: 'Barlow', sans-serif;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1050px) {
+      .nav-wrap { min-height: 72px; flex-wrap: wrap; padding: 10px 0; }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; margin-left: auto; }
+      .site-nav { width: 100%; display: none; flex-direction: column; align-items: stretch; gap: 6px; padding: 6px 0 10px; }
+      .site-nav.open { display: flex; }
+      .site-nav a { background: rgba(255,255,255,0.75); border: 1px solid rgba(13,31,110,0.06); }
+      .site-nav a.nav-cta, .site-nav a.active { border: none; }
+    }
+
+    @media (max-width: 600px) {
+      .brand img { width: 42px; height: 42px; }
+      .brand-text { font-size: 1.1rem; }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--deep);
+      color: white;
+      padding: 100px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 80px
+      );
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 900;
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 span {
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+    }
+
+    .hero-desc {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      position: relative;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1        { animation: fadeUp 0.7s ease both; animation-delay: 0.1s; }
+    .hero-desc      { animation: fadeUp 0.7s ease both; animation-delay: 0.25s; }
+    .hero-eyebrow   { animation: fadeUp 0.7s ease both; }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    /* ─── SECTION TAG ─── */
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--light);
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    /* ─── SECTION HEADINGS ─── */
+    .section-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--deep);
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── CONTACT LAYOUT ─── */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
       align-items: start;
     }
 
-    .contact-card {
-      background: var(--white);
-      border: 1px solid rgba(13,31,110,0.08);
-      border-radius: 16px;
-      padding: 22px 20px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
-    }
-
-    .contact-card h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--deep);
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
-
-    .contact-card p {
+    /* ─── LEFT — INFO COLUMN ─── */
+    .contact-info p {
+      font-size: 16px;
+      line-height: 1.75;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 12px;
+      margin-bottom: 36px;
     }
 
-    .contact-list {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
+    /* Contact detail blocks */
+    .contact-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
-    .contact-list li {
-      background: rgba(26,63,207,0.04);
-      border: 1px solid rgba(26,63,207,0.08);
-      border-radius: 12px;
-      padding: 12px 14px;
+    .contact-detail {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
     }
 
-    .contact-label {
-      display: block;
+    .contact-detail:first-child { padding-top: 0; }
+    .contact-detail:last-child  { border-bottom: none; }
+
+    .detail-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: var(--light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .detail-body {}
+
+    .detail-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
       color: var(--blue);
       margin-bottom: 4px;
     }
 
-    .contact-value,
-    .contact-value a {
+    .detail-value {
+      font-size: 16px;
+      font-weight: 600;
       color: var(--deep);
       text-decoration: none;
-      font-weight: 600;
-      line-height: 1.5;
-      word-break: break-word;
+      display: block;
+      transition: color 0.2s;
     }
 
-    .contact-value a:hover {
-      text-decoration: underline;
-    }
+    a.detail-value:hover { color: var(--blue); }
 
-    .contact-note {
-      background: rgba(26, 63, 207, 0.05);
-      border: 1px solid rgba(26, 63, 207, 0.10);
-      border-radius: 12px;
-      padding: 16px;
+    .detail-sub {
+      font-size: 13px;
       color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.5;
+    }
+
+    /* Languages badge row */
+    .lang-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .lang-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--light);
+      color: var(--blue);
+      border: 1px solid rgba(26,63,207,0.15);
+      padding: 7px 16px;
+      border-radius: 40px;
+    }
+
+    /* ─── RIGHT — FORM CARD ─── */
+    .form-card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(13,31,110,0.10);
+      overflow: hidden;
+    }
+
+    .form-card-header {
+      background: var(--blue);
+      padding: 28px 36px 24px;
+    }
+
+    .form-card-header .section-tag {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 10px;
+    }
+
+    .form-card-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .form-card-header p {
       font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .form-card-body {
+      padding: 32px 36px 36px;
+    }
+
+    /* ─── FORM FIELDS ─── */
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field-group {
+      margin-bottom: 18px;
+    }
+
+    .field-group label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 7px;
+    }
+
+    .field-group label .req {
+      color: var(--blue);
+      margin-left: 2px;
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--off-white);
+      border: 1.5px solid rgba(13,31,110,0.12);
+      border-radius: 8px;
+      padding: 12px 15px;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus {
+      border-color: var(--blue);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(26,63,207,0.10);
+    }
+
+    .field-group input.has-error,
+    .field-group select.has-error,
+    .field-group textarea.has-error {
+      border-color: #c0392b;
+      box-shadow: 0 0 0 3px rgba(192,57,43,0.09);
+    }
+
+    .field-error {
+      font-size: 12px;
+      color: #c0392b;
+      margin-top: 5px;
+      display: none;
+      font-weight: 500;
+    }
+    .field-error.show { display: block; }
+
+    .field-group textarea {
+      resize: vertical;
+      min-height: 96px;
       line-height: 1.6;
     }
 
-    .mini-steps {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
+    /* Select arrow */
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--blue);
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    /* Privacy row */
+    .privacy-row {
+      display: flex;
       gap: 10px;
+      align-items: flex-start;
+      background: var(--off-white);
+      border: 1px solid rgba(13,31,110,0.09);
+      border-radius: 10px;
+      padding: 13px 15px;
+      margin-bottom: 22px;
     }
 
-    .mini-steps li {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 10px;
-      align-items: start;
-    }
+    .privacy-row .lock { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
 
-    .mini-step-num {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--blue);
-      color: var(--white);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 16px;
-    }
-
-    .mini-step-text strong {
-      display: block;
-      font-family: 'Barlow Condensed', sans-serif;
-      text-transform: uppercase;
-      color: var(--deep);
-      font-size: 16px;
-      margin-bottom: 2px;
-    }
-
-    .mini-step-text span {
+    .privacy-row p {
+      font-size: 12.5px;
       color: var(--muted);
-      font-size: 14px;
       line-height: 1.55;
     }
 
-    @media (max-width: 900px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    /* Submit button — matches .cta-btn pattern */
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 18px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      text-align: center;
     }
 
-    /* NAV SPACING TWEAK */
-    @media (min-width: 1051px) {
-      .site-nav a.nav-cta {
-        margin-left: 12px;
-      }
+    .btn-submit:hover {
+      background: var(--deep);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(13,31,110,0.28);
+    }
+
+    .btn-submit:active { transform: none; }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* Or divider */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(13,31,110,0.09);
+    }
+
+    /* Phone CTA under form */
+    .form-phone-cta {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .form-phone-cta a {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--deep);
+      text-decoration: none;
+      margin-top: 4px;
+      transition: color 0.2s;
+    }
+
+    .form-phone-cta a:hover { color: var(--blue); }
+
+    /* Success state */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 56px 36px;
+    }
+    .success-state.show { display: block; }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+      border: 2px solid rgba(26,63,207,0.2);
+      color: var(--blue);
+      font-weight: 900;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .success-state h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 10px;
+    }
+
+    .success-state p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    /* ─── INFO BLOCKS (checklist-style) ─── */
+    .info-block {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .info-block:last-child { border-bottom: none; }
+
+    .info-block h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .info-block p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ─── DARK SECTION ─── */
+    .dark-section { background: var(--deep); color: white; }
+
+    .dark-section .section-tag {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: var(--blue);
+      text-align: center;
+      padding: 80px 40px;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.7);
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: white;
+      color: var(--blue);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 18px 48px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: var(--deep);
+      color: rgba(255,255,255,0.6);
+      padding: 60px 40px 30px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.5);
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: white; }
+
+    .footer-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .footer-contact-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-links a:hover { color: white; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 60px 24px; }
+      .hero { padding: 80px 24px 60px; }
+      .field-row { grid-template-columns: 1fr; }
+      .form-card-body { padding: 24px 22px 28px; }
+      .form-card-header { padding: 22px 22px 18px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .site-footer { padding: 48px 24px 24px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .cta-section { padding: 60px 24px; }
+      .steps-grid { grid-template-columns: 1fr !important; }
+      .steps-grid .info-block { border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 28px 0 !important; }
+      .steps-grid .info-block:last-child { border-bottom: none !important; }
     }
   </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "@id": "https://weightlossdavie.com/contact-us/#contactpage",
-  "url": "https://weightlossdavie.com/contact-us/",
-  "name": "Contact | Weight Loss Davie",
-  "about": {
-    "@id": "https://weightlossdavie.com/#medicalbusiness"
-  },
-  "isPartOf": {
-    "@id": "https://weightlossdavie.com/#website"
-  }
-}
-</script>
-  
 </head>
+
 <body>
 
+  <!-- ═══════════════════════════════════════════
+       HEADER / NAV
+  ════════════════════════════════════════════════ -->
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="/weight-loss-davie/" aria-label="Weight Loss Davie Home">
-        <span class="brand-text">Weight Loss Davie</span>
-      </a>
+    <div class="container">
+      <div class="nav-wrap">
 
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
-        Menu
-      </button>
+        <a href="http://weightlossdavie.com/weight-loss-davie/" class="brand">
+          <!-- Swap src for actual logo file path if available -->
+          <span class="brand-text">Weight Loss Davie</span>
+        </a>
 
-      <nav id="main-nav" class="site-nav" aria-label="Main navigation">
-        <a href="/weight-loss-davie/">Home</a>
-        <a href="/weight-loss-davie/why-us/">Why Us</a>
-        <a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a>
-        <a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a>
-        <a href="/weight-loss-davie/testimonials/">Testimonials</a>
-        <a href="/weight-loss-davie/faqs/">FAQs</a>
-        <a href="/weight-loss-davie/provider/">Provider</a>
-        <a href="/weight-loss-davie/contact-us/" class="active">Contact</a>
-      </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+
+        <nav class="site-nav" id="siteNav">
+          <a href="http://weightlossdavie.com/weight-loss-davie/">Home</a>
+          <a href="http://weightlossdavie.com/weight-loss-davie/why-us/">Why Us</a>
+          <a href="http://weightlossdavie.com/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a>
+          <a href="http://weightlossdavie.com/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a>
+          <a href="http://weightlossdavie.com/weight-loss-davie/testimonials/">Testimonials</a>
+          <a href="http://weightlossdavie.com/weight-loss-davie/faqs/">FAQs</a>
+          <a href="http://weightlossdavie.com/weight-loss-davie/provider/">Provider</a>
+          <a href="http://weightlossdavie.com/weight-loss-davie/contact-us/" class="active nav-cta">Contact</a>
+        </nav>
+
+      </div>
     </div>
   </header>
 
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════ -->
   <section class="hero">
-    <div class="hero-eyebrow">Contact Weight Loss Davie</div>
-    <h1>Contact<br><span>Us</span></h1>
+    <div class="hero-eyebrow">Weight Loss Davie · Davie, Florida</div>
+    <h1>Contact <span>Us</span></h1>
     <p class="hero-desc">
-      Get in touch with Weight Loss Davie for general questions, registration support, and next-step guidance for provider-led medical weight management in Davie, Florida.
+      Have questions about our provider-led weight loss program? We're here to help.
+      Call, email, or fill out the form — we respond promptly to all inquiries.
     </p>
   </section>
 
-  <section class="section">
-    <div class="section-tag">Contact Information</div>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT SECTION — Info + Form
+  ════════════════════════════════════════════════ -->
+  <div class="section">
     <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Reach Our Office</h3>
+
+      <!-- ── LEFT: Contact Info ── -->
+      <div class="contact-info">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-heading">We'd Love<br>To Hear From You</h2>
         <p>
-          Contact us for general questions about the intake process, registration, provider-led care, and next steps.
+          Whether you have questions about semaglutide, tirzepatide, our in-person
+          clinic in Davie, or telehealth follow-up care across Florida — reach out
+          and a member of our team will follow up promptly.
         </p>
 
-        <ul class="contact-list">
-          <li>
-            <span class="contact-label">Phone</span>
-            <div class="contact-value">
-              <a href="tel:+13104086687">310.408.6687</a>
-            </div>
-          </li>
+        <div class="contact-detail-list">
 
-          <li>
-            <span class="contact-label">Email</span>
-            <div class="contact-value">
-              <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a>
+          <div class="contact-detail">
+            <div class="detail-icon">📞</div>
+            <div class="detail-body">
+              <div class="detail-label">Phone</div>
+              <a href="tel:+13104086687" class="detail-value">(310) 408-6687</a>
+              <div class="detail-sub">Call or text during business hours</div>
             </div>
-          </li>
+          </div>
 
-          <li>
-            <span class="contact-label">Service Area</span>
-            <div class="contact-value">
-              Davie, Broward County, South Florida
+          <div class="contact-detail">
+            <div class="detail-icon">✉️</div>
+            <div class="detail-body">
+              <div class="detail-label">Email</div>
+              <a href="mailto:contact@weightlossdavie.com" class="detail-value">contact@weightlossdavie.com</a>
+              <div class="detail-sub">We aim to respond within one business day</div>
             </div>
-          </li>
+          </div>
 
-          <li>
-            <span class="contact-label">Practice Type</span>
-            <div class="contact-value">
-              Provider-led medical weight management
+          <div class="contact-detail">
+            <div class="detail-icon">📍</div>
+            <div class="detail-body">
+              <div class="detail-label">Location</div>
+              <span class="detail-value">Davie, Florida</span>
+              <div class="detail-sub">In-person visits available · Telehealth follow-up statewide across Florida</div>
             </div>
-          </li>
-        </ul>
-      </div>
+          </div>
 
-      <div class="contact-card">
-        <h3>START YOUR WEIGHT LOSS PROGRAM TODAY</h3>
-        <p>
-          Speak directly with our team to get answers, understand your options, and begin your personalized plan with provider guidance.
-        </p>
-        <ul class="mini-steps">
-          <li>
-            <div class="mini-step-num">1</div>
-            <div class="mini-step-text">
-              <strong>CALL OUR OFFICE</strong>
-              <span>Speak directly with our team to get started and ask any questions.</span>
+          <div class="contact-detail">
+            <div class="detail-icon">🩺</div>
+            <div class="detail-body">
+              <div class="detail-label">Your Provider</div>
+              <span class="detail-value">Marie-Claude Dubuc, PA-C</span>
+              <div class="detail-sub">15+ years clinical experience · Lead PA-C, South Florida ER</div>
             </div>
-          </li>
-          <li>
-            <div class="mini-step-num">2</div>
-            <div class="mini-step-text">
-              <strong>GET GUIDANCE</strong>
-              <span>We walk you through your options based on your goals and medical needs.</span>
-            </div>
-          </li>
-          <li>
-            <div class="mini-step-num">3</div>
-            <div class="mini-step-text">
-              <strong>BEGIN YOUR PLAN</strong>
-              <span>Start your program with provider oversight and ongoing support.</span>
-            </div>
-          </li>
-        </ul>
-        <p style="margin-top:16px; margin-bottom:0; text-align:center;">
-          <a class="cta-btn" href="tel:+13104086687">CALL NOW</a>
-        </p>
-      </div>
-    </div>
-  </section>
+          </div>
 
-  <section class="section dark-section">
-    <div class="section-tag">Before You Contact Us</div>
-    <div class="s4-grid">
-      <div>
-        <ul class="checklist">
-          <li>
-            <span class="check-icon"></span>
-            <div>
-              <strong>General Questions Welcome</strong>
-              Contact us for help understanding the process, registration, and next steps.
-            </div>
-          </li>
-          <li>
-            <span class="check-icon"></span>
-            <div>
-              <strong>Protect Private Health Details</strong>
-              Do not send sensitive medical details through general contact messages.
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="contact-note">
-          This page is for general contact and informational questions. Individual care recommendations, eligibility, and treatment planning are determined by a licensed provider during the intake and consultation process.
         </div>
 
-        <div class="info-block" style="margin-top:16px;">
-          <h3>Need Answers First</h3>
+        <!-- Languages spoken -->
+        <div class="lang-badges">
+          <span class="lang-badge">English</span>
+          <span class="lang-badge">French</span>
+          <span class="lang-badge">Haitian Creole</span>
+        </div>
+
+      </div><!-- /contact-info -->
+
+
+      <!-- ── RIGHT: Form Card ── -->
+      <div class="form-card">
+
+        <!-- Success state — shown after submit -->
+        <div class="success-state" id="successState">
+          <div class="success-icon">✓</div>
+          <h3>Message Received</h3>
           <p>
-            Visit the FAQs page for common questions about the process, provider-led care, and next steps.
+            Thank you for reaching out. A member of our team will be in touch
+            shortly to answer your questions and discuss your next steps.
           </p>
         </div>
 
-        <div class="info-block">
-          <h3>Meet The Provider</h3>
-          <p>
-            Visit the Provider page to learn more about Marie-Claude Dubuc, PA-C and the clinical experience behind the practice.
-          </p>
+        <!-- Form container -->
+        <div id="formWrap">
+          <div class="form-card-header">
+            <span class="section-tag">Request Information</span>
+            <h2>Send Us a Message</h2>
+            <p>Fill out the form and we'll follow up promptly — no commitment required.</p>
+          </div>
+
+          <div class="form-card-body">
+            <form id="contactForm" novalidate>
+
+              <!-- Name row -->
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="firstName">First Name <span class="req">*</span></label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Jane" autocomplete="given-name" />
+                  <div class="field-error" id="err-firstName">Please enter your first name.</div>
+                </div>
+                <div class="field-group">
+                  <label for="lastName">Last Name <span class="req">*</span></label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Smith" autocomplete="family-name" />
+                  <div class="field-error" id="err-lastName">Please enter your last name.</div>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="field-group">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(954) 555-0100" autocomplete="tel" />
+                <div class="field-error" id="err-phone">Please enter a valid phone number.</div>
+              </div>
+
+              <!-- Email -->
+              <div class="field-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@email.com" autocomplete="email" />
+                <div class="field-error" id="err-email">Please enter a valid email address.</div>
+              </div>
+
+              <!-- Interest dropdown -->
+              <div class="field-group">
+                <label for="interest">I'm Interested In</label>
+                <div class="select-wrap">
+                  <select id="interest" name="interest">
+                    <option value="">— Select an option —</option>
+                    <option value="semaglutide">Semaglutide (Ozempic / Wegovy)</option>
+                    <option value="tirzepatide">Tirzepatide (Mounjaro / Zepbound)</option>
+                    <option value="general">General Medical Weight Loss</option>
+                    <option value="telehealth">Telehealth Follow-Up (Florida)</option>
+                    <option value="unsure">Not Sure Yet — Have Questions</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="field-group">
+                <label for="message">Question or Message <span style="font-family:'Barlow',sans-serif;font-weight:300;text-transform:none;letter-spacing:0;font-size:11px;">(optional)</span></label>
+                <textarea id="message" name="message" placeholder="Feel free to share any questions about the program, process, or next steps…"></textarea>
+              </div>
+
+              <!-- Privacy note -->
+              <div class="privacy-row">
+                <div class="lock">🔒</div>
+                <p>Your information is kept private and is only used to respond to your inquiry. We do not share or sell your data.</p>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="btn-submit" id="submitBtn">Send My Request</button>
+
+              <div class="or-divider">or</div>
+
+              <div class="form-phone-cta">
+                Prefer to call us directly?
+                <a href="tel:+13104086687">(310) 408-6687</a>
+              </div>
+
+            </form>
+          </div><!-- /form-card-body -->
+        </div><!-- /formWrap -->
+
+      </div><!-- /form-card -->
+
+    </div><!-- /contact-grid -->
+  </div><!-- /section -->
+
+
+  <!-- ═══════════════════════════════════════════
+       WHAT HAPPENS NEXT — Info blocks
+  ════════════════════════════════════════════════ -->
+  <div class="dark-section">
+    <div class="section">
+      <span class="section-tag">What To Expect</span>
+      <h2 class="section-heading" style="color:white; margin-bottom:36px;">After You Reach Out</h2>
+
+      <div class="steps-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
+
+        <div class="info-block" style="padding: 36px 48px 36px 0; border-bottom:1px solid rgba(255,255,255,0.1); border-right:1px solid rgba(255,255,255,0.1);">
+          <h3>01 — We Respond</h3>
+          <p>Our team follows up within one business day to answer your questions and provide guidance on the intake process.</p>
         </div>
 
-        <div class="info-block">
-          <h3>Ready To Begin</h3>
-          <p>
-            Give us a call today to get the process started.
-          </p>
+        <div class="info-block" style="padding: 36px 0 36px 48px; border-bottom:1px solid rgba(255,255,255,0.1); border-right:none;">
+          <h3>02 — Review Your Options</h3>
+          <p>We'll walk you through the program, services available — including semaglutide and tirzepatide — and whether in-person or telehealth care fits your situation.</p>
+        </div>
+
+        <div class="info-block" style="padding: 36px 48px 36px 0; border-bottom:none; border-right:1px solid rgba(255,255,255,0.1);">
+          <h3>03 — Start Your Intake</h3>
+          <p>When you're ready, give us a call or send a message and we'll walk you through the intake process with provider review and individualized care planning.</p>
+        </div>
+
+        <div class="info-block" style="padding: 36px 0 36px 48px; border-bottom:none; border-right:none;">
+          <h3>04 — Ongoing Support</h3>
+          <p>Your provider stays involved throughout — with clinical oversight, structured follow-up, and clear next-step guidance at every stage.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       CTA BANNER
+  ════════════════════════════════════════════════ -->
+  <div class="cta-section">
+    <h2>Ready to Begin<br>Your Journey?</h2>
+    <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
+    <a href="tel:+13104086687" class="cta-btn">Call (310) 408-6687</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <h3>Weight Loss Davie</h3>
+        <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
+        <div class="footer-contact-links">
+          <a href="tel:+13104086687">📞 (310) 408-6687</a>
+          <a href="mailto:contact@weightlossdavie.com">✉️ contact@weightlossdavie.com</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="highlight-box">
-      <h2>Clear Answers. Professional Support.</h2>
-      <p>
-        Contact Weight Loss Davie for help getting started with a provider-led, structured medical weight management process in Davie, Florida.
-      </p>
-      <div class="badge-row">
-        <span class="badge">Davie, Florida</span>
-        <span class="badge">Provider-Led Care</span>
-        <span class="badge">Registration Support</span>
-        <span class="badge">South Florida</span>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/">Home</a></li>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/why-us/">Why Us</a></li>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a></li>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a></li>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/testimonials/">Testimonials</a></li>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/faqs/">FAQs</a></li>
+        </ul>
       </div>
+
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/provider/">Provider</a></li>
+          <li><a href="http://weightlossdavie.com/weight-loss-davie/contact-us/">Contact</a></li>
+        </ul>
+      </div>
+
     </div>
-  </section>
 
-  <section class="cta-section">
-    <h2>Ready To Start</h2>
-    <p>
-      Begin your intake process with provider-led guidance and a structured path designed to support safe, individualized care planning.
-    </p>
-  </section>
+    <div class="footer-bottom">
+      <span>© 2026 Weight Loss Davie. All rights reserved. Davie, Florida.</span>
+      <span>Provider-Led Medical Weight Management</span>
+    </div>
+  </footer>
 
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT — Nav toggle + Form validation
+  ════════════════════════════════════════════════ -->
   <script>
-    (function () {
-      var navToggle = document.querySelector('.nav-toggle');
-      var nav = document.getElementById('main-nav');
-      if (!navToggle || !nav) return;
+    // ── Mobile nav toggle ──────────────────────────────────
+    document.getElementById('navToggle').addEventListener('click', function () {
+      document.getElementById('siteNav').classList.toggle('open');
+    });
 
-      navToggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-      });
-    })();
+    // ── Phone auto-format ──────────────────────────────────
+    document.getElementById('phone').addEventListener('input', function () {
+      let d = this.value.replace(/\D/g, '').slice(0, 10);
+      if (d.length >= 7)      this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+      else if (d.length >= 4) this.value = '(' + d.slice(0,3) + ') ' + d.slice(3);
+      else if (d.length > 0)  this.value = '(' + d;
+    });
+
+    // ── Validation helpers ─────────────────────────────────
+    function setError(id, show) {
+      const field = document.getElementById(id);
+      const err   = document.getElementById('err-' + id);
+      if (!field || !err) return;
+      field.classList.toggle('has-error', show);
+      err.classList.toggle('show', show);
+    }
+
+    const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    const validPhone = v => v.replace(/\D/g, '').length >= 10;
+
+    // ── Form submit ────────────────────────────────────────
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fn    = document.getElementById('firstName').value.trim();
+      const ln    = document.getElementById('lastName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      let ok = true;
+
+      setError('firstName', !fn);    if (!fn)                ok = false;
+      setError('lastName',  !ln);    if (!ln)                ok = false;
+      setError('phone', !validPhone(phone)); if (!validPhone(phone)) ok = false;
+      setError('email', !validEmail(email)); if (!validEmail(email)) ok = false;
+
+      if (!ok) return;
+
+      // ─────────────────────────────────────────────────────────────────────
+      // WORDPRESS INTEGRATION NOTE:
+      // Delete everything from here down to "END WORDPRESS NOTE" and replace
+      // with WPForms or CF7 — they handle submission natively. This JS block
+      // is for the standalone HTML preview only.
+      // ─────────────────────────────────────────────────────────────────────
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      setTimeout(() => {
+        document.getElementById('formWrap').style.display = 'none';
+        document.getElementById('successState').classList.add('show');
+      }, 800);
+      // ── END WORDPRESS NOTE ────────────────────────────────────────────────
+    });
   </script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Footer Preview — Weight Loss Davie</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --blue:      #1a3fcf;
-    --deep:      #0d1f6e;
-    --light:     #e8edff;
-    --off-white: #f7f8fc;
-    --white:     #ffffff;
-    --text:      #1a1a2e;
-    --muted:     #4a5068;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Barlow', sans-serif; background: var(--off-white); }
 
-  /* Fake CTA above just so footer isn't floating alone */
-  .fake-cta {
-    background: var(--blue);
-    text-align: center;
-    padding: 80px 40px;
-    color: white;
-  }
-  .fake-cta h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
-  .fake-cta p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    max-width: 500px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-  }
-  .cta-btn {
-    display: inline-block;
-    background: white;
-    color: var(--blue);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 18px 48px;
-    border-radius: 8px;
-    text-decoration: none;
-  }
+  <!--
+  ═══════════════════════════════════════════════════════════════════
+  WORDPRESS IMPLEMENTATION NOTES
+  ═══════════════════════════════════════════════════════════════════
 
-  /* ─── FOOTER ─── */
-  .site-footer {
-    background: var(--deep);
-    color: rgba(255,255,255,0.6);
-    padding: 60px 40px 30px;
-  }
+  This file is the full standalone reference page. To implement in
+  WordPress on weightlossdavie.com:
 
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
+  STEP 1 — ADD CSS
+  ─────────────────
+  Copy the CSS from the <style> block into:
+    Appearance → Customize → Additional CSS
+  Or add to your child theme's style.css.
+  The site already has this CSS via the main stylesheet —
+  no duplication needed if the global stylesheet is already loaded.
 
-  .footer-brand h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: white;
-    margin-bottom: 12px;
-  }
+  STEP 2 — BUILD THE CONTACT PAGE (WPForms recommended)
+  ───────────────────────────────────────────────────────
+  1. Install WPForms (free or Pro)
+  2. Create a new form — "Simple Contact Form" as base
+  3. Add these fields in order:
+       · First Name     (required, half-width)
+       · Last Name      (required, half-width)
+       · Phone          (required)
+       · Email          (required)
+       · Dropdown:      "I'm Interested In"
+           - Semaglutide (Ozempic / Wegovy)
+           - Tirzepatide (Mounjaro / Zepbound)
+           - General Medical Weight Loss
+           - Telehealth Follow-Up (Florida)
+           - Not Sure Yet — Have Questions
+       · Paragraph Text: "Question or Message" (not required)
+  4. Notifications tab:
+       · Send To Email: contact@weightlossdavie.com
+       · Subject: New Contact Form Submission — Weight Loss Davie
+  5. Confirmations tab:
+       · Message: "Thank you! A member of our team will be in touch shortly."
+  6. Save and copy the shortcode: [wpforms id="XX"]
 
-  .footer-brand p {
-    font-size: 14px;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.5);
-    max-width: 300px;
-  }
+  STEP 3 — BUILD THE PAGE IN WORDPRESS
+  ──────────────────────────────────────
+  1. Pages → Add New → title: "Contact Us"
+  2. Use Elementor or the block editor
+  3. Recreate the two-column layout:
+       Left column:  the contact detail blocks (phone, email, location, provider)
+                     using Text/HTML widgets with the CSS classes from this file
+       Right column: embed [wpforms id="XX"] inside an HTML block or Shortcode widget
+  4. Use the same section classes (.section, .contact-grid, .dark-section etc.)
+     so they inherit the global stylesheet automatically
+  5. Add the "After You Reach Out" dark section and CTA banner below
 
-  .footer-brand a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  STEP 4 — GOOGLE ADS CONVERSION TRACKING
+  ─────────────────────────────────────────
+  1. In Google Tag Manager, create a trigger:
+       · Trigger type: Form Submission
+       · This trigger fires on: All Forms (or filter by form ID)
+  2. Create a GA4 Event tag: "contact_form_submit"
+  3. Create a Google Ads Conversion Action: "Contact Form Submission"
+     and fire it on the same trigger
+  4. This gives email leads as tracked conversions alongside phone calls
 
-  .footer-brand a:hover { color: white; }
+  STEP 5 — SET CONTACT PAGE AS ACTIVE NAV ITEM
+  ──────────────────────────────────────────────
+  In WordPress Menus, the "Contact" link will auto-highlight via
+  WordPress's current-menu-item class. Map the .active CSS class
+  to .current-menu-item in your stylesheet if using a custom nav.
 
-  .footer-col h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 16px;
-  }
+  ═══════════════════════════════════════════════════════════════════
+  -->
 
-  .footer-col ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-col ul li a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
-  }
-
-  .footer-col ul li a:hover { color: white; }
-
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-  }
-
-  @media (max-width: 900px) {
-    .footer-inner { grid-template-columns: 1fr 1fr; }
-    .footer-brand { grid-column: 1 / -1; }
-  }
-
-  @media (max-width: 600px) {
-    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-    .site-footer { padding: 48px 24px 24px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<section class="fake-cta">
-  <h2>Ready to Begin<br>Your Journey?</h2>
-  <p>Provider-led medical weight loss care built around you — individualized, transparent, and accessible.</p>
-  <a href="#" class="cta-btn">Schedule a Consultation</a>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h3>Weight Loss Davie</h3>
-      <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
-      <p style="margin-top:16px;">📞 <a href="tel:+13104086687">310.408.6687</a></p>
-      <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
-      <p style="margin-top:8px;color:rgba(255,255,255,0.4);font-size:13px;">Davie, Florida</p>
-    </div>
-    <div class="footer-col">
-      <h4>Pages</h4>
-      <ul>
-        <li><a href="/weight-loss-davie/">Home</a></li>
-        <li><a href="/weight-loss-davie/why-us/">Why Us</a></li>
-        <li><a href="/weight-loss-davie/weight-loss-industry/">Weight Loss Industry</a></li>
-        <li><a href="/weight-loss-davie/top-10-reasons-to-start/">Top 10 Reasons</a></li>
-        <li><a href="/weight-loss-davie/testimonials/">Testimonials</a></li>
-        <li><a href="/weight-loss-davie/faqs/">FAQs</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Account</h4>
-      <ul>
-        <li><a href="/weight-loss-davie/provider/">Provider</a></li>
-        <li><a href="/weight-loss-davie/contact-us/">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Weight Loss Davie. All rights reserved.</span>
-    <span>Davie, Florida</span>
-  </div>
-</footer>
-
-</body>
-</html>
-
-  
 </body>
 </html>
