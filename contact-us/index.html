@@ -939,7 +939,7 @@
           </div>
 
           <div class="form-card-body">
-            <form id="contactForm" novalidate>
+            <form id="contactForm" action="https://formspree.io/f/xkoqavrk" method="POST" novalidate>
 
               <!-- Name row -->
               <div class="field-row">
@@ -989,6 +989,9 @@
                 <label for="message">Question or Message <span style="font-family:'Barlow',sans-serif;font-weight:300;text-transform:none;letter-spacing:0;font-size:11px;">(optional)</span></label>
                 <textarea id="message" name="message" placeholder="Feel free to share any questions about the program, process, or next steps…"></textarea>
               </div>
+
+              <input type="hidden" name="_replyto" value="contact@weightlossdavie.com" />
+              <input type="hidden" name="_next" value="false" />
 
               <!-- Privacy note -->
               <div class="privacy-row">
@@ -1152,21 +1155,32 @@
 
       if (!ok) return;
 
-      // ─────────────────────────────────────────────────────────────────────
-      // WORDPRESS INTEGRATION NOTE:
-      // Delete everything from here down to "END WORDPRESS NOTE" and replace
-      // with WPForms or CF7 — they handle submission natively. This JS block
-      // is for the standalone HTML preview only.
-      // ─────────────────────────────────────────────────────────────────────
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Sending…';
 
-      setTimeout(() => {
-        document.getElementById('formWrap').style.display = 'none';
-        document.getElementById('successState').classList.add('show');
-      }, 800);
-      // ── END WORDPRESS NOTE ────────────────────────────────────────────────
+      const formData = new FormData(document.getElementById('contactForm'));
+      
+      fetch('https://formspree.io/f/xkoqavrk', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById('formWrap').style.display = 'none';
+          document.getElementById('successState').classList.add('show');
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send My Request';
+          alert('Something went wrong. Please call us at (310) 408-6687.');
+        }
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send My Request';
+        alert('Something went wrong. Please call us at (310) 408-6687.');
+      });
     });
   </script>
 
