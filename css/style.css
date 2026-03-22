@@ -31,6 +31,15 @@ body {
   overflow-x: hidden;
 }
 
+
+
+/* ─── DISCLAIMER TEXT ─── */
+.disclaimer,
+.legal-text,
+.edu-notice {
+  color: #ffffff !important;
+}
+
 /* ─── HERO ─── */
 .hero {
   background: var(--deep);
