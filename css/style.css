@@ -532,7 +532,7 @@ body {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.cta-section .cta-btn {
+.cta-section a.cta-btn {
   color: #0d1f6e !important;
 }
 
