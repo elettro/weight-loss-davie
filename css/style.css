@@ -273,6 +273,7 @@ body {
 /* Keep white-card body text readable inside dark sections */
 .dark-section .card p,
 .dark-section .info-card p,
+.dark-section .feat-card p,
 .dark-section .highlight-card p,
 .dark-section .service-card p,
 .dark-section .home-card p,
@@ -281,6 +282,21 @@ body {
 .dark-section .reason-card .description,
 .dark-section .reason-card .body-text,
 .dark-section .whyus-card p {
+  color: #0d1f6e !important;
+}
+
+/* Keep white-card body text readable inside blue feature strips */
+.features-strip .card p,
+.features-strip .info-card p,
+.features-strip .feat-card p,
+.features-strip .highlight-card p,
+.features-strip .service-card p,
+.features-strip .home-card p,
+.features-strip .industry-card p,
+.features-strip .reason-card p,
+.features-strip .reason-card .description,
+.features-strip .reason-card .body-text,
+.features-strip .whyus-card p {
   color: #0d1f6e !important;
 }
 
