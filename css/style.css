@@ -270,6 +270,20 @@ body {
   color: rgba(255,255,255,0.9) !important;
 }
 
+/* Keep white-card body text readable inside dark sections */
+.dark-section .card p,
+.dark-section .info-card p,
+.dark-section .highlight-card p,
+.dark-section .service-card p,
+.dark-section .home-card p,
+.dark-section .industry-card p,
+.dark-section .reason-card p,
+.dark-section .reason-card .description,
+.dark-section .reason-card .body-text,
+.dark-section .whyus-card p {
+  color: #0d1f6e !important;
+}
+
 .dark-section .checklist li {
   color: rgba(255,255,255,0.9);
 }
