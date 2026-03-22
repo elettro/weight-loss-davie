@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Elettro — Digital Launch Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#060d2e;--navy:#0d1f6e;--royal:#1a3fcf;--electric:#3a6bff;--sky:#00b8e6;--paper:#f4f6ff;--white:#ffffff;--slate:#3a4a7a;--fog:#7a8ab0;--green:#00a854;--greenl:#e6f9ef;--red:#cc2222;--redl:#fff0f0}
+@page{size:letter;margin:0}
+body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;overflow:hidden;display:flex;flex-direction:column}
+.header{background:var(--ink);height:118px;display:flex;align-items:center;position:relative;flex-shrink:0;overflow:hidden;border-top:3px solid var(--sky)}
+.header::before{content:'';position:absolute;right:0;top:0;width:55%;height:100%;background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:18px 18px}
+.header::after{content:'';position:absolute;right:0;top:0;width:0;height:0;border-style:solid;border-width:0 160px 118px 0;border-color:transparent rgba(26,63,207,0.2) transparent transparent}
+.header-logo{flex-shrink:0;padding:0 16px 0 20px;position:relative;z-index:2}
+.header-logo img{width:74px;height:74px;border-radius:14px;display:block}
+.header-brand{padding-right:22px;border-right:1px solid rgba(255,255,255,0.1);position:relative;z-index:2}
+.wordmark{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;color:var(--white);letter-spacing:-0.01em;line-height:1;text-transform:uppercase}
+.wordmark sup{font-size:14px;color:var(--electric);vertical-align:super}
+.studio-label{font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--electric);margin-top:4px}
+.header-value{padding:0 24px;position:relative;z-index:2}
+.headline{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.1;color:var(--white)}
+.headline span{color:var(--sky)}
+.header-sub{font-size:9.5px;color:var(--fog);margin-top:6px;letter-spacing:0.04em}
+.header-cta{margin-left:auto;padding:0 22px 0 0;text-align:right;position:relative;z-index:2}
+.tagline-hed{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;font-style:italic;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;line-height:1.3}
+.header-url{font-size:10px;font-weight:600;color:var(--electric);margin-top:6px;letter-spacing:0.05em}
+.service-strip{background:var(--royal);height:34px;display:flex;align-items:center;flex-shrink:0}
+.strip-item{flex:1;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.strip-item+.strip-item::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,0.15)}
+.dot{width:4px;height:4px;background:var(--sky);border-radius:50%}
+.body{flex:1;display:grid;grid-template-columns:192px 1fr 182px;background:var(--paper);overflow:hidden;min-height:0}
+.col1{background:var(--white);border-right:1px solid #dde3f5;display:flex;flex-direction:column;padding:14px 13px 10px;overflow:hidden}
+.col2{display:flex;flex-direction:column;padding:14px 13px 10px;overflow:hidden;border-right:1px solid #dde3f5;background:var(--white)}
+.col3{background:var(--paper);display:flex;flex-direction:column;padding:14px 12px 10px;overflow:hidden}
+.col-label{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--electric);margin-bottom:3px}
+.rule{width:34px;height:2px;background:var(--sky);margin-bottom:9px}
+.intro{font-size:8px;line-height:1.65;color:var(--slate);margin-bottom:11px}
+.intro strong{color:var(--navy);font-weight:600}
+.svc-list{display:flex;flex-direction:column;gap:4px;flex:1}
+.svc-card{background:var(--paper);border:1px solid #dde3f5;border-radius:6px;display:flex;align-items:center;gap:8px;padding:5px 8px;position:relative;overflow:hidden;flex:1}
+.svc-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--royal)}
+.svc-num{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:900;color:var(--electric);width:18px;flex-shrink:0;text-align:center;margin-left:5px}
+.svc-title{font-family:'Barlow Condensed',sans-serif;font-size:10.5px;font-weight:800;text-transform:uppercase;color:var(--ink);letter-spacing:0.02em;line-height:1.2}
+.svc-desc{font-size:6.5px;color:var(--fog);line-height:1.5;margin-top:1px}
+.cta-block{background:var(--ink);border-radius:8px;padding:10px 13px;margin-top:7px;flex-shrink:0}
+.cta-lbl{font-family:'Barlow Condensed',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--sky);margin-bottom:3px}
+.cta-url{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:900;color:var(--white);text-transform:uppercase;letter-spacing:0.02em}
+.cta-email{font-size:7.5px;color:var(--fog);margin-top:2px}
+.case-client{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:var(--ink);text-transform:uppercase;letter-spacing:-0.01em;line-height:1;margin-bottom:2px}
+.case-meta{font-size:7px;color:var(--fog);margin-bottom:9px;line-height:1.5}
+.dash{background:var(--ink);border-radius:10px;padding:11px 13px;display:grid;grid-template-columns:88px 1px 1fr;gap:0 11px;margin-bottom:9px;flex-shrink:0}
+.dash-div{background:rgba(255,255,255,0.07)}
+.dash-lbl{font-family:'Barlow Condensed',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--sky);margin-bottom:4px}
+.dash-score{display:flex;align-items:baseline;gap:3px;line-height:1}
+.from{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:900;color:rgba(255,255,255,0.2)}
+.arrow{font-size:15px;color:var(--electric)}
+.to{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:900;color:var(--green)}
+.dash-sub{font-size:7px;color:var(--fog);margin-top:3px}
+.dash-mini{display:flex;align-items:center}
+.mini-score{flex:1;text-align:center;padding:0 3px;position:relative}
+.mini-score+.mini-score::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:rgba(255,255,255,0.07)}
+.mini-label{font-size:6.5px;color:var(--fog);letter-spacing:0.04em;margin-bottom:2px}
+.mini-val{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:900;color:var(--white);line-height:1}
+.mini-delta{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;color:var(--green);margin-top:2px}
+.tbl-head{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:4px;flex-shrink:0}
+.th{padding:5px 8px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+.th-r{background:var(--red);color:#fff}
+.th-g{background:var(--green);color:#fff}
+.tbl-rows{flex:1;display:flex;flex-direction:column;gap:3px;overflow:hidden}
+.trow{display:grid;grid-template-columns:1fr 1fr;gap:4px;flex:1}
+.tc{border-radius:4px;padding:3px 7px;font-size:7px;display:flex;align-items:center;font-weight:500;line-height:1.35}
+.tc-r{background:var(--redl);color:var(--red)}
+.tc-g{background:var(--greenl);color:#006633}
+.stat-grid{display:flex;flex-direction:column;gap:4px;margin-bottom:7px}
+.stat-card{background:var(--white);border:1px solid #dde3f5;border-radius:6px;display:flex;align-items:center;gap:9px;padding:6px 9px;position:relative;overflow:hidden;flex:1}
+.stat-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sky)}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:var(--royal);min-width:36px;text-align:center;line-height:1;flex-shrink:0;margin-left:5px}
+.stat-lbl{font-size:7.5px;color:var(--slate);font-weight:500;line-height:1.4}
+.stat-lbl strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:0.02em}
+.ads-block{background:var(--ink);border-radius:8px;overflow:hidden;flex-shrink:0;margin-bottom:6px}
+.ads-hdr{background:var(--royal);padding:6px 10px;font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#fff}
+.ads-body{padding:7px 10px;display:flex;flex-direction:column;gap:4px}
+.ads-pt{font-size:7px;color:#a0c0e8;display:flex;align-items:center;gap:5px;line-height:1.3}
+.ads-pt::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sky);flex-shrink:0}
+.gsc{background:var(--greenl);border:1px solid var(--green);border-radius:6px;padding:7px 10px;text-align:center}
+.gsc-t{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:2px}
+.gsc-s{font-size:6.5px;color:#006633}
+.footer{background:var(--ink);height:48px;display:flex;align-items:center;padding:0 20px;flex-shrink:0;border-top:2px solid var(--electric)}
+.ft-left{display:flex;align-items:center;gap:10px;flex:1}
+.ft-left img{width:26px;height:26px;border-radius:5px}
+.ft-name{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.04em}
+.ft-name span{display:block;font-family:'Barlow',sans-serif;font-size:7px;color:var(--fog);font-weight:400;letter-spacing:0.02em;margin-top:1px}
+.ft-mid{text-align:center;flex:1}
+.ft-tag{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;font-style:italic;color:#fff;text-transform:uppercase;letter-spacing:0.02em}
+.ft-sub{font-size:7px;color:var(--fog);margin-top:1px}
+.ft-right{text-align:right;flex:1}
+.ft-contact{font-size:8px;color:var(--electric);font-weight:600}
+.ft-copy{font-size:6.5px;color:#3a4a7a;margin-top:2px}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-logo"><img src="icon1024.png" alt="Elettro"/></div>
+  <div class="header-brand">
+    <div class="wordmark">Elettro<sup>™</sup></div>
+    <div class="studio-label">Full Service Creative Production Studio</div>
+  </div>
+  <div class="header-value">
+    <div class="headline">Website · SEO · AI Search<br><span>· Google Ads Strategy</span></div>
+    <div class="header-sub">A complete digital launch service for medical &amp; local practices</div>
+  </div>
+  <div class="header-cta">
+    <div class="tagline-hed">One Studio.<br>Every Layer.<br>Zero Gaps.</div>
+    <div class="header-url">elettro.com</div>
+  </div>
+</header>
+
+<div class="service-strip">
+  <div class="strip-item"><div class="dot"></div>Website Build</div>
+  <div class="strip-item"><div class="dot"></div>SEO Foundation</div>
+  <div class="strip-item"><div class="dot"></div>AI Search Optimization</div>
+  <div class="strip-item"><div class="dot"></div>Local SEO &amp; GMB</div>
+  <div class="strip-item"><div class="dot"></div>Google Ads Strategy</div>
+  <div class="strip-item"><div class="dot"></div>Content Optimization</div>
+</div>
+
+<div class="body">
+
+  <div class="col1">
+    <div class="col-label">What We Deliver</div>
+    <div class="rule"></div>
+    <p class="intro">Most websites get built and handed off with no thought given to how Google finds them, how <strong>AI models cite them</strong>, or how paid ads drive calls.<br><br>Elettro treats all three as a <strong>unified system</strong> — built right from the ground up. Site, SEO, AI visibility, and Google Ads working together from launch.</p>
+    <div class="svc-list">
+      <div class="svc-card"><div class="svc-num">01</div><div><div class="svc-title">Website Production</div><div class="svc-desc">Custom HTML/CSS · GitHub Pages · Mobile responsive · Fast load</div></div></div>
+      <div class="svc-card"><div class="svc-num">02</div><div><div class="svc-title">SEO Foundation</div><div class="svc-desc">Schema markup · sitemap · robots.txt · Search Console · meta tags</div></div></div>
+      <div class="svc-card"><div class="svc-num">03</div><div><div class="svc-title">AI Search Optimization</div><div class="svc-desc">Engineered to be cited by ChatGPT, Perplexity &amp; Google AI Overviews</div></div></div>
+      <div class="svc-card"><div class="svc-num">04</div><div><div class="svc-title">Local SEO &amp; GMB</div><div class="svc-desc">Map Pack · GMB integration · NAP consistency · geo-targeting</div></div></div>
+      <div class="svc-card"><div class="svc-num">05</div><div><div class="svc-title">Google Ads Strategy</div><div class="svc-desc">Campaign architecture · RSA copy · keywords · compliance · bidding</div></div></div>
+      <div class="svc-card"><div class="svc-num">06</div><div><div class="svc-title">Content Optimization</div><div class="svc-desc">Drug terms · provider credentials · FAQ expansion · city targeting</div></div></div>
+    </div>
+    <div class="cta-block">
+      <div class="cta-lbl">Get Started</div>
+      <div class="cta-url">elettro.com</div>
+      <div class="cta-email">dpalermo@elettro.com · Plantation, Florida</div>
+    </div>
+  </div>
+
+  <div class="col2">
+    <div class="col-label">Live Case Study</div>
+    <div class="rule"></div>
+    <div class="case-client">Weight Loss Davie</div>
+    <div class="case-meta">weightlossdavie.com · Davie, Florida<br>Provider-led medical weight loss · Brand new practice · Zero online presence at start</div>
+    <div class="dash">
+      <div>
+        <div class="dash-lbl">Overall Score</div>
+        <div class="dash-score"><span class="from">3</span><span class="arrow">→</span><span class="to">7</span></div>
+        <div class="dash-sub">out of 10 · from zero</div>
+      </div>
+      <div class="dash-div"></div>
+      <div class="dash-mini">
+        <div class="mini-score"><div class="mini-label">Schema</div><div class="mini-val">2→8</div><div class="mini-delta">+6</div></div>
+        <div class="mini-score"><div class="mini-label">Local SEO</div><div class="mini-val">4→7</div><div class="mini-delta">+3</div></div>
+        <div class="mini-score"><div class="mini-label">On-Page</div><div class="mini-val">5→8</div><div class="mini-delta">+3</div></div>
+        <div class="mini-score"><div class="mini-label">AI Cite</div><div class="mini-val">0→7</div><div class="mini-delta">+7</div></div>
+        <div class="mini-score"><div class="mini-label">Content</div><div class="mini-val">5→8</div><div class="mini-delta">+3</div></div>
+      </div>
+    </div>
+    <div class="tbl-head">
+      <div class="th th-r">✕ &nbsp;What Was Broken</div>
+      <div class="th th-g">✓ &nbsp;What Was Fixed</div>
+    </div>
+    <div class="tbl-rows">
+      <div class="trow"><div class="tc tc-r">Zero Google indexing — invisible</div><div class="tc tc-g">Search Console verified + sitemap submitted</div></div>
+      <div class="trow"><div class="tc tc-r">No schema markup anywhere</div><div class="tc tc-g">LocalBusiness · Medical · Person · FAQ schema</div></div>
+      <div class="trow"><div class="tc tc-r">Broken links — 404 errors sitewide</div><div class="tc tc-g">All internal links corrected to live URLs</div></div>
+      <div class="trow"><div class="tc tc-r">No sitemap or robots.txt</div><div class="tc tc-g">Both files created and deployed</div></div>
+      <div class="trow"><div class="tc tc-r">No meta descriptions on any page</div><div class="tc tc-g">Unique descriptions written — all 8 pages</div></div>
+      <div class="trow"><div class="tc tc-r">Drug names missing from all copy</div><div class="tc tc-g">Semaglutide &amp; tirzepatide added throughout</div></div>
+      <div class="trow"><div class="tc tc-r">No geo-targeting beyond Davie</div><div class="tc tc-g">10 Broward cities added to copy &amp; schema</div></div>
+      <div class="trow"><div class="tc tc-r">NAP inconsistency across pages</div><div class="tc tc-g">Unified to GMB format sitewide</div></div>
+      <div class="trow"><div class="tc tc-r">GMB not integrated with site</div><div class="tc tc-g">Map embed · reviews · Place ID added</div></div>
+      <div class="trow"><div class="tc tc-r">No AI citation signals present</div><div class="tc tc-g">8 position-zero FAQs + full provider CV</div></div>
+    </div>
+  </div>
+
+  <div class="col3">
+    <div class="col-label">By The Numbers</div>
+    <div class="rule"></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl"><strong>Pages Optimized</strong>Full SEO treatment every page</div></div>
+      <div class="stat-card"><div class="stat-num">45+</div><div class="stat-lbl"><strong>Keywords Mapped</strong>Across 3 Google Ads groups</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-lbl"><strong>Schema Types</strong>LocalBiz · Medical · Person · FAQ</div></div>
+      <div class="stat-card"><div class="stat-num">10</div><div class="stat-lbl"><strong>Cities Targeted</strong>Broward County geo-targeting</div></div>
+      <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl"><strong>AI Citation FAQs</strong>Position-zero targets added</div></div>
+      <div class="stat-card"><div class="stat-num">3→7</div><div class="stat-lbl"><strong>SEO Score</strong>From zero to 7/10 overall</div></div>
+    </div>
+    <div class="ads-block">
+      <div class="ads-hdr">Google Ads — Built in Parallel</div>
+      <div class="ads-body">
+        <div class="ads-pt">3 ad groups · 45+ keywords mapped</div>
+        <div class="ads-pt">RSA headlines &amp; descriptions — all groups</div>
+        <div class="ads-pt">Call &amp; lead form extensions configured</div>
+        <div class="ads-pt">Healthcare policy compliant framing</div>
+        <div class="ads-pt">Negative keyword library — launch ready</div>
+        <div class="ads-pt">Bid strategy &amp; 30-day launch sequence</div>
+      </div>
+    </div>
+    <div class="gsc">
+      <div class="gsc-t">✓ Google Search Console</div>
+      <div class="gsc-s">Verified · Sitemap submitted · Indexing live</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="ft-left">
+    <img src="icon1024.png" alt="Elettro"/>
+    <div class="ft-name">Elettro™<span>Full Service Creative Production Studio</span></div>
+  </div>
+  <div class="ft-mid">
+    <div class="ft-tag">Your site. Found. Cited. Converting.</div>
+    <div class="ft-sub">Website · SEO · AI Search · Google Ads · One Studio. Every Layer. Zero Gaps.</div>
+  </div>
+  <div class="ft-right">
+    <div class="ft-contact">elettro.com · dpalermo@elettro.com</div>
+    <div class="ft-copy">© 2026 Elettro. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
