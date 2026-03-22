@@ -513,6 +513,44 @@
 </head>
 <body>
 
+
+<div id="mobile-call-bar" style="
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: #1a3fcf;
+  text-align: center;
+  padding: 11px 16px;
+  box-shadow: 0 2px 12px rgba(13,31,110,0.25);
+">
+  <a href="tel:+13104086687" style="
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  ">
+    <span style="font-size:18px;">📞</span>
+    Call Us — (310) 408-6687
+  </a>
+</div>
+
+<style>
+@media (max-width: 768px) {
+  #mobile-call-bar {
+    display: block !important;
+  }
+}
+</style>
+
+
 <!-- ═══════════════════════ COVER ═══════════════════════ -->
 <div class="cover">
   <div class="cover-logo">Elettro — Digital Production Studio</div>
