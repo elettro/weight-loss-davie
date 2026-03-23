@@ -125,6 +125,31 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
     'phone_conversion_number': '(310)408-6687'
   });
 </script>
+
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+    'value': 50.0,
+    'currency': 'USD',
+    'event_callback': callback
+  });
+
+  // ALSO send to GA4
+  gtag('event', 'phone_click', {
+    'event_category': 'engagement',
+    'event_label': 'phone_click'
+  });
+
+  return false;
+}
+</script>
 </head>
 <body>
 
@@ -151,9 +176,9 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
     align-items: center;
     justify-content: center;
     gap: 10px;
-  ">
+  " onclick="return gtag_report_conversion('tel:13104086687');">
     <span style="font-size:18px;">📞</span>
-    Call Us — <a href="tel:13104086687">(310)408-6687</a>
+    Call Us — <a href="tel:13104086687" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a>
   </a>
 </div>
 
