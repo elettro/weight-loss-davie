@@ -130,10 +130,13 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
   padding: 11px 16px;
   box-shadow: 0 2px 12px rgba(13,31,110,0.25);
 ">
-  <a href="tel:13104086687" class="header-phone">
-    <span style="font-size:18px;">📞</span>
-    Call Us — <a href="tel:13104086687">(310)408-6687</a>
-  </a>
+  <div class="header-phone">
+    <span class="phone-icon">📞</span>
+    <span class="phone-text">
+      CALL US –
+      <a href="tel:13104086687" class="phone-link">(310) 408-6687</a>
+    </span>
+  </div>
 </div>
 
 <style>
@@ -141,6 +144,37 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
   #mobile-call-bar {
     display: block !important;
   }
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.phone-text {
+  color: #ffffff;
+}
+
+.phone-link {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.phone-link:visited,
+.phone-link:hover,
+.phone-link:active {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.phone-icon {
+  font-size: 18px;
 }
 </style>
 
@@ -275,38 +309,21 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
 
-  phoneLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
+  phoneLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
       if (typeof gtag === 'function') {
         gtag('event', 'phone_click', {
           'send_to': 'G-CCJKDS7CZB'
         });
 
         gtag('event', 'conversion', {
-          'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-          'value': 50.0,
-          'currency': 'USD'
+          'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D'
         });
       }
     });
-  });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-
-  phoneLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      console.log('PHONE CLICK DEBUG FIRED');
-
-      if (typeof gtag === 'function') {
-        gtag('event', 'phone_click_debug');
-      }
-    }, true);
   });
 });
 </script>
