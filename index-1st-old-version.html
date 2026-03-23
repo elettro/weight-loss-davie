@@ -352,7 +352,7 @@ footer{background:#0e1c16;padding:2.5rem 7vw;display:flex;justify-content:space-
     <span class="phone-icon">📞</span>
     <span class="phone-text">
       CALL US –
-      <a href="/call-now" class="phone-link">(310) 408-6687</a>
+      <a href="tel:13104086687" class="phone-link">(310) 408-6687</a>
     </span>
   </div>
 </div>
@@ -767,25 +767,6 @@ function toggleMenu() { document.getElementById('nl').classList.toggle('open'); 
 document.querySelectorAll('#nl a').forEach(a => a.addEventListener('click', () => document.getElementById('nl').classList.remove('open')));
 const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('up'); }), {threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-
-  phoneLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      if (typeof gtag === 'function') {
-        gtag('event', 'phone_click', {
-          'send_to': 'G-CCJKDS7CZB'
-        });
-
-        gtag('event', 'conversion', {
-          'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D'
-        });
-      }
-    });
-  });
-});
 </script>
 </body>
 </html>
