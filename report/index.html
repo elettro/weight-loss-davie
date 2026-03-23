@@ -553,26 +553,28 @@
     justify-content: center;
     gap: 10px;
   " onclick="
-gtag('event','phone_click', {
-  'send_to': 'G-CCJKDS7CZB'
-});
-gtag('event','conversion', {
-  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-  'value': 50.0,
-  'currency': 'USD'
-});
-">
+     event.preventDefault();
+     gtag('event','phone_click');
+     gtag('event','conversion', {
+       'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+       'value': 50.0,
+       'currency': 'USD'
+     });
+     setTimeout(function(){ window.location.href='tel:13104086687'; }, 500);
+     return false;
+   ">
     <span style="font-size:18px;">📞</span>
     Call Us — <a href="tel:13104086687" onclick="
-gtag('event','phone_click', {
-  'send_to': 'G-CCJKDS7CZB'
-});
-gtag('event','conversion', {
-  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-  'value': 50.0,
-  'currency': 'USD'
-});
-">(310)408-6687</a>
+     event.preventDefault();
+     gtag('event','phone_click');
+     gtag('event','conversion', {
+       'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+       'value': 50.0,
+       'currency': 'USD'
+     });
+     setTimeout(function(){ window.location.href='tel:13104086687'; }, 500);
+     return false;
+   ">(310)408-6687</a>
   </a>
 </div>
 
@@ -784,15 +786,16 @@ gtag('event','conversion', {
     <li>
       <div class="check-dot dot-red" style="background:var(--red);">✕</div>
       <div><strong>Phone number format inconsistency</strong> Site showed non-clickable phone text in some places and <a href="tel:13104086687" onclick="
-gtag('event','phone_click', {
-  'send_to': 'G-CCJKDS7CZB'
-});
-gtag('event','conversion', {
-  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-  'value': 50.0,
-  'currency': 'USD'
-});
-">(310)408-6687</a> in others — NAP inconsistency that hurts local SEO.</div>
+     event.preventDefault();
+     gtag('event','phone_click');
+     gtag('event','conversion', {
+       'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+       'value': 50.0,
+       'currency': 'USD'
+     });
+     setTimeout(function(){ window.location.href='tel:13104086687'; }, 500);
+     return false;
+   ">(310)408-6687</a> in others — NAP inconsistency that hurts local SEO.</div>
     </li>
   </ul>
 
