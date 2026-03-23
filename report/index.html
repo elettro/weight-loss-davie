@@ -540,19 +540,7 @@
   padding: 11px 16px;
   box-shadow: 0 2px 12px rgba(13,31,110,0.25);
 ">
-  <a href="tel:13104086687" class="header-phone" style="
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #ffffff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  ">
+  <a href="tel:13104086687" class="header-phone">
     <span style="font-size:18px;">📞</span>
     Call Us — <a href="tel:13104086687">(310)408-6687</a>
   </a>
@@ -1073,6 +1061,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+
+  phoneLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      console.log('PHONE CLICK DEBUG FIRED');
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_click_debug');
+      }
+    }, true);
   });
 });
 </script>
