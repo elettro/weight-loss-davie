@@ -110,46 +110,12 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
 
   gtag('config', 'G-CCJKDS7CZB');
 </script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-967271892"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-967271892');
-</script>
 <script>
   gtag('config', 'AW-967271892/saQUCO-u240cENTLnc0D', {
     'phone_conversion_number': '(310)408-6687'
   });
 </script>
 
-<script>
-function gtag_report_conversion(url) {
-  // Send to Google Ads
-  gtag('event', 'conversion', {
-    'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-    'value': 50.0,
-    'currency': 'USD'
-  });
-
-  // Send to GA4 explicitly
-  gtag('event', 'phone_click', {
-    'event_category': 'engagement',
-    'event_label': 'phone_click',
-    'value': 1
-  });
-
-  // Continue with phone dial
-  if (typeof(url) != 'undefined') {
-    window.location = url;
-  }
-
-  return false;
-}
-</script>
 </head>
 <body>
 
@@ -176,9 +142,23 @@ function gtag_report_conversion(url) {
     align-items: center;
     justify-content: center;
     gap: 10px;
-  " onclick="return gtag_report_conversion('tel:13104086687');">
+  " onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">
     <span style="font-size:18px;">📞</span>
-    Call Us — <a href="tel:13104086687" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a>
+    Call Us — <a href="tel:13104086687" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">(310)408-6687</a>
   </a>
 </div>
 

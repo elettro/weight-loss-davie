@@ -328,46 +328,12 @@ footer{background:#0e1c16;padding:2.5rem 7vw;display:flex;justify-content:space-
 
   gtag('config', 'G-CCJKDS7CZB');
 </script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-967271892"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-967271892');
-</script>
 <script>
   gtag('config', 'AW-967271892/saQUCO-u240cENTLnc0D', {
     'phone_conversion_number': '(310)408-6687'
   });
 </script>
 
-<script>
-function gtag_report_conversion(url) {
-  // Send to Google Ads
-  gtag('event', 'conversion', {
-    'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-    'value': 50.0,
-    'currency': 'USD'
-  });
-
-  // Send to GA4 explicitly
-  gtag('event', 'phone_click', {
-    'event_category': 'engagement',
-    'event_label': 'phone_click',
-    'value': 1
-  });
-
-  // Continue with phone dial
-  if (typeof(url) != 'undefined') {
-    window.location = url;
-  }
-
-  return false;
-}
-</script>
 </head>
 <body>
 
@@ -394,9 +360,23 @@ function gtag_report_conversion(url) {
     align-items: center;
     justify-content: center;
     gap: 10px;
-  " onclick="return gtag_report_conversion('tel:13104086687');">
+  " onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">
     <span style="font-size:18px;">📞</span>
-    Call Us — <a href="tel:13104086687" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a>
+    Call Us — <a href="tel:13104086687" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">(310)408-6687</a>
   </a>
 </div>
 
@@ -617,7 +597,14 @@ function gtag_report_conversion(url) {
         <h3>Referral Program</h3>
         <p>Know someone who could benefit from medical weight loss? Our referral program rewards you when eligible referrals complete enrollment. Full program details — including incentives and your unique referral link — are shared when you connect with your provider.</p>
       </div>
-      <a href="tel:13104086687" class="btn-gold" style="white-space:nowrap;" onclick="return gtag_report_conversion('tel:13104086687');">📞 Call to Learn More</a>
+      <a href="tel:13104086687" class="btn-gold" style="white-space:nowrap;" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">📞 Call to Learn More</a>
     </div>
   </div>
 </section>
@@ -630,7 +617,14 @@ function gtag_report_conversion(url) {
         <span class="eyebrow">New Patients</span>
         <h2 class="disp">Ready to <em>Get Started?</em></h2>
         <p class="lead">Starting is simple — just give us a call. We'll walk you through the intake process, answer your questions, and schedule your free consultation.</p>
-        <a href="tel:13104086687" class="btn-gold" style="margin-top:1.8rem;display:inline-block;" onclick="return gtag_report_conversion('tel:13104086687');">📞 Call to Begin Registration</a>
+        <a href="tel:13104086687" class="btn-gold" style="margin-top:1.8rem;display:inline-block;" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">📞 Call to Begin Registration</a>
         <p style="font-size:0.75rem;color:var(--light);margin-top:0.8rem;letter-spacing:0.05em;">No credit card required · No insurance needed · No obligation</p>
       </div>
       <div class="reg-right">
@@ -728,7 +722,14 @@ function gtag_report_conversion(url) {
       <p>No obligation, no credit card, no insurance needed. Schedule a confidential visit with a licensed provider and take the first step toward structured, medically guided weight management.</p>
     </div>
     <div class="cta-side reveal d2">
-      <a href="tel:13104086687" class="btn-gold" onclick="return gtag_report_conversion('tel:13104086687');">📞 &nbsp;Call to Schedule</a>
+      <a href="tel:13104086687" class="btn-gold" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">📞 &nbsp;Call to Schedule</a>
       
       <p class="cta-note">No insurance &nbsp;·&nbsp; No contracts &nbsp;·&nbsp; Free first visit</p>
     </div>
