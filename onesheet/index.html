@@ -130,7 +130,7 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
   padding: 11px 16px;
   box-shadow: 0 2px 12px rgba(13,31,110,0.25);
 ">
-  <a href="tel:13104086687" style="
+  <a href="tel:13104086687" class="header-phone" style="
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 17px;
     font-weight: 800;
@@ -142,29 +142,9 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
     align-items: center;
     justify-content: center;
     gap: 10px;
-  " onclick="
-     event.preventDefault();
-     gtag('event','phone_click');
-     gtag('event','conversion', {
-       'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-       'value': 50.0,
-       'currency': 'USD'
-     });
-     setTimeout(function(){ window.location.href='tel:13104086687'; }, 500);
-     return false;
-   ">
+  ">
     <span style="font-size:18px;">📞</span>
-    Call Us — <a href="tel:13104086687" onclick="
-     event.preventDefault();
-     gtag('event','phone_click');
-     gtag('event','conversion', {
-       'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-       'value': 50.0,
-       'currency': 'USD'
-     });
-     setTimeout(function(){ window.location.href='tel:13104086687'; }, 500);
-     return false;
-   ">(310)408-6687</a>
+    Call Us — <a href="tel:13104086687">(310)408-6687</a>
   </a>
 </div>
 
@@ -306,5 +286,26 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
   </div>
 </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+
+  phoneLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_click', {
+          'send_to': 'G-CCJKDS7CZB'
+        });
+
+        gtag('event', 'conversion', {
+          'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+          'value': 50.0,
+          'currency': 'USD'
+        });
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
