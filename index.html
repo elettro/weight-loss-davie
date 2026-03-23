@@ -161,30 +161,6 @@
   });
 </script>
 
-<script>
-function gtag_report_conversion(url) {
-  // Send to Google Ads
-  gtag('event', 'conversion', {
-    'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
-    'value': 50.0,
-    'currency': 'USD'
-  });
-
-  // Send to GA4 explicitly
-  gtag('event', 'phone_click', {
-    'event_category': 'engagement',
-    'event_label': 'phone_click',
-    'value': 1
-  });
-
-  // Continue with phone dial
-  if (typeof(url) != 'undefined') {
-    window.location = url;
-  }
-
-  return false;
-}
-</script>
 </head>
 <body>
 
@@ -211,9 +187,23 @@ function gtag_report_conversion(url) {
     align-items: center;
     justify-content: center;
     gap: 10px;
-  " onclick="return gtag_report_conversion('tel:13104086687');">
+  " onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">
     <span style="font-size:18px;">📞</span>
-    Call Us — <a href="tel:13104086687" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a>
+    Call Us — <a href="tel:13104086687" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">(310)408-6687</a>
   </a>
 </div>
 
@@ -549,7 +539,14 @@ function gtag_report_conversion(url) {
       <div class="home-card">
         <h3>2. Call Or Message Us</h3>
         <p>
-          When you're ready, reach out by phone at <a href="tel:13104086687" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a>
+          When you're ready, reach out by phone at <a href="tel:13104086687" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">(310)408-6687</a>
           or email contact@weightlossdavie.com — we'll answer your
           questions and walk you through the intake process from there.
         </p>
@@ -557,7 +554,14 @@ function gtag_report_conversion(url) {
     </div>
 
     <div class="contact-panel" style="margin-top:18px;">
-      <p><strong style="color:var(--deep);">Phone:</strong> <a href="tel:13104086687" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a></p>
+      <p><strong style="color:var(--deep);">Phone:</strong> <a href="tel:13104086687" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">(310)408-6687</a></p>
       <p><strong style="color:var(--deep);">Email:</strong> <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
       <p><strong style="color:var(--deep);">Service Area:</strong> Located in Davie, Florida, with in-person visits in Davie and mobile/text follow-up care available statewide across Florida when appropriate.</p>
     </div>
@@ -749,7 +753,14 @@ function gtag_report_conversion(url) {
       <h2>Quick Answers For Patients In Davie And South Florida</h2>
       <p><strong>What services are available?</strong> We provide provider-led medical weight loss, weight management, and education on treatment options such as Semaglutide and Tirzepatide when clinically appropriate.</p>
       <p><strong>Where is care delivered?</strong> Weight Loss Davie is based in Davie, Florida in Broward County and supports patients across South Florida.</p>
-      <p><strong>How do I start?</strong> Visit our <a href="https://weightlossdavie.com/contact-us/" style="color:var(--blue);text-decoration:none;">Contact page</a> or call <a href="tel:13104086687" style="color:var(--blue);text-decoration:none;" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a> for next-step guidance.</p>
+      <p><strong>How do I start?</strong> Visit our <a href="https://weightlossdavie.com/contact-us/" style="color:var(--blue);text-decoration:none;">Contact page</a> or call <a href="tel:13104086687" style="color:var(--blue);text-decoration:none;" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">(310)408-6687</a> for next-step guidance.</p>
     </div>
     <div class="s1-right">
       <div class="info-block">
@@ -809,7 +820,14 @@ function gtag_report_conversion(url) {
     <div class="footer-brand">
       <h3>Weight Loss Davie</h3>
       <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
-      <p style="margin-top:16px;">📞 <a href="tel:13104086687" onclick="return gtag_report_conversion('tel:13104086687');">(310)408-6687</a></p>
+      <p style="margin-top:16px;">📞 <a href="tel:13104086687" onclick="
+gtag('event','phone_click');
+gtag('event','conversion', {
+  'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
+  'value': 50.0,
+  'currency': 'USD'
+});
+">(310)408-6687</a></p>
       <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
       <p style="margin-top:8px;color:rgba(255,255,255,0.9);font-size:13px;">Davie, Florida · Serving Broward County & All of Florida</p>
     </div>
