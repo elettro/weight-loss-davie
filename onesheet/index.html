@@ -128,24 +128,24 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
 
 <script>
 function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-
+  // Send to Google Ads
   gtag('event', 'conversion', {
     'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D',
     'value': 50.0,
-    'currency': 'USD',
-    'event_callback': callback
+    'currency': 'USD'
   });
 
-  // ALSO send to GA4
+  // Send to GA4 explicitly
   gtag('event', 'phone_click', {
     'event_category': 'engagement',
-    'event_label': 'phone_click'
+    'event_label': 'phone_click',
+    'value': 1
   });
+
+  // Continue with phone dial
+  if (typeof(url) != 'undefined') {
+    window.location = url;
+  }
 
   return false;
 }
