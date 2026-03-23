@@ -134,7 +134,7 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
     <span class="phone-icon">📞</span>
     <span class="phone-text">
       CALL US –
-      <a href="/call-now" class="phone-link">(310) 408-6687</a>
+      <a href="tel:13104086687" class="phone-link">(310) 408-6687</a>
     </span>
   </div>
 </div>
@@ -308,24 +308,5 @@ body{font-family:'Barlow',sans-serif;background:#fff;width:8.5in;height:11in;ove
   </div>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-
-  phoneLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      if (typeof gtag === 'function') {
-        gtag('event', 'phone_click', {
-          'send_to': 'G-CCJKDS7CZB'
-        });
-
-        gtag('event', 'conversion', {
-          'send_to': 'AW-967271892/aYVGCLycg44cENTLnc0D'
-        });
-      }
-    });
-  });
-});
-</script>
 </body>
 </html>
