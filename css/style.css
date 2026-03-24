@@ -424,7 +424,7 @@ a[href^="tel:"]:active {
   gap: 14px;
   font-size: 15px;
   line-height: 1.6;
-  color: var(--muted);
+  color: #ffffff;
 }
 
 .check-icon {
@@ -447,7 +447,7 @@ a[href^="tel:"]:active {
 }
 
 .checklist li strong {
-  color: var(--deep);
+  color: #ffffff;
   display: block;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 16px;
