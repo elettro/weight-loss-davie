@@ -491,7 +491,7 @@
           <form
             class="landing-form"
             id="consult-form"
-            action="https://formspree.io/f/YOUR-FORMSPREE-ID"
+            action="https://formspree.io/f/xlgoreog"
             method="POST"
           >
             <div>
@@ -523,7 +523,7 @@
               <textarea id="message" name="message" placeholder="Tell us a little about what you're looking for."></textarea>
             </div>
 
-            <input type="hidden" name="_subject" value="New Weight Loss Davie Consultation Lead" />
+            <input type="hidden" name="_subject" value="New Consultation Request - Landing Page" />
 
             <button type="submit" class="cta-btn">Submit Request</button>
           </form>
@@ -681,14 +681,36 @@
       return false;
     }
 
-    const consultForm = document.getElementById('consult-form');
-    if (consultForm) {
-      consultForm.addEventListener('submit', function () {
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', {
-            event_category: 'form',
-            event_label: 'consultation_request'
+    const form = document.getElementById('consult-form');
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
           });
+
+          if (response.ok) {
+            form.reset();
+            alert('Thank you. Your request has been submitted. We will contact you shortly.');
+
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                event_category: 'form',
+                event_label: 'landing_page_submission'
+              });
+            }
+          } else {
+            alert('There was an issue submitting your request. Please try again.');
+          }
+        } catch (error) {
+          alert('Submission failed. Please check your connection and try again.');
         }
       });
     }
