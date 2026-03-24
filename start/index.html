@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weight Loss Support in Davie | Weight Loss Davie</title>
+  <meta
+    name="description"
+    content="Provider-led weight loss support in Davie. Personalized plans, structured guidance, and ongoing support from a licensed PA-C. Book your consultation today."
+  />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://weightlossdavie.com/get-started/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    .landing-hero-actions {
+      margin-top: 34px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .landing-hero-actions .cta-btn.alt {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .landing-hero-actions .cta-btn.alt:hover {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+
+    .hero-note {
+      margin-top: 26px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      position: relative;
+      z-index: 2;
+    }
+
+    .landing-feature-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--deep);
+      margin-bottom: 10px;
+    }
+
+    .landing-feature-copy {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .feat-card.no-image {
+      padding-top: 32px;
+      padding-bottom: 28px;
+      min-height: 220px;
+      justify-content: flex-start;
+    }
+
+    .trust-kicker {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .landing-form-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px 26px;
+      box-shadow: 0 20px 55px rgba(0,0,0,0.09);
+    }
+
+    .landing-form-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 12px;
+    }
+
+    .landing-form-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .landing-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .landing-form label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--deep);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .landing-form input,
+    .landing-form textarea,
+    .landing-form select {
+      width: 100%;
+      border: 1px solid rgba(13,31,110,0.12);
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 14px 14px;
+      font: inherit;
+      color: var(--text);
+    }
+
+    .landing-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .landing-form button {
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .fine-note {
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .contact-mini {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-mini div,
+    .contact-mini a {
+      font-size: 14px;
+      color: var(--deep);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .step-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 26px 22px;
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .step-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .provider-panel {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 34px 30px;
+    }
+
+    .provider-panel h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--deep);
+      margin-bottom: 18px;
+    }
+
+    .provider-panel p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .badge-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge-stack .badge {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .landing-disclaimer {
+      background: #ffffff;
+      border: 1px solid rgba(13,31,110,0.08);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .landing-disclaimer h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 10px;
+    }
+
+    .landing-disclaimer p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .step-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/">
+        <img src="/images/logo.png" alt="Weight Loss Davie logo" />
+        <span class="brand-text">Weight Loss Davie</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="tel:+19549990000" class="nav-ghost">Call Now</a>
+        <a href="#consultation" class="nav-cta">Book Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Davie • Provider-Led Weight Loss Support</div>
+      <h1>Personalized<br><span>Weight Loss</span><br>Support</h1>
+      <p class="hero-desc">
+        Work with a licensed PA-C for a structured, personalized approach to your weight loss goals.
+        Get clear guidance, practical support, and a process built around real progress.
+      </p>
+
+      <div class="landing-hero-actions">
+        <a class="cta-btn" href="#consultation">Book Your Consultation</a>
+        <a class="cta-btn alt" href="tel:+19549990000">Call Now</a>
+      </div>
+
+      <div class="hero-note">
+        In-person and virtual support available.
+      </div>
+    </div>
+  </section>
+
+  <section class="features-strip">
+    <div class="features-strip-inner">
+      <div class="feat-card no-image">
+        <div class="landing-feature-title">Licensed Provider</div>
+        <div class="landing-feature-copy">
+          Led by an active PA-C with deep clinical experience and a patient-focused approach.
+        </div>
+      </div>
+
+      <div class="feat-card no-image">
+        <div class="landing-feature-title">Personalized Plans</div>
+        <div class="landing-feature-copy">
+          Your support plan is shaped around your goals, your starting point, and your lifestyle.
+        </div>
+      </div>
+
+      <div class="feat-card no-image">
+        <div class="landing-feature-title">Structured Guidance</div>
+        <div class="landing-feature-copy">
+          Clear next steps, consistent communication, and a more organized path forward.
+        </div>
+      </div>
+
+      <div class="feat-card no-image">
+        <div class="landing-feature-title">Ongoing Support</div>
+        <div class="landing-feature-copy">
+          Stay focused with provider-led accountability and practical follow-through.
+        </div>
+      </div>
+
+      <div class="feat-card no-image">
+        <div class="landing-feature-title">Davie-Based</div>
+        <div class="landing-feature-copy">
+          Local service built for Broward County patients looking for a serious, guided approach.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-tag">Why Reach Out</div>
+    <div class="s1-grid">
+      <div class="s1-left">
+        <h2>Get A Clearer Path Forward</h2>
+        <p>
+          Many people have already tried handling weight loss on their own. What they need next is
+          structure, accountability, and provider-led support that feels organized and professional.
+        </p>
+        <p>
+          This landing page is built for people ready to take action. It keeps the message focused,
+          clean, and aligned with Google Ads requirements while still presenting strong trust signals.
+        </p>
+      </div>
+
+      <div class="s1-right">
+        <div class="info-block">
+          <h3>Built For Busy Adults</h3>
+          <p>
+            A focused process for people who want real support instead of generic advice.
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>Provider-Led Support</h3>
+          <p>
+            Led by a licensed PA-C with a structured approach and real patient communication.
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>Long-Term Focus</h3>
+          <p>
+            The goal is meaningful progress with a plan built for consistency and follow-through.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section">
+    <div class="section">
+      <div class="section-tag">How It Works</div>
+      <div class="s1-left">
+        <h2>A Simple, Structured Process</h2>
+        <p>
+          This keeps the experience straightforward. Reach out. Connect with the provider. Move forward with a personalized plan and ongoing support.
+        </p>
+      </div>
+
+      <div class="step-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Request Info</h3>
+          <p>
+            Fill out the form or call directly to start the conversation.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Meet The Provider</h3>
+          <p>
+            Connect with a licensed PA-C to review your goals and discuss the right path forward.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Move Forward</h3>
+          <p>
+            Begin a more guided, personalized support process with clear next steps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="s3-grid">
+      <div>
+        <div class="highlight-box">
+          <h2>What You Can Expect</h2>
+          <p>
+            A more personal experience. Better clarity. Stronger structure. More support.
+          </p>
+
+          <ul class="checklist">
+            <li>
+              <span class="check-icon"></span>
+              <div>
+                <strong>Personalized Direction</strong>
+                Support shaped around your goals and starting point.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon"></span>
+              <div>
+                <strong>Consistent Communication</strong>
+                Clear follow-up and a more organized process.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon"></span>
+              <div>
+                <strong>Professional Oversight</strong>
+                Provider-led guidance from a licensed PA-C.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon"></span>
+              <div>
+                <strong>Long-Term Mindset</strong>
+                A process designed around progress, not quick hype.
+              </div>
+            </li>
+          </ul>
+
+          <div class="badge-row">
+            <span class="badge">Provider-Led</span>
+            <span class="badge">Davie</span>
+            <span class="badge">Personalized</span>
+            <span class="badge">Structured Support</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="consultation">
+        <div class="landing-form-card">
+          <h3>Request Your Consultation</h3>
+          <p>
+            Fill out the short form below and we’ll follow up with next-step information.
+          </p>
+
+          <form
+            class="landing-form"
+            id="consult-form"
+            action="https://formspree.io/f/YOUR-FORMSPREE-ID"
+            method="POST"
+          >
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+
+            <div>
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" required />
+            </div>
+
+            <div>
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+
+            <div>
+              <label for="contact_method">Preferred Contact Method</label>
+              <select id="contact_method" name="contact_method">
+                <option value="Phone">Phone</option>
+                <option value="Text">Text</option>
+                <option value="Email">Email</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message">What Would You Like Help With?</label>
+              <textarea id="message" name="message" placeholder="Tell us a little about what you're looking for."></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New Weight Loss Davie Consultation Lead" />
+
+            <button type="submit" class="cta-btn">Submit Request</button>
+          </form>
+
+          <div class="contact-mini">
+            <a href="tel:+19549990000">Call: (954) 999-0000</a>
+            <a href="mailto:info@weightlossdavie.com">Email: info@weightlossdavie.com</a>
+            <div>Location: Davie, Florida</div>
+          </div>
+
+          <div class="fine-note">
+            By submitting this form, you agree to be contacted about your request. Results vary by individual.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="provider-panel">
+      <div class="section-tag">Meet Your Provider</div>
+      <h2>Led By Marie-Claude Dubuc, PA-C</h2>
+      <p>
+        Weight Loss Davie is led by a licensed PA-C with extensive clinical experience and a practical, patient-focused approach.
+      </p>
+      <p>
+        Patients looking for more structure, better communication, and a higher level of support often respond strongly to provider-led guidance.
+      </p>
+
+      <div class="badge-stack">
+        <span class="badge">Licensed PA-C</span>
+        <span class="badge">15+ Years Experience</span>
+        <span class="badge">English</span>
+        <span class="badge">French</span>
+        <span class="badge">Creole</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section">
+    <div class="section">
+      <div class="section-tag">Why This Page Works</div>
+      <div class="s4-grid">
+        <div class="s1-left">
+          <h2>Clean Message. Strong Intent.</h2>
+          <p>
+            This page avoids restricted drug terms and keeps the positioning focused on provider-led support, local relevance, and clear conversion goals.
+          </p>
+        </div>
+
+        <div class="s3-right">
+          <div class="info-block">
+            <h3>Google Ads Friendly</h3>
+            <p>
+              No drug names. No exaggerated claims. No wording that overstates the service model.
+            </p>
+          </div>
+          <div class="info-block">
+            <h3>High Trust Signals</h3>
+            <p>
+              Licensed PA-C. Davie location. Strong CTA. Clear form and call options.
+            </p>
+          </div>
+          <div class="info-block">
+            <h3>Built To Convert</h3>
+            <p>
+              Focused copy, direct structure, and minimal distractions from the main action.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="landing-disclaimer">
+      <h3>Important Information</h3>
+      <p>
+        This page is intended for general informational purposes only. Individual recommendations and next steps are determined by a licensed provider. This content does not replace professional medical advice, diagnosis, or treatment.
+      </p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready To Take The First Step?</h2>
+      <p>
+        Connect with Weight Loss Davie today for personalized, provider-led support.
+      </p>
+      <a class="cta-btn" href="#consultation">Book Your Consultation</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Weight Loss Davie</h3>
+        <p>
+          Provider-led weight loss support in Davie with a personalized, structured approach built around real progress.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+19549990000">(954) 999-0000</a></li>
+          <li><a href="mailto:info@weightlossdavie.com">info@weightlossdavie.com</a></li>
+          <li><a href="/contact/">Contact Page</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Weight Loss Davie</div>
+      <div>Davie, Florida</div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+
+    if (navToggle && siteNav) {
+      navToggle.addEventListener('click', function () {
+        const isOpen = siteNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof url !== 'undefined') {
+          window.location = url;
+        }
+      };
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-XXXXXXXXXX/FORM_LABEL',
+          'event_callback': callback
+        });
+      } else {
+        callback();
+      }
+
+      return false;
+    }
+
+    const consultForm = document.getElementById('consult-form');
+    if (consultForm) {
+      consultForm.addEventListener('submit', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            event_category: 'form',
+            event_label: 'consultation_request'
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
