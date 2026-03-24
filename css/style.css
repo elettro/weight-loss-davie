@@ -218,6 +218,20 @@ a[href^="tel:"]:active {
   margin-bottom: 16px;
 }
 
+.quick-answer-cta {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.2em;
+}
+
+.quick-answer-phone {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 /* ─── RIGHT COLUMNS ─── */
 .s1-right,
 .s3-right {
