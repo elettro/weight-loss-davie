@@ -147,6 +147,72 @@
     .btn-primary { background: var(--blue); color:#fff; }
     .btn-ghost { background: #fff; color: var(--deep); border: 1px solid rgba(13,31,110,.2); }
 
+    .guide-card {
+      margin-top: 0;
+      padding: 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    }
+    .guide-head h2 {
+      margin-bottom: 8px;
+    }
+    .guide-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 760px;
+    }
+    .guide-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .guide-item {
+      border: 1px solid rgba(13,31,110,.12);
+      border-radius: 14px;
+      background: #fff;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+      box-shadow: 0 8px 18px rgba(15,26,85,.04);
+    }
+    .guide-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: inline-grid;
+      place-items: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--blue);
+      background: rgba(26,63,207,.12);
+      border: 1px solid rgba(26,63,207,.18);
+    }
+    .guide-item h3 {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--deep);
+      font-size: 21px;
+    }
+    .guide-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .guide-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 12px;
+      border-radius: 10px;
+      background: rgba(26,63,207,.05);
+      border: 1px solid rgba(26,63,207,.12);
+    }
+
     #calc-results { display: none; }
     #calc-results.visible { display: block; }
     .projection { background: var(--deep); color:#fff; border-radius: 12px; padding: 14px; text-align:center; }
@@ -165,10 +231,10 @@
     .cta-box p { margin: 10px auto 18px; max-width: 720px; line-height: 1.6; }
 
     @media (max-width: 980px) {
-      .calc-grid, .calc-grid-4 { grid-template-columns: repeat(2,1fr); }
+      .calc-grid, .calc-grid-4, .guide-grid { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 640px) {
-      .calc-grid, .calc-grid-2, .calc-grid-4 { grid-template-columns: 1fr; }
+      .calc-grid, .calc-grid-2, .calc-grid-4, .guide-grid { grid-template-columns: 1fr; }
       .stack { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -304,6 +370,48 @@
         <button type="button" class="btn-ghost" id="resetBtn">Reset</button>
       </div>
     </form>
+
+    <section class="calc-card guide-card" aria-labelledby="guide-heading">
+      <div class="guide-head">
+        <h2 id="guide-heading">How to Use This Calculator</h2>
+        <p>Quick guidance for choosing your inputs and interpreting your estimate with realistic expectations.</p>
+      </div>
+
+      <div class="guide-grid">
+        <article class="guide-item">
+          <span class="guide-badge">Rx</span>
+          <h3>Medication</h3>
+          <p>Semaglutide usually reflects steadier progress. Tirzepatide often projects a faster pace. Retatrutide, if shown, is investigational and research-only.</p>
+        </article>
+        <article class="guide-item">
+          <span class="guide-badge">ACT</span>
+          <h3>Activity Level</h3>
+          <p>This helps estimate how efficiently your body uses energy. Higher activity can slightly improve projected pace, and even light activity matters.</p>
+        </article>
+        <article class="guide-item">
+          <span class="guide-badge">PRO</span>
+          <h3>Protein Goal</h3>
+          <p>Protein helps protect muscle during weight loss. Better intake can support body composition. Protein helps your body lose more fat and hold on to more muscle.</p>
+        </article>
+        <article class="guide-item">
+          <span class="guide-badge">H2O</span>
+          <h3>Water Goal</h3>
+          <p>Hydration supports energy, digestion, and medication tolerance. Water intake can influence how people feel during a GLP-1 program.</p>
+        </article>
+        <article class="guide-item">
+          <span class="guide-badge">WK</span>
+          <h3>Weeks on Medication</h3>
+          <p>Early weeks can be slower. Progress often changes as dosing increases over time, so this input helps make your estimate more realistic.</p>
+        </article>
+        <article class="guide-item">
+          <span class="guide-badge">RNG</span>
+          <h3>How to Read Results</h3>
+          <p>Results are estimates, not guarantees. You will see a range instead of a fixed promise, and milestones help map the likely path forward.</p>
+        </article>
+      </div>
+
+      <p class="guide-note">These inputs help create a more useful estimate, but real results depend on consistency, medication plan, and provider guidance.</p>
+    </section>
 
     <section id="calc-results" class="calc-card" aria-live="polite">
       <h2 id="headline">Your estimated GLP-1 roadmap</h2>
