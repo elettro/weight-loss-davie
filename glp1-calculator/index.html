@@ -238,6 +238,80 @@
       border: 1px solid var(--line);
     }
 
+    .guide-card {
+      margin-top: 20px;
+      padding: 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    }
+
+    .guide-head h2 {
+      margin-bottom: 8px;
+    }
+
+    .guide-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 760px;
+    }
+
+    .guide-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .guide-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+      box-shadow: 0 8px 18px rgba(15, 26, 85, 0.04);
+    }
+
+    .guide-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: inline-grid;
+      place-items: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--primary);
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
+    .guide-item h3 {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--primary-dark);
+      font-size: 21px;
+    }
+
+    .guide-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .guide-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
     .results {
       display: none;
       margin-top: 24px;
@@ -440,7 +514,8 @@
       .stats-grid,
       .range-grid,
       .insight-grid,
-      .milestone-grid {
+      .milestone-grid,
+      .guide-grid {
         grid-template-columns: 1fr;
       }
 
@@ -583,6 +658,49 @@
             <button class="btn btn-secondary" type="button" id="resetBtn">Reset</button>
           </div>
         </form>
+      </div>
+
+
+      <div class="card guide-card" aria-labelledby="guide-heading">
+        <div class="guide-head">
+          <h2 id="guide-heading">How to Use This Calculator</h2>
+          <p>Quick guidance for choosing your inputs and interpreting your estimate with realistic expectations.</p>
+        </div>
+
+        <div class="guide-grid">
+          <article class="guide-item">
+            <span class="guide-badge">Rx</span>
+            <h3>Medication</h3>
+            <p>Semaglutide usually reflects steadier progress. Tirzepatide often projects a faster pace. Retatrutide is investigational and research-only.</p>
+          </article>
+          <article class="guide-item">
+            <span class="guide-badge">ACT</span>
+            <h3>Activity Level</h3>
+            <p>This helps estimate how efficiently your body uses energy. Higher activity can slightly improve projected pace, and even light activity matters.</p>
+          </article>
+          <article class="guide-item">
+            <span class="guide-badge">PRO</span>
+            <h3>Protein Goal</h3>
+            <p>Protein helps protect muscle during weight loss. Better intake can support body composition and preserve lean mass while fat is reduced.</p>
+          </article>
+          <article class="guide-item">
+            <span class="guide-badge">H2O</span>
+            <h3>Water Goal</h3>
+            <p>Hydration supports energy, digestion, and medication tolerance. Water intake can influence how people feel during a GLP-1 program.</p>
+          </article>
+          <article class="guide-item">
+            <span class="guide-badge">WK</span>
+            <h3>Weeks on Medication</h3>
+            <p>Early weeks can be slower. Progress often changes as dosing increases over time, so this input helps make your estimate more realistic.</p>
+          </article>
+          <article class="guide-item">
+            <span class="guide-badge">RNG</span>
+            <h3>How to Read Results</h3>
+            <p>Results are estimates, not guarantees. You will see a range instead of a fixed promise, and milestones help map the likely path forward.</p>
+          </article>
+        </div>
+
+        <p class="guide-note">These inputs help create a more useful estimate, but real results depend on consistency, medication plan, and provider guidance.</p>
       </div>
     </section>
 
