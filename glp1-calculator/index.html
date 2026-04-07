@@ -1,761 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id=GTM-59QG8PZX'+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-59QG8PZX');
-</script>
-<!-- End Google Tag Manager -->
-
-  <meta charset="UTF-8">
-  <meta name="google-site-verification" content="eDywJEwW6CtQEgOHtxxU7AavPdpG7j_m8nvoDZVdPRI" />
-  <meta name="description" content="Use this GLP-1 weight loss calculator to estimate timeline milestones, projected ranges, and key progress dates while on a medically supervised program.">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLP-1 Weight Loss Calculator | Weight Loss Davie (Dev)</title>
-  <link rel="canonical" href="https://weightlossdavie.com/glp1-calculator/">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLP-1 Weight Loss Calculator | Medication-Specific</title>
+  <meta name="description" content="Estimate a realistic weight loss timeline for semaglutide, tirzepatide, or investigational retatrutide." />
+  <link rel="stylesheet" href="/css/style.css" />
   <style>
-    .calculator-shell {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 56px 40px 70px;
+    :root {
+      --bg: #f5f8fc;
+      --card: #ffffff;
+      --text: #17324d;
+      --muted: #5f7388;
+      --line: #d9e3ee;
+      --primary: #1956bf;
+      --primary-dark: #103c86;
+      --soft: rgba(25, 86, 191, 0.08);
+      --soft-2: rgba(25, 86, 191, 0.12);
+      --success: #0f8b5f;
+      --warn: #a86607;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(15, 38, 74, 0.08);
     }
 
-    .calc-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 26px;
-      align-items: start;
-    }
-
-    .calc-card {
-      background: var(--white);
-      border: 1px solid rgba(13,31,110,0.08);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-    }
-
-    .calc-card h2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 34px;
-      line-height: 1;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--deep);
-      margin-bottom: 14px;
-    }
-
-    .calc-intro {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 15px;
-      margin-bottom: 18px;
-    }
-
-    .calc-form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .field-group label {
-      font-family: 'Barlow Condensed', sans-serif;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      color: var(--deep);
-    }
-
-    .field-group input,
-    .field-group select {
-      width: 100%;
-      border: 1px solid rgba(13,31,110,0.2);
-      border-radius: 10px;
-      padding: 12px 12px;
-      font-family: 'Barlow', sans-serif;
-      font-size: 15px;
-      color: var(--text);
-      background: var(--white);
-    }
-
-    .field-group small {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.4;
-    }
-
-    .full {
-      grid-column: 1 / -1;
-    }
-
-    .action-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .calc-btn {
-      border: 0;
-      cursor: pointer;
-    }
-
-    .calc-btn-secondary {
-      background: rgba(13,31,110,0.08);
-      color: var(--deep);
-      border: 1px solid rgba(13,31,110,0.16);
-    }
-
-    .calc-btn-secondary:hover {
-      background: rgba(13,31,110,0.13);
-      transform: translateY(-2px);
-    }
-
-    .results-panel {
-      display: none;
-    }
-
-    .results-panel.show {
-      display: block;
-    }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .metric {
-      background: rgba(26,63,207,0.04);
-      border: 1px solid rgba(26,63,207,0.09);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .metric h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--deep);
-      margin-bottom: 7px;
-    }
-
-    .metric p {
-      font-size: 18px;
-      color: var(--text);
-      font-weight: 600;
-      line-height: 1.35;
+    * { box-sizing: border-box; }
+    body {
       margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    .note-box {
-      margin-top: 16px;
-      background: #f7f8fc;
-      border: 1px solid rgba(13,31,110,0.1);
-      border-radius: 12px;
-      padding: 14px;
+    .page-shell {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
     }
 
-    .note-box h3 {
-      margin-bottom: 8px;
-      font-family: 'Barlow Condensed', sans-serif;
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .hero-copy,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: 14px;
-      color: var(--deep);
-    }
-
-    .note-box p,
-    .note-box li {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .disclaimer {
-      margin-top: 16px;
-      background: rgba(26,63,207,0.05);
-      border: 1px solid rgba(26,63,207,0.12);
-      border-radius: 12px;
-      padding: 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .calc-cta {
-      margin-top: 24px;
-      border-radius: 16px;
-      background: linear-gradient(145deg, var(--deep), var(--blue));
-      color: white;
-      padding: 24px;
-    }
-
-    .calc-cta h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 34px;
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .calc-cta p {
-      color: rgba(255,255,255,0.9);
-      line-height: 1.7;
       margin-bottom: 16px;
     }
 
-    @media (max-width: 1000px) {
-      .calc-grid {
-        grid-template-columns: 1fr;
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.02;
+    }
+
+    .hero-copy p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .hero-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .hero-points div {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #f8fbff;
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .card {
+      padding: 28px;
+    }
+
+    .card h2,
+    .card h3 {
+      margin: 0 0 10px;
+    }
+
+    .subtext {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 52px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 0 14px;
+      font-size: 16px;
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(25, 86, 191, 0.10);
+    }
+
+    .inline-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .med-note {
+      background: #f8fbff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      margin-top: 10px;
+    }
+
+    .med-name {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      background: var(--soft);
+      color: var(--primary);
+    }
+
+    .tag.warn {
+      background: rgba(168, 102, 7, 0.12);
+      color: var(--warn);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      min-height: 52px;
+      padding: 0 20px;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #eef4fb;
+      color: var(--primary);
+      border: 1px solid var(--line);
+    }
+
+    .results {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .summary-band {
+      background: linear-gradient(135deg, #103c86, #1956bf);
+      color: #fff;
+      border-radius: 26px;
+      padding: 28px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .summary-band h2 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 40px);
+    }
+
+    .summary-band p {
+      margin: 0;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.92);
+      font-size: 17px;
+    }
+
+    .stats-grid,
+    .range-grid,
+    .insight-grid,
+    .milestone-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: 22px;
+    }
+
+    .range-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: 22px;
+    }
+
+    .insight-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-bottom: 22px;
+    }
+
+    .milestone-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat,
+    .range-card,
+    .insight,
+    .milestone,
+    .legal-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat {
+      padding: 20px;
+    }
+
+    .stat .kicker,
+    .range-card .kicker {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .stat .value,
+    .range-card .value {
+      display: block;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .stat .note,
+    .range-card .note {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .range-card {
+      padding: 22px;
+    }
+
+    .insight {
+      padding: 22px;
+    }
+
+    .insight h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .insight p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .milestone {
+      padding: 20px;
+    }
+
+    .milestone strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .milestone .date {
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .milestone .small {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .pace {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .pace-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .bar {
+      height: 10px;
+      width: 100%;
+      background: #e8eff7;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1956bf, #38a3ff);
+      transition: width 0.5s ease;
+    }
+
+    .pace-note {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .legal-box {
+      padding: 22px;
+      margin-top: 22px;
+    }
+
+    .legal-box p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .hero,
+      .stats-grid,
+      .range-grid,
+      .insight-grid,
+      .milestone-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 700px) {
-      .calculator-shell {
-        padding: 44px 20px 56px;
+    @media (max-width: 760px) {
+      .hero,
+      .form-grid,
+      .stats-grid,
+      .range-grid,
+      .insight-grid,
+      .milestone-grid {
+        grid-template-columns: 1fr;
       }
 
-      .calc-form-grid,
-      .results-grid {
-        grid-template-columns: 1fr;
+      .page-shell {
+        padding: 22px 14px 60px;
+      }
+
+      .hero-copy,
+      .card,
+      .summary-band {
+        padding: 22px;
       }
     }
   </style>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCJKDS7CZB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CCJKDS7CZB');
-    gtag('config', 'AW-18038457429');
-  </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59QG8PZX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<div id="mobile-call-bar" style="
-  display: none;
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  background: #1a3fcf;
-  text-align: center;
-  padding: 11px 16px;
-  box-shadow: 0 2px 12px rgba(13,31,110,0.25);
-">
-  <div class="header-phone">
-    <span class="phone-icon">📞</span>
-    <span class="phone-text">
-      CALL US –
-      <a href="tel:13104086687" class="phone-link">(310) 408-6687</a>
-    </span>
-  </div>
-</div>
-
-<style>
-@media (max-width: 768px) {
-  #mobile-call-bar {
-    display: block !important;
-  }
-}
-
-.header-phone {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #ffffff;
-  font-weight: 600;
-  justify-content: center;
-  white-space: nowrap;
-}
-
-.phone-text {
-  color: #ffffff;
-}
-
-.phone-link {
-  color: #ffffff !important;
-  text-decoration: none;
-  font-weight: inherit;
-}
-
-.phone-link:visited,
-.phone-link:hover,
-.phone-link:active {
-  color: #ffffff !important;
-  text-decoration: none;
-}
-
-.phone-icon {
-  font-size: 18px;
-}
-</style>
-
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="https://weightlossdavie.com/" aria-label="Weight Loss Davie Home">
-      <span class="brand-text">Weight Loss Davie</span>
-    </a>
-
-    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
-      Menu
-    </button>
-
-    <nav id="main-nav" class="site-nav" aria-label="Main navigation">
-      <a href="https://weightlossdavie.com/">Home</a>
-      <a href="https://weightlossdavie.com/why-us/">Why Us</a>
-      <a href="https://weightlossdavie.com/weight-loss-industry/">Weight Loss Industry</a>
-      <a href="https://weightlossdavie.com/top-10-reasons-to-start/">Top 10 Reasons</a>
-      <a href="https://weightlossdavie.com/testimonials/">Testimonials</a>
-      <a href="https://weightlossdavie.com/faqs/">FAQs</a>
-      <a href="https://weightlossdavie.com/provider/">Provider</a>
-      <a href="https://weightlossdavie.com/contact-us/">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-eyebrow">GLP-1 Progress Planning Tool</div>
-  <h1>GLP-1 Weight Loss<br><span>Calculator</span></h1>
-  <p class="hero-desc">
-    Estimate your projected weight loss timeline, milestone dates, and progress ranges with a realistic model designed for medically supervised GLP-1 programs.
-  </p>
-</section>
-
-<main class="calculator-shell">
-  <div class="calc-grid">
-    <section class="calc-card" aria-labelledby="calculator-title">
-      <h2 id="calculator-title">Calculator Inputs</h2>
-      <p class="calc-intro">Enter your current stats and program details. Results are intended to provide practical planning ranges, not guaranteed outcomes.</p>
-
-      <form id="glp1-form">
-        <div class="calc-form-grid">
-          <div class="field-group">
-            <label for="currentWeight">Current weight (lbs)</label>
-            <input id="currentWeight" name="currentWeight" type="number" min="80" max="700" step="0.1" required>
-          </div>
-          <div class="field-group">
-            <label for="goalWeight">Goal weight (lbs)</label>
-            <input id="goalWeight" name="goalWeight" type="number" min="80" max="700" step="0.1" required>
-          </div>
-
-          <div class="field-group">
-            <label for="heightFeet">Height (feet)</label>
-            <input id="heightFeet" name="heightFeet" type="number" min="3" max="8" step="1" required>
-          </div>
-          <div class="field-group">
-            <label for="heightInches">Height (inches)</label>
-            <input id="heightInches" name="heightInches" type="number" min="0" max="11" step="1" required>
-          </div>
-
-          <div class="field-group">
-            <label for="age">Age</label>
-            <input id="age" name="age" type="number" min="18" max="95" step="1" required>
-          </div>
-          <div class="field-group">
-            <label for="sex">Sex</label>
-            <select id="sex" name="sex" required>
-              <option value="">Select</option>
-              <option value="female">Female</option>
-              <option value="male">Male</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label for="activity">Activity level</label>
-            <select id="activity" name="activity" required>
-              <option value="">Select</option>
-              <option value="sedentary">Sedentary</option>
-              <option value="light">Lightly active</option>
-              <option value="moderate">Moderately active</option>
-              <option value="high">Very active</option>
-            </select>
-          </div>
-          <div class="field-group">
-            <label for="glp1Status">GLP-1 status</label>
-            <select id="glp1Status" name="glp1Status" required>
-              <option value="">Select</option>
-              <option value="not-started">Not started yet</option>
-              <option value="starting">Starting this week</option>
-              <option value="active">Currently active</option>
-              <option value="maintenance">Maintenance phase</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label for="weeksOnProgram">Weeks on GLP-1 program</label>
-            <input id="weeksOnProgram" name="weeksOnProgram" type="number" min="0" max="260" step="1" required>
-          </div>
-          <div class="field-group">
-            <label for="startDate">Start date</label>
-            <input id="startDate" name="startDate" type="date" required>
-          </div>
-
-          <div class="field-group">
-            <label for="proteinGoal">Daily protein goal (optional, g)</label>
-            <input id="proteinGoal" name="proteinGoal" type="number" min="0" max="400" step="1">
-          </div>
-          <div class="field-group">
-            <label for="waterGoal">Daily water goal (optional, oz)</label>
-            <input id="waterGoal" name="waterGoal" type="number" min="0" max="300" step="1">
-          </div>
-
-          <div class="field-group full">
-            <small>Tip: realistic progress can vary with dosing progression, nutrition quality, adherence, activity, sleep, stress, and medical factors.</small>
-          </div>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Medication-Specific Weight Loss Calculator</span>
+        <h1>See a more realistic GLP-1 timeline.</h1>
+        <p>
+          This version changes the projection based on semaglutide, tirzepatide, or investigational retatrutide. It uses a stronger early phase and a slower later phase so the estimate does not stay flat all year.
+        </p>
+        <p>
+          It is built for education and lead quality. It is not a guarantee of results and it is not medical advice.
+        </p>
+        <div class="hero-points">
+          <div>Different pacing for semaglutide vs tirzepatide vs retatrutide.</div>
+          <div>12-month ranges, BMI shift, milestone dates, and pace profile.</div>
+          <div>Retatrutide is marked investigational inside the page.</div>
         </div>
+      </div>
 
-        <div class="action-row">
-          <button type="submit" class="cta-btn calc-btn">Calculate estimate</button>
-          <button type="reset" class="cta-btn calc-btn calc-btn-secondary">Reset</button>
-        </div>
-      </form>
+      <div class="card">
+        <h2>Enter your information</h2>
+        <p class="subtext">Choose the medication first. That selection changes the engine behind the projections.</p>
 
-      <div class="disclaimer">
-        Calculator disclaimer: This tool provides educational estimates only and is not medical advice, diagnosis, or treatment. Individual outcomes vary.
+        <form id="calculatorForm">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="medication">Medication</label>
+              <select id="medication" required>
+                <option value="semaglutide">Semaglutide</option>
+                <option value="tirzepatide">Tirzepatide</option>
+                <option value="retatrutide">Retatrutide</option>
+              </select>
+
+              <div class="med-note" id="medicationInfo"></div>
+            </div>
+
+            <div class="field">
+              <label for="currentWeight">Current weight (lbs)</label>
+              <input type="number" id="currentWeight" min="80" max="700" placeholder="220" required />
+            </div>
+
+            <div class="field">
+              <label for="goalWeight">Goal weight (lbs)</label>
+              <input type="number" id="goalWeight" min="80" max="700" placeholder="180" required />
+            </div>
+
+            <div class="field">
+              <label>Height</label>
+              <div class="inline-2">
+                <input type="number" id="heightFeet" min="3" max="8" placeholder="5 ft" required />
+                <input type="number" id="heightInches" min="0" max="11" placeholder="8 in" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="age">Age</label>
+              <input type="number" id="age" min="18" max="100" placeholder="42" required />
+            </div>
+
+            <div class="field">
+              <label for="sex">Sex</label>
+              <select id="sex">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="activity">Activity level</label>
+              <select id="activity">
+                <option value="sedentary">Mostly sedentary</option>
+                <option value="light">Light activity</option>
+                <option value="moderate">Moderate activity</option>
+                <option value="high">High activity</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="weeksOnProgram">Weeks on medication</label>
+              <input type="number" id="weeksOnProgram" min="0" max="156" placeholder="0" />
+            </div>
+
+            <div class="field">
+              <label for="startDate">Start date</label>
+              <input type="date" id="startDate" required />
+            </div>
+
+            <div class="field">
+              <label for="proteinGoal">Daily protein goal (g)</label>
+              <input type="number" id="proteinGoal" min="0" max="300" placeholder="100" />
+            </div>
+
+            <div class="field">
+              <label for="waterGoal">Daily water goal (oz)</label>
+              <input type="number" id="waterGoal" min="0" max="300" placeholder="80" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Calculate timeline</button>
+            <button class="btn btn-secondary" type="button" id="resetBtn">Reset</button>
+          </div>
+        </form>
       </div>
     </section>
 
-    <section id="results" class="calc-card results-panel" aria-live="polite">
-      <h2>Your Estimated Results</h2>
-      <p class="calc-intro">These projections are generated from conservative GLP-1 response ranges and your input details.</p>
-
-      <div class="results-grid">
-        <div class="metric"><h3>Pounds to lose</h3><p id="outPounds"></p></div>
-        <div class="metric"><h3>Projected goal window</h3><p id="outGoalWindow"></p></div>
-        <div class="metric"><h3>Current BMI → Goal BMI</h3><p id="outBmi"></p></div>
-        <div class="metric"><h3>10% body weight milestone</h3><p id="outTenPercent"></p></div>
-        <div class="metric"><h3>1 month estimated loss</h3><p id="out1Month"></p></div>
-        <div class="metric"><h3>3 month estimated loss</h3><p id="out3Month"></p></div>
-        <div class="metric"><h3>6 month estimated loss</h3><p id="out6Month"></p></div>
-        <div class="metric"><h3>12 month estimated loss</h3><p id="out12Month"></p></div>
-        <div class="metric"><h3>First 5 lbs milestone</h3><p id="out5lbs"></p></div>
-        <div class="metric"><h3>First 10 lbs milestone</h3><p id="out10lbs"></p></div>
-        <div class="metric"><h3>10% weight loss milestone</h3><p id="out10pctDate"></p></div>
-        <div class="metric"><h3>Goal date range</h3><p id="outGoalDateRange"></p></div>
+    <section class="results" id="resultsSection">
+      <div class="summary-band">
+        <h2 id="summaryTitle">Your projected timeline</h2>
+        <p id="summaryText"></p>
       </div>
 
-      <div class="note-box">
-        <h3>Personalized Notes</h3>
-        <ul id="personalizedNotes"></ul>
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="kicker">Pounds to lose</span>
+          <span class="value" id="statLose">0 lbs</span>
+          <span class="note">Distance between your current weight and goal weight.</span>
+        </div>
+
+        <div class="stat">
+          <span class="kicker">Goal window</span>
+          <span class="value" id="statGoalWindow">0 to 0 mo</span>
+          <span class="note">Estimated range using the selected medication profile.</span>
+        </div>
+
+        <div class="stat">
+          <span class="kicker">Body weight loss</span>
+          <span class="value" id="statPercent">0%</span>
+          <span class="note">Share of current body weight needed to reach goal.</span>
+        </div>
+
+        <div class="stat">
+          <span class="kicker">BMI change</span>
+          <span class="value" id="statBMI">0 to 0</span>
+          <span class="note">Current BMI compared with projected BMI at goal weight.</span>
+        </div>
+      </div>
+
+      <div class="pace">
+        <div class="pace-top">
+          <span>Pace profile</span>
+          <span id="paceLabel">-</span>
+        </div>
+        <div class="bar">
+          <div class="bar-fill" id="paceBar"></div>
+        </div>
+        <div class="pace-note" id="paceNote"></div>
+      </div>
+
+      <div class="range-grid">
+        <div class="range-card">
+          <span class="kicker">1 month</span>
+          <span class="value" id="month1Range">0 to 0 lbs</span>
+          <span class="note">Early treatment phase estimate.</span>
+        </div>
+
+        <div class="range-card">
+          <span class="kicker">3 months</span>
+          <span class="value" id="month3Range">0 to 0 lbs</span>
+          <span class="note">Often where appetite change and adherence patterns show clearly.</span>
+        </div>
+
+        <div class="range-card">
+          <span class="kicker">6 months</span>
+          <span class="value" id="month6Range">0 to 0 lbs</span>
+          <span class="note">Mid-course estimate with slowdown applied.</span>
+        </div>
+
+        <div class="range-card">
+          <span class="kicker">12 months</span>
+          <span class="value" id="month12Range">0 to 0 lbs</span>
+          <span class="note">Capped to stay within a more realistic annual band.</span>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+        <div class="insight">
+          <h3 id="insight1Title">Medication profile</h3>
+          <p id="insight1Text"></p>
+        </div>
+        <div class="insight">
+          <h3 id="insight2Title">Milestone value</h3>
+          <p id="insight2Text"></p>
+        </div>
+        <div class="insight">
+          <h3 id="insight3Title">Coach note</h3>
+          <p id="insight3Text"></p>
+        </div>
+      </div>
+
+      <div class="milestone-grid">
+        <div class="milestone">
+          <strong>First 5 lbs</strong>
+          <div class="date" id="mile5">-</div>
+          <div class="small">Projected with the fast edge of your current medication profile.</div>
+        </div>
+
+        <div class="milestone">
+          <strong>First 10 lbs</strong>
+          <div class="date" id="mile10">-</div>
+          <div class="small">A useful early benchmark for motivation and follow-through.</div>
+        </div>
+
+        <div class="milestone">
+          <strong>10% body weight lost</strong>
+          <div class="date" id="mile10pct">-</div>
+          <div class="small">A strong clinical milestone in obesity treatment discussions.</div>
+        </div>
+
+        <div class="milestone">
+          <strong>Goal date window</strong>
+          <div class="date" id="mileGoal">-</div>
+          <div class="small" id="mileGoalNote"></div>
+        </div>
+      </div>
+
+      <div class="legal-box">
+        <p id="legalText">
+          This calculator gives an estimate only. It does not predict your actual result. Retatrutide is investigational and should not be shown as an approved treatment option. Final treatment choice, dosing, risk review, and follow-up belong with a licensed clinician.
+        </p>
       </div>
     </section>
-  </div>
+  </main>
 
-  <section class="calc-cta" aria-label="Book consultation call to action">
-    <h3>Ready for a provider-led plan?</h3>
-    <p>
-      Use this estimate as a starting point, then schedule a consultation to review your goals, clinical profile, and a realistic GLP-1 care roadmap with Weight Loss Davie.
-    </p>
-    <a class="btn-secondary" href="https://weightlossdavie.com/contact-us/">Book a consultation</a>
-  </section>
-</main>
+  <script>
+    const medicationProfiles = {
+      semaglutide: {
+        name: "Semaglutide",
+        status: "FDA approved for chronic weight management",
+        mechanism: "GLP-1 receptor agonist",
+        yearlyPercentLow: 10,
+        yearlyPercentHigh: 17,
+        phases: [
+          { weeks: 12, low: 0.5, high: 1.1 },
+          { weeks: 12, low: 0.4, high: 0.8 },
+          { weeks: 28, low: 0.25, high: 0.55 }
+        ],
+        note: "Usually a steadier curve with meaningful slowdown later in the year."
+      },
+      tirzepatide: {
+        name: "Tirzepatide",
+        status: "FDA approved for chronic weight management",
+        mechanism: "Dual GIP / GLP-1 receptor agonist",
+        yearlyPercentLow: 15,
+        yearlyPercentHigh: 23,
+        phases: [
+          { weeks: 12, low: 0.8, high: 1.7 },
+          { weeks: 12, low: 0.6, high: 1.2 },
+          { weeks: 28, low: 0.4, high: 0.85 }
+        ],
+        note: "Usually stronger than semaglutide, especially once dose escalation is established."
+      },
+      retatrutide: {
+        name: "Retatrutide",
+        status: "Investigational only",
+        mechanism: "Triple GIP / GLP-1 / glucagon receptor agonist",
+        yearlyPercentLow: 18,
+        yearlyPercentHigh: 27,
+        phases: [
+          { weeks: 12, low: 1.0, high: 2.0 },
+          { weeks: 12, low: 0.8, high: 1.5 },
+          { weeks: 28, low: 0.5, high: 1.1 }
+        ],
+        note: "Research-only curve. Keep the UI explicit that this is not an approved obesity medication."
+      }
+    };
 
-<section class="section" aria-label="Related medical weight loss resources">
-  <div class="section-tag">Plan Your Next Step</div>
-  <div class="s1-grid">
-    <div class="s1-left">
-      <h2>Quick Answers For Patients In Davie And South Florida</h2>
-      <p><strong>What services are available?</strong> We provide provider-led medical weight loss, weight management, and personalized guidance through a structured weight loss program based on your goals and health profile.</p>
-      <p><strong>Where is care delivered?</strong> Weight Loss Davie is based in Davie, Florida in Broward County and supports patients across South Florida.</p>
-      <p><strong>How do I start?</strong> Visit our <a href="https://weightlossdavie.com/contact-us/" style="color:var(--blue);text-decoration:none;">Contact page</a> or call <a href="tel:13104086687" class="header-phone">(310)408-6687</a> for next-step guidance.</p>
-    </div>
-    <div class="s1-right">
-      <div class="info-block">
-        <h3>Explore Related Pages</h3>
-        <p><a href="https://weightlossdavie.com/why-us/" style="color:var(--blue);text-decoration:none;">Why patients choose us</a> and how provider-led care works in Davie.</p>
-      </div>
-      <div class="info-block">
-        <h3>Meet The Provider</h3>
-        <p>Read the <a href="https://weightlossdavie.com/provider/" style="color:var(--blue);text-decoration:none;">provider profile</a> to understand clinical background and care style.</p>
-      </div>
-      <div class="info-block">
-        <h3>Review FAQs And Testimonials</h3>
-        <p>See common questions on the <a href="https://weightlossdavie.com/faqs/" style="color:var(--blue);text-decoration:none;">FAQ page</a> and patient perspectives on our <a href="https://weightlossdavie.com/testimonials/" style="color:var(--blue);text-decoration:none;">Testimonials page</a>.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    const medicationInfo = document.getElementById("medicationInfo");
+    const medicationSelect = document.getElementById("medication");
+    const form = document.getElementById("calculatorForm");
+    const resultsSection = document.getElementById("resultsSection");
+    const resetBtn = document.getElementById("resetBtn");
+    const startDateField = document.getElementById("startDate");
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h3>Weight Loss Davie</h3>
-      <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
-      <p style="margin-top:16px;">📞 <a href="tel:13104086687">(310)408-6687</a></p>
-      <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
-      <p style="margin-top:8px;color:rgba(255,255,255,0.9);font-size:13px;">Davie, Florida</p>
-    </div>
-    <div class="footer-col">
-      <h4>Pages</h4>
-      <ul>
-        <li><a href="https://weightlossdavie.com/">Home</a></li>
-        <li><a href="https://weightlossdavie.com/why-us/">Why Us</a></li>
-        <li><a href="https://weightlossdavie.com/weight-loss-industry/">Weight Loss Industry</a></li>
-        <li><a href="https://weightlossdavie.com/top-10-reasons-to-start/">Top 10 Reasons</a></li>
-        <li><a href="https://weightlossdavie.com/testimonials/">Testimonials</a></li>
-        <li><a href="https://weightlossdavie.com/faqs/">FAQs</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Account</h4>
-      <ul>
-        <li><a href="https://weightlossdavie.com/provider/">Provider</a></li>
-        <li><a href="https://weightlossdavie.com/contact-us/">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Weight Loss Davie. All rights reserved.</span>
-    <p style="font-family:'Barlow Condensed',sans-serif; font-size:12px;
-    font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
-    color:rgba(255,255,255,0.4); margin-top:8px;">
-      Website By
-      <a href="https://elettro.com" target="_blank" rel="noopener"
-         style="color:rgba(255,255,255,0.55); text-decoration:none;
-         transition:color 0.2s;"
-         onmouseover="this.style.color='rgba(255,255,255,0.9)'"
-         onmouseout="this.style.color='rgba(255,255,255,0.55)'">
-         Elettro&trade;
-      </a>
-      &nbsp;|&nbsp;
-      <a href="https://weightlossdavie.com/report" target="_blank" rel="noopener"
-         style="color:rgba(255,255,255,0.55); text-decoration:none;
-         transition:color 0.2s;"
-         onmouseover="this.style.color='rgba(255,255,255,0.9)'"
-         onmouseout="this.style.color='rgba(255,255,255,0.55)'">
-         Production &amp; SEO Report
-      </a>
-    </p>
-    <span>Davie, Florida</span>
-  </div>
-</footer>
+    startDateField.value = new Date().toISOString().split("T")[0];
 
-<script>
-  (function () {
-    var navToggle = document.querySelector('.nav-toggle');
-    var nav = document.getElementById('main-nav');
-    if (!navToggle || !nav) return;
-    navToggle.addEventListener('click', function () {
-      var isOpen = nav.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-  })();
-
-  (function () {
-    var form = document.getElementById('glp1-form');
-    var results = document.getElementById('results');
-    var notesList = document.getElementById('personalizedNotes');
-
-    function clamp(number, min, max) {
-      return Math.max(min, Math.min(max, number));
+    function renderMedicationInfo() {
+      const profile = medicationProfiles[medicationSelect.value];
+      const isInvestigational = medicationSelect.value === "retatrutide";
+      medicationInfo.innerHTML = `
+        <div class="med-name">${profile.name}</div>
+        <div>
+          <span class="tag">${profile.mechanism}</span>
+          <span class="tag ${isInvestigational ? "warn" : ""}">${profile.status}</span>
+        </div>
+        <div style="color:#5f7388; line-height:1.65; margin-top:8px;">
+          Typical annual projection band used here: ${profile.yearlyPercentLow}% to ${profile.yearlyPercentHigh}% of starting body weight.
+          ${profile.note}
+        </div>
+      `;
     }
 
-    function poundsPerMonthRange(inputs) {
-      var baseLow = 2.0;
-      var baseHigh = 4.0;
+    renderMedicationInfo();
+    medicationSelect.addEventListener("change", renderMedicationInfo);
 
-      if (inputs.glp1Status === 'active') {
-        baseLow += 0.6;
-        baseHigh += 1.0;
-      } else if (inputs.glp1Status === 'maintenance') {
-        baseLow -= 0.4;
-        baseHigh -= 1.2;
-      } else if (inputs.glp1Status === 'starting') {
-        baseLow += 0.3;
-        baseHigh += 0.6;
-      }
-
-      if (inputs.weeksOnProgram >= 12 && inputs.weeksOnProgram <= 40) {
-        baseLow += 0.4;
-        baseHigh += 0.8;
-      } else if (inputs.weeksOnProgram > 40) {
-        baseLow -= 0.2;
-        baseHigh -= 0.5;
-      }
-
-      if (inputs.activity === 'light') {
-        baseLow += 0.2;
-        baseHigh += 0.3;
-      } else if (inputs.activity === 'moderate') {
-        baseLow += 0.45;
-        baseHigh += 0.75;
-      } else if (inputs.activity === 'high') {
-        baseLow += 0.7;
-        baseHigh += 1.0;
-      }
-
-      if (inputs.proteinGoal > 0) {
-        if (inputs.proteinGoal < 70) {
-          baseLow -= 0.2;
-        } else if (inputs.proteinGoal >= 90) {
-          baseHigh += 0.25;
-        }
-      }
-
-      if (inputs.waterGoal > 0 && inputs.waterGoal < 50) {
-        baseLow -= 0.15;
-      }
-
-      if (inputs.age >= 60) {
-        baseHigh -= 0.2;
-      }
-
-      baseLow = clamp(baseLow, 1.2, 6.0);
-      baseHigh = clamp(baseHigh, baseLow + 0.8, 7.0);
-      return { low: baseLow, high: baseHigh };
+    function round1(n) {
+      return Math.round(n * 10) / 10;
     }
 
-    function bmi(weightLbs, heightInches) {
-      return (weightLbs / (heightInches * heightInches)) * 703;
+    function formatDate(date) {
+      return date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
     }
 
-    function formatDate(dateObj) {
-      return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    }
-
-    function addMonthsFromStart(startDate, months, mode) {
-      var d = new Date(startDate);
-      var whole = Math.floor(months);
-      var partial = months - whole;
-      d.setMonth(d.getMonth() + whole);
-      d.setDate(d.getDate() + Math.round(partial * 30));
-      if (mode === 'late') {
-        d.setDate(d.getDate() + 10);
-      }
+    function addDays(date, days) {
+      const d = new Date(date);
+      d.setDate(d.getDate() + days);
       return d;
     }
 
-    function round(value) {
-      return Math.round(value * 10) / 10;
+    function calcBMI(weightLbs, heightInches) {
+      return (weightLbs / (heightInches * heightInches)) * 703;
     }
 
-    function textRange(low, high, suffix) {
-      return round(low) + ' to ' + round(high) + suffix;
+    function cumulativeLossAtWeeks(profile, weeksElapsed) {
+      let low = 0;
+      let high = 0;
+      let remaining = weeksElapsed;
+
+      for (const phase of profile.phases) {
+        const used = Math.max(0, Math.min(remaining, phase.weeks));
+        low += used * phase.low;
+        high += used * phase.high;
+        remaining -= used;
+        if (remaining <= 0) break;
+      }
+
+      return { low: round1(low), high: round1(high) };
     }
 
-    form.addEventListener('submit', function (e) {
+    function applyModifiers(base, activity, proteinGoal, weeksOnProgram) {
+      let low = base.low;
+      let high = base.high;
+
+      if (activity === "light") {
+        low += 0.05;
+        high += 0.05;
+      } else if (activity === "moderate") {
+        low += 0.1;
+        high += 0.12;
+      } else if (activity === "high") {
+        low += 0.14;
+        high += 0.18;
+      }
+
+      if (proteinGoal >= 90) {
+        high += 0.06;
+      }
+
+      if (weeksOnProgram >= 8) {
+        high += 0.04;
+      }
+
+      return { low: round1(low), high: round1(high) };
+    }
+
+    function capByYearlyPercent(lossObj, currentWeight, profile, poundsToLose) {
+      const lowCap = round1(currentWeight * (profile.yearlyPercentLow / 100));
+      const highCap = round1(currentWeight * (profile.yearlyPercentHigh / 100));
+      return {
+        low: Math.min(lossObj.low, lowCap, poundsToLose),
+        high: Math.min(lossObj.high, highCap, poundsToLose)
+      };
+    }
+
+    function rangeText(obj) {
+      return `${round1(obj.low)} to ${round1(obj.high)} lbs`;
+    }
+
+    function projectedGoalWindow(profile, activity, proteinGoal, weeksOnProgram, poundsToLose) {
+      const firstPhase = applyModifiers(
+        { low: profile.phases[0].low, high: profile.phases[0].high },
+        activity,
+        proteinGoal,
+        weeksOnProgram
+      );
+
+      const taperedLow = Math.max(0.2, firstPhase.low * 0.72);
+      const taperedHigh = Math.max(0.35, firstPhase.high * 0.72);
+
+      const minWeeks = poundsToLose / Math.max(0.35, firstPhase.high);
+      const maxWeeks = poundsToLose / Math.max(0.2, taperedLow);
+
+      return {
+        minMonths: round1(minWeeks / 4.345),
+        maxMonths: round1(maxWeeks / 4.345),
+        fastWeekly: firstPhase.high,
+        slowWeekly: taperedLow
+      };
+    }
+
+    function milestoneDate(startDate, lbsNeeded, weeklyRate) {
+      if (lbsNeeded <= 0 || weeklyRate <= 0) return "-";
+      const days = Math.round((lbsNeeded / weeklyRate) * 7);
+      return formatDate(addDays(startDate, days));
+    }
+
+    form.addEventListener("submit", function(e) {
       e.preventDefault();
 
-      var input = {
-        currentWeight: parseFloat(form.currentWeight.value),
-        goalWeight: parseFloat(form.goalWeight.value),
-        heightFeet: parseInt(form.heightFeet.value, 10),
-        heightInchesOnly: parseInt(form.heightInches.value, 10),
-        age: parseInt(form.age.value, 10),
-        sex: form.sex.value,
-        activity: form.activity.value,
-        glp1Status: form.glp1Status.value,
-        weeksOnProgram: parseInt(form.weeksOnProgram.value, 10),
-        proteinGoal: parseFloat(form.proteinGoal.value || 0),
-        waterGoal: parseFloat(form.waterGoal.value || 0),
-        startDate: form.startDate.value
-      };
+      const medication = medicationSelect.value;
+      const profile = medicationProfiles[medication];
+      const currentWeight = parseFloat(document.getElementById("currentWeight").value);
+      const goalWeight = parseFloat(document.getElementById("goalWeight").value);
+      const heightFeet = parseFloat(document.getElementById("heightFeet").value);
+      const heightInches = parseFloat(document.getElementById("heightInches").value);
+      const age = parseFloat(document.getElementById("age").value);
+      const sex = document.getElementById("sex").value;
+      const activity = document.getElementById("activity").value;
+      const weeksOnProgram = parseFloat(document.getElementById("weeksOnProgram").value || 0);
+      const proteinGoal = parseFloat(document.getElementById("proteinGoal").value || 0);
+      const waterGoal = parseFloat(document.getElementById("waterGoal").value || 0);
+      const startDate = new Date(document.getElementById("startDate").value);
 
-      var totalHeight = (input.heightFeet * 12) + input.heightInchesOnly;
-      var poundsToLose = Math.max(0, input.currentWeight - input.goalWeight);
+      if (!currentWeight || !goalWeight || !heightFeet || isNaN(startDate.getTime())) return;
 
-      if (poundsToLose <= 0) {
-        alert('Goal weight must be lower than current weight for a loss projection.');
-        results.classList.remove('show');
+      if (goalWeight >= currentWeight) {
+        alert("Goal weight must be lower than current weight.");
         return;
       }
 
-      var monthly = poundsPerMonthRange(input);
-      var minMonths = poundsToLose / monthly.high;
-      var maxMonths = poundsToLose / monthly.low;
+      const totalHeightInches = (heightFeet * 12) + heightInches;
+      const poundsToLose = round1(currentWeight - goalWeight);
+      const percentToLose = round1((poundsToLose / currentWeight) * 100);
+      const currentBMI = round1(calcBMI(currentWeight, totalHeightInches));
+      const goalBMI = round1(calcBMI(goalWeight, totalHeightInches));
+      const tenPercent = round1(currentWeight * 0.10);
 
-      var month1Low = Math.min(poundsToLose, monthly.low * 1);
-      var month1High = Math.min(poundsToLose, monthly.high * 1);
-      var month3Low = Math.min(poundsToLose, monthly.low * 3);
-      var month3High = Math.min(poundsToLose, monthly.high * 3);
-      var month6Low = Math.min(poundsToLose, monthly.low * 6);
-      var month6High = Math.min(poundsToLose, monthly.high * 6);
-      var month12Low = Math.min(poundsToLose, monthly.low * 12);
-      var month12High = Math.min(poundsToLose, monthly.high * 12);
+      const month1Base = cumulativeLossAtWeeks(profile, 4);
+      const month3Base = cumulativeLossAtWeeks(profile, 13);
+      const month6Base = cumulativeLossAtWeeks(profile, 26);
+      const month12Base = cumulativeLossAtWeeks(profile, 52);
 
-      var tenPercent = input.currentWeight * 0.10;
-      var cBmi = bmi(input.currentWeight, totalHeight);
-      var gBmi = bmi(input.goalWeight, totalHeight);
+      const modifierSeed = applyModifiers(
+        { low: 0, high: 0 },
+        activity,
+        proteinGoal,
+        weeksOnProgram
+      );
 
-      var startDate = new Date(input.startDate + 'T12:00:00');
-      var fiveLbsMonths = 5 / monthly.high;
-      var tenLbsMonths = 10 / monthly.high;
-      var tenPctMonths = tenPercent / monthly.high;
-      var goalEarly = addMonthsFromStart(startDate, minMonths, 'early');
-      var goalLate = addMonthsFromStart(startDate, maxMonths, 'late');
-
-      document.getElementById('outPounds').textContent = round(poundsToLose) + ' lbs';
-      document.getElementById('outGoalWindow').textContent = textRange(minMonths, maxMonths, ' months');
-      document.getElementById('outBmi').textContent = round(cBmi) + ' → ' + round(gBmi);
-      document.getElementById('outTenPercent').textContent = round(tenPercent) + ' lbs';
-      document.getElementById('out1Month').textContent = textRange(month1Low, month1High, ' lbs');
-      document.getElementById('out3Month').textContent = textRange(month3Low, month3High, ' lbs');
-      document.getElementById('out6Month').textContent = textRange(month6Low, month6High, ' lbs');
-      document.getElementById('out12Month').textContent = textRange(month12Low, month12High, ' lbs');
-      document.getElementById('out5lbs').textContent = formatDate(addMonthsFromStart(startDate, fiveLbsMonths));
-      document.getElementById('out10lbs').textContent = formatDate(addMonthsFromStart(startDate, tenLbsMonths));
-      document.getElementById('out10pctDate').textContent = formatDate(addMonthsFromStart(startDate, tenPctMonths));
-      document.getElementById('outGoalDateRange').textContent = formatDate(goalEarly) + ' to ' + formatDate(goalLate);
-
-      var notes = [];
-      if (input.activity === 'sedentary') {
-        notes.push('Increasing weekly activity can improve consistency of fat-loss outcomes and support lean mass retention.');
+      function adjustedRange(base) {
+        const lowAdj = base.low + (modifierSeed.low * (base.low > 0 ? 1.2 : 0));
+        const highAdj = base.high + (modifierSeed.high * (base.high > 0 ? 1.8 : 0));
+        return capByYearlyPercent(
+          { low: lowAdj, high: highAdj },
+          currentWeight,
+          profile,
+          poundsToLose
+        );
       }
-      if (input.proteinGoal > 0 && input.proteinGoal < 80) {
-        notes.push('Protein intake appears lower than many GLP-1 nutrition targets. Ask your provider about a personalized daily protein range.');
-      } else if (input.proteinGoal >= 100) {
-        notes.push('Your protein target supports satiety and lean mass preservation during a calorie deficit.');
-      }
-      if (input.waterGoal > 0 && input.waterGoal < 64) {
-        notes.push('Hydration may be below common daily goals; adequate fluid intake can support appetite control and GI tolerance.');
-      }
-      if (input.weeksOnProgram < 8) {
-        notes.push('You may still be in early dose-titration. Progress often accelerates after dose stabilization.');
-      } else if (input.weeksOnProgram > 52) {
-        notes.push('Long-term phase focus: preserve strength, maintain adherence habits, and review maintenance strategy with your provider.');
-      }
-      notes.push('These ranges assume consistent medication adherence, nutrition structure, and ongoing provider supervision.');
 
-      notesList.innerHTML = notes.map(function (note) {
-        return '<li>' + note + '</li>';
-      }).join('');
+      const month1 = adjustedRange(month1Base);
+      const month3 = adjustedRange(month3Base);
+      const month6 = adjustedRange(month6Base);
+      const month12 = adjustedRange(month12Base);
 
-      results.classList.add('show');
-      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const goalWindow = projectedGoalWindow(profile, activity, proteinGoal, weeksOnProgram, poundsToLose);
+      const goalFastDate = milestoneDate(startDate, poundsToLose, goalWindow.fastWeekly);
+      const goalSlowDate = milestoneDate(startDate, poundsToLose, goalWindow.slowWeekly);
+
+      document.getElementById("summaryTitle").textContent = `${profile.name} projection`;
+      document.getElementById("summaryText").textContent =
+        `You want to lose ${poundsToLose} lbs. Using a ${profile.name.toLowerCase()}-specific curve with slowdown over time, your goal window estimates about ${goalWindow.minMonths} to ${goalWindow.maxMonths} months. Annual results are capped so the projection stays within a more believable medication-specific band.`;
+
+      document.getElementById("statLose").textContent = `${poundsToLose} lbs`;
+      document.getElementById("statGoalWindow").textContent = `${goalWindow.minMonths} to ${goalWindow.maxMonths} mo`;
+      document.getElementById("statPercent").textContent = `${percentToLose}%`;
+      document.getElementById("statBMI").textContent = `${currentBMI} to ${goalBMI}`;
+
+      document.getElementById("month1Range").textContent = rangeText(month1);
+      document.getElementById("month3Range").textContent = rangeText(month3);
+      document.getElementById("month6Range").textContent = rangeText(month6);
+      document.getElementById("month12Range").textContent = rangeText(month12);
+
+      const avgEarlyWeekly = round1((profile.phases[0].low + profile.phases[0].high) / 2);
+      const paceWidth = Math.min(100, Math.round((avgEarlyWeekly / 2.0) * 100));
+      let paceDescriptor = "Steady";
+      if (medication === "tirzepatide") paceDescriptor = "Strong";
+      if (medication === "retatrutide") paceDescriptor = "Very strong research curve";
+
+      document.getElementById("paceLabel").textContent = `~${avgEarlyWeekly} lbs/week early phase`;
+      document.getElementById("paceBar").style.width = `${paceWidth}%`;
+      document.getElementById("paceNote").textContent =
+        `${paceDescriptor}. The early phase is faster. The later phase tapers down to avoid an unrealistic straight-line year.`;
+
+      document.getElementById("insight1Text").textContent =
+        `${profile.name} uses a ${profile.mechanism.toLowerCase()} profile. This page treats ${profile.name.toLowerCase()} differently instead of blending all GLP-1 class drugs into one curve.`;
+
+      document.getElementById("insight2Text").textContent =
+        `A 10% body weight loss for you equals about ${tenPercent} lbs. That is a strong benchmark to watch, even before full goal weight is reached.`;
+
+      let coachNote = `Your activity level is ${activity}.`;
+      if (proteinGoal > 0) coachNote += ` Protein target entered: ${proteinGoal} g/day.`;
+      if (waterGoal > 0) coachNote += ` Water target entered: ${waterGoal} oz/day.`;
+      if (age >= 50) coachNote += ` Muscle retention deserves extra attention as weight comes down.`;
+      if (sex === "female") coachNote += ` Hormonal and appetite patterns often make consistency more important than speed.`;
+      document.getElementById("insight3Text").textContent = coachNote;
+
+      document.getElementById("mile5").textContent = milestoneDate(startDate, 5, goalWindow.fastWeekly);
+      document.getElementById("mile10").textContent = milestoneDate(startDate, 10, goalWindow.fastWeekly);
+      document.getElementById("mile10pct").textContent = milestoneDate(startDate, tenPercent, goalWindow.fastWeekly);
+      document.getElementById("mileGoal").textContent = `${goalFastDate} to ${goalSlowDate}`;
+
+      let goalNote = `Fast edge uses the stronger early weekly rate. Slow edge uses a tapered later rate.`;
+      if (medication === "retatrutide") {
+        goalNote += ` Research-only profile. Keep this labeled investigational.`;
+      }
+      document.getElementById("mileGoalNote").textContent = goalNote;
+
+      document.getElementById("legalText").textContent =
+        medication === "retatrutide"
+          ? "This calculator gives an estimate only. It does not predict your actual result. Retatrutide is investigational and should not be presented like an approved treatment. Final treatment choice, dosing, risk review, and follow-up belong with a licensed clinician."
+          : "This calculator gives an estimate only. It does not predict your actual result. Approved medication still requires screening, dosing review, follow-up, and clinician oversight. Final treatment choice belongs with a licensed clinician.";
+
+      resultsSection.style.display = "block";
+      resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
-    form.addEventListener('reset', function () {
-      results.classList.remove('show');
-      notesList.innerHTML = '';
+    resetBtn.addEventListener("click", function() {
+      form.reset();
+      startDateField.value = new Date().toISOString().split("T")[0];
+      renderMedicationInfo();
+      resultsSection.style.display = "none";
     });
-  })();
-</script>
+  </script>
 </body>
 </html>
