@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id=GTM-59QG8PZX'+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59QG8PZX');
+</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="eDywJEwW6CtQEgOHtxxU7AavPdpG7j_m8nvoDZVdPRI" />
+  <meta name="description" content="Use this GLP-1 weight loss calculator to estimate timeline milestones, projected ranges, and key progress dates while on a medically supervised program.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLP-1 Weight Loss Calculator | Weight Loss Davie (Dev)</title>
+  <link rel="canonical" href="https://weightlossdavie.com/glp1-calculator/">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    .calculator-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 40px 70px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .calc-card {
+      background: var(--white);
+      border: 1px solid rgba(13,31,110,0.08);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    .calc-card h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 14px;
+    }
+
+    .calc-intro {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .calc-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-group label {
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--deep);
+    }
+
+    .field-group input,
+    .field-group select {
+      width: 100%;
+      border: 1px solid rgba(13,31,110,0.2);
+      border-radius: 10px;
+      padding: 12px 12px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    .field-group small {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .calc-btn {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .calc-btn-secondary {
+      background: rgba(13,31,110,0.08);
+      color: var(--deep);
+      border: 1px solid rgba(13,31,110,0.16);
+    }
+
+    .calc-btn-secondary:hover {
+      background: rgba(13,31,110,0.13);
+      transform: translateY(-2px);
+    }
+
+    .results-panel {
+      display: none;
+    }
+
+    .results-panel.show {
+      display: block;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .metric {
+      background: rgba(26,63,207,0.04);
+      border: 1px solid rgba(26,63,207,0.09);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .metric h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 7px;
+    }
+
+    .metric p {
+      font-size: 18px;
+      color: var(--text);
+      font-weight: 600;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .note-box {
+      margin-top: 16px;
+      background: #f7f8fc;
+      border: 1px solid rgba(13,31,110,0.1);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .note-box h3 {
+      margin-bottom: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 14px;
+      color: var(--deep);
+    }
+
+    .note-box p,
+    .note-box li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .disclaimer {
+      margin-top: 16px;
+      background: rgba(26,63,207,0.05);
+      border: 1px solid rgba(26,63,207,0.12);
+      border-radius: 12px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .calc-cta {
+      margin-top: 24px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--deep), var(--blue));
+      color: white;
+      padding: 24px;
+    }
+
+    .calc-cta h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .calc-cta p {
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 1000px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .calculator-shell {
+        padding: 44px 20px 56px;
+      }
+
+      .calc-form-grid,
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCJKDS7CZB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CCJKDS7CZB');
+    gtag('config', 'AW-18038457429');
+  </script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59QG8PZX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="mobile-call-bar" style="
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: #1a3fcf;
+  text-align: center;
+  padding: 11px 16px;
+  box-shadow: 0 2px 12px rgba(13,31,110,0.25);
+">
+  <div class="header-phone">
+    <span class="phone-icon">📞</span>
+    <span class="phone-text">
+      CALL US –
+      <a href="tel:13104086687" class="phone-link">(310) 408-6687</a>
+    </span>
+  </div>
+</div>
+
+<style>
+@media (max-width: 768px) {
+  #mobile-call-bar {
+    display: block !important;
+  }
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.phone-text {
+  color: #ffffff;
+}
+
+.phone-link {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.phone-link:visited,
+.phone-link:hover,
+.phone-link:active {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.phone-icon {
+  font-size: 18px;
+}
+</style>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="https://weightlossdavie.com/" aria-label="Weight Loss Davie Home">
+      <span class="brand-text">Weight Loss Davie</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+      Menu
+    </button>
+
+    <nav id="main-nav" class="site-nav" aria-label="Main navigation">
+      <a href="https://weightlossdavie.com/">Home</a>
+      <a href="https://weightlossdavie.com/why-us/">Why Us</a>
+      <a href="https://weightlossdavie.com/weight-loss-industry/">Weight Loss Industry</a>
+      <a href="https://weightlossdavie.com/top-10-reasons-to-start/">Top 10 Reasons</a>
+      <a href="https://weightlossdavie.com/testimonials/">Testimonials</a>
+      <a href="https://weightlossdavie.com/faqs/">FAQs</a>
+      <a href="https://weightlossdavie.com/provider/">Provider</a>
+      <a href="https://weightlossdavie.com/contact-us/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">GLP-1 Progress Planning Tool</div>
+  <h1>GLP-1 Weight Loss<br><span>Calculator</span></h1>
+  <p class="hero-desc">
+    Estimate your projected weight loss timeline, milestone dates, and progress ranges with a realistic model designed for medically supervised GLP-1 programs.
+  </p>
+</section>
+
+<main class="calculator-shell">
+  <div class="calc-grid">
+    <section class="calc-card" aria-labelledby="calculator-title">
+      <h2 id="calculator-title">Calculator Inputs</h2>
+      <p class="calc-intro">Enter your current stats and program details. Results are intended to provide practical planning ranges, not guaranteed outcomes.</p>
+
+      <form id="glp1-form">
+        <div class="calc-form-grid">
+          <div class="field-group">
+            <label for="currentWeight">Current weight (lbs)</label>
+            <input id="currentWeight" name="currentWeight" type="number" min="80" max="700" step="0.1" required>
+          </div>
+          <div class="field-group">
+            <label for="goalWeight">Goal weight (lbs)</label>
+            <input id="goalWeight" name="goalWeight" type="number" min="80" max="700" step="0.1" required>
+          </div>
+
+          <div class="field-group">
+            <label for="heightFeet">Height (feet)</label>
+            <input id="heightFeet" name="heightFeet" type="number" min="3" max="8" step="1" required>
+          </div>
+          <div class="field-group">
+            <label for="heightInches">Height (inches)</label>
+            <input id="heightInches" name="heightInches" type="number" min="0" max="11" step="1" required>
+          </div>
+
+          <div class="field-group">
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="18" max="95" step="1" required>
+          </div>
+          <div class="field-group">
+            <label for="sex">Sex</label>
+            <select id="sex" name="sex" required>
+              <option value="">Select</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="activity">Activity level</label>
+            <select id="activity" name="activity" required>
+              <option value="">Select</option>
+              <option value="sedentary">Sedentary</option>
+              <option value="light">Lightly active</option>
+              <option value="moderate">Moderately active</option>
+              <option value="high">Very active</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="glp1Status">GLP-1 status</label>
+            <select id="glp1Status" name="glp1Status" required>
+              <option value="">Select</option>
+              <option value="not-started">Not started yet</option>
+              <option value="starting">Starting this week</option>
+              <option value="active">Currently active</option>
+              <option value="maintenance">Maintenance phase</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="weeksOnProgram">Weeks on GLP-1 program</label>
+            <input id="weeksOnProgram" name="weeksOnProgram" type="number" min="0" max="260" step="1" required>
+          </div>
+          <div class="field-group">
+            <label for="startDate">Start date</label>
+            <input id="startDate" name="startDate" type="date" required>
+          </div>
+
+          <div class="field-group">
+            <label for="proteinGoal">Daily protein goal (optional, g)</label>
+            <input id="proteinGoal" name="proteinGoal" type="number" min="0" max="400" step="1">
+          </div>
+          <div class="field-group">
+            <label for="waterGoal">Daily water goal (optional, oz)</label>
+            <input id="waterGoal" name="waterGoal" type="number" min="0" max="300" step="1">
+          </div>
+
+          <div class="field-group full">
+            <small>Tip: realistic progress can vary with dosing progression, nutrition quality, adherence, activity, sleep, stress, and medical factors.</small>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button type="submit" class="cta-btn calc-btn">Calculate estimate</button>
+          <button type="reset" class="cta-btn calc-btn calc-btn-secondary">Reset</button>
+        </div>
+      </form>
+
+      <div class="disclaimer">
+        Calculator disclaimer: This tool provides educational estimates only and is not medical advice, diagnosis, or treatment. Individual outcomes vary.
+      </div>
+    </section>
+
+    <section id="results" class="calc-card results-panel" aria-live="polite">
+      <h2>Your Estimated Results</h2>
+      <p class="calc-intro">These projections are generated from conservative GLP-1 response ranges and your input details.</p>
+
+      <div class="results-grid">
+        <div class="metric"><h3>Pounds to lose</h3><p id="outPounds"></p></div>
+        <div class="metric"><h3>Projected goal window</h3><p id="outGoalWindow"></p></div>
+        <div class="metric"><h3>Current BMI → Goal BMI</h3><p id="outBmi"></p></div>
+        <div class="metric"><h3>10% body weight milestone</h3><p id="outTenPercent"></p></div>
+        <div class="metric"><h3>1 month estimated loss</h3><p id="out1Month"></p></div>
+        <div class="metric"><h3>3 month estimated loss</h3><p id="out3Month"></p></div>
+        <div class="metric"><h3>6 month estimated loss</h3><p id="out6Month"></p></div>
+        <div class="metric"><h3>12 month estimated loss</h3><p id="out12Month"></p></div>
+        <div class="metric"><h3>First 5 lbs milestone</h3><p id="out5lbs"></p></div>
+        <div class="metric"><h3>First 10 lbs milestone</h3><p id="out10lbs"></p></div>
+        <div class="metric"><h3>10% weight loss milestone</h3><p id="out10pctDate"></p></div>
+        <div class="metric"><h3>Goal date range</h3><p id="outGoalDateRange"></p></div>
+      </div>
+
+      <div class="note-box">
+        <h3>Personalized Notes</h3>
+        <ul id="personalizedNotes"></ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="calc-cta" aria-label="Book consultation call to action">
+    <h3>Ready for a provider-led plan?</h3>
+    <p>
+      Use this estimate as a starting point, then schedule a consultation to review your goals, clinical profile, and a realistic GLP-1 care roadmap with Weight Loss Davie.
+    </p>
+    <a class="btn-secondary" href="https://weightlossdavie.com/contact-us/">Book a consultation</a>
+  </section>
+</main>
+
+<section class="section" aria-label="Related medical weight loss resources">
+  <div class="section-tag">Plan Your Next Step</div>
+  <div class="s1-grid">
+    <div class="s1-left">
+      <h2>Quick Answers For Patients In Davie And South Florida</h2>
+      <p><strong>What services are available?</strong> We provide provider-led medical weight loss, weight management, and personalized guidance through a structured weight loss program based on your goals and health profile.</p>
+      <p><strong>Where is care delivered?</strong> Weight Loss Davie is based in Davie, Florida in Broward County and supports patients across South Florida.</p>
+      <p><strong>How do I start?</strong> Visit our <a href="https://weightlossdavie.com/contact-us/" style="color:var(--blue);text-decoration:none;">Contact page</a> or call <a href="tel:13104086687" class="header-phone">(310)408-6687</a> for next-step guidance.</p>
+    </div>
+    <div class="s1-right">
+      <div class="info-block">
+        <h3>Explore Related Pages</h3>
+        <p><a href="https://weightlossdavie.com/why-us/" style="color:var(--blue);text-decoration:none;">Why patients choose us</a> and how provider-led care works in Davie.</p>
+      </div>
+      <div class="info-block">
+        <h3>Meet The Provider</h3>
+        <p>Read the <a href="https://weightlossdavie.com/provider/" style="color:var(--blue);text-decoration:none;">provider profile</a> to understand clinical background and care style.</p>
+      </div>
+      <div class="info-block">
+        <h3>Review FAQs And Testimonials</h3>
+        <p>See common questions on the <a href="https://weightlossdavie.com/faqs/" style="color:var(--blue);text-decoration:none;">FAQ page</a> and patient perspectives on our <a href="https://weightlossdavie.com/testimonials/" style="color:var(--blue);text-decoration:none;">Testimonials page</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Weight Loss Davie</h3>
+      <p>Provider-led medical weight management in Davie, Florida. Individualized care, no insurance required.</p>
+      <p style="margin-top:16px;">📞 <a href="tel:13104086687">(310)408-6687</a></p>
+      <p style="margin-top:8px;">✉️ <a href="mailto:contact@weightlossdavie.com">contact@weightlossdavie.com</a></p>
+      <p style="margin-top:8px;color:rgba(255,255,255,0.9);font-size:13px;">Davie, Florida</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="https://weightlossdavie.com/">Home</a></li>
+        <li><a href="https://weightlossdavie.com/why-us/">Why Us</a></li>
+        <li><a href="https://weightlossdavie.com/weight-loss-industry/">Weight Loss Industry</a></li>
+        <li><a href="https://weightlossdavie.com/top-10-reasons-to-start/">Top 10 Reasons</a></li>
+        <li><a href="https://weightlossdavie.com/testimonials/">Testimonials</a></li>
+        <li><a href="https://weightlossdavie.com/faqs/">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Account</h4>
+      <ul>
+        <li><a href="https://weightlossdavie.com/provider/">Provider</a></li>
+        <li><a href="https://weightlossdavie.com/contact-us/">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Weight Loss Davie. All rights reserved.</span>
+    <p style="font-family:'Barlow Condensed',sans-serif; font-size:12px;
+    font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+    color:rgba(255,255,255,0.4); margin-top:8px;">
+      Website By
+      <a href="https://elettro.com" target="_blank" rel="noopener"
+         style="color:rgba(255,255,255,0.55); text-decoration:none;
+         transition:color 0.2s;"
+         onmouseover="this.style.color='rgba(255,255,255,0.9)'"
+         onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+         Elettro&trade;
+      </a>
+      &nbsp;|&nbsp;
+      <a href="https://weightlossdavie.com/report" target="_blank" rel="noopener"
+         style="color:rgba(255,255,255,0.55); text-decoration:none;
+         transition:color 0.2s;"
+         onmouseover="this.style.color='rgba(255,255,255,0.9)'"
+         onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+         Production &amp; SEO Report
+      </a>
+    </p>
+    <span>Davie, Florida</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var navToggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('main-nav');
+    if (!navToggle || !nav) return;
+    navToggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  })();
+
+  (function () {
+    var form = document.getElementById('glp1-form');
+    var results = document.getElementById('results');
+    var notesList = document.getElementById('personalizedNotes');
+
+    function clamp(number, min, max) {
+      return Math.max(min, Math.min(max, number));
+    }
+
+    function poundsPerMonthRange(inputs) {
+      var baseLow = 2.0;
+      var baseHigh = 4.0;
+
+      if (inputs.glp1Status === 'active') {
+        baseLow += 0.6;
+        baseHigh += 1.0;
+      } else if (inputs.glp1Status === 'maintenance') {
+        baseLow -= 0.4;
+        baseHigh -= 1.2;
+      } else if (inputs.glp1Status === 'starting') {
+        baseLow += 0.3;
+        baseHigh += 0.6;
+      }
+
+      if (inputs.weeksOnProgram >= 12 && inputs.weeksOnProgram <= 40) {
+        baseLow += 0.4;
+        baseHigh += 0.8;
+      } else if (inputs.weeksOnProgram > 40) {
+        baseLow -= 0.2;
+        baseHigh -= 0.5;
+      }
+
+      if (inputs.activity === 'light') {
+        baseLow += 0.2;
+        baseHigh += 0.3;
+      } else if (inputs.activity === 'moderate') {
+        baseLow += 0.45;
+        baseHigh += 0.75;
+      } else if (inputs.activity === 'high') {
+        baseLow += 0.7;
+        baseHigh += 1.0;
+      }
+
+      if (inputs.proteinGoal > 0) {
+        if (inputs.proteinGoal < 70) {
+          baseLow -= 0.2;
+        } else if (inputs.proteinGoal >= 90) {
+          baseHigh += 0.25;
+        }
+      }
+
+      if (inputs.waterGoal > 0 && inputs.waterGoal < 50) {
+        baseLow -= 0.15;
+      }
+
+      if (inputs.age >= 60) {
+        baseHigh -= 0.2;
+      }
+
+      baseLow = clamp(baseLow, 1.2, 6.0);
+      baseHigh = clamp(baseHigh, baseLow + 0.8, 7.0);
+      return { low: baseLow, high: baseHigh };
+    }
+
+    function bmi(weightLbs, heightInches) {
+      return (weightLbs / (heightInches * heightInches)) * 703;
+    }
+
+    function formatDate(dateObj) {
+      return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function addMonthsFromStart(startDate, months, mode) {
+      var d = new Date(startDate);
+      var whole = Math.floor(months);
+      var partial = months - whole;
+      d.setMonth(d.getMonth() + whole);
+      d.setDate(d.getDate() + Math.round(partial * 30));
+      if (mode === 'late') {
+        d.setDate(d.getDate() + 10);
+      }
+      return d;
+    }
+
+    function round(value) {
+      return Math.round(value * 10) / 10;
+    }
+
+    function textRange(low, high, suffix) {
+      return round(low) + ' to ' + round(high) + suffix;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var input = {
+        currentWeight: parseFloat(form.currentWeight.value),
+        goalWeight: parseFloat(form.goalWeight.value),
+        heightFeet: parseInt(form.heightFeet.value, 10),
+        heightInchesOnly: parseInt(form.heightInches.value, 10),
+        age: parseInt(form.age.value, 10),
+        sex: form.sex.value,
+        activity: form.activity.value,
+        glp1Status: form.glp1Status.value,
+        weeksOnProgram: parseInt(form.weeksOnProgram.value, 10),
+        proteinGoal: parseFloat(form.proteinGoal.value || 0),
+        waterGoal: parseFloat(form.waterGoal.value || 0),
+        startDate: form.startDate.value
+      };
+
+      var totalHeight = (input.heightFeet * 12) + input.heightInchesOnly;
+      var poundsToLose = Math.max(0, input.currentWeight - input.goalWeight);
+
+      if (poundsToLose <= 0) {
+        alert('Goal weight must be lower than current weight for a loss projection.');
+        results.classList.remove('show');
+        return;
+      }
+
+      var monthly = poundsPerMonthRange(input);
+      var minMonths = poundsToLose / monthly.high;
+      var maxMonths = poundsToLose / monthly.low;
+
+      var month1Low = Math.min(poundsToLose, monthly.low * 1);
+      var month1High = Math.min(poundsToLose, monthly.high * 1);
+      var month3Low = Math.min(poundsToLose, monthly.low * 3);
+      var month3High = Math.min(poundsToLose, monthly.high * 3);
+      var month6Low = Math.min(poundsToLose, monthly.low * 6);
+      var month6High = Math.min(poundsToLose, monthly.high * 6);
+      var month12Low = Math.min(poundsToLose, monthly.low * 12);
+      var month12High = Math.min(poundsToLose, monthly.high * 12);
+
+      var tenPercent = input.currentWeight * 0.10;
+      var cBmi = bmi(input.currentWeight, totalHeight);
+      var gBmi = bmi(input.goalWeight, totalHeight);
+
+      var startDate = new Date(input.startDate + 'T12:00:00');
+      var fiveLbsMonths = 5 / monthly.high;
+      var tenLbsMonths = 10 / monthly.high;
+      var tenPctMonths = tenPercent / monthly.high;
+      var goalEarly = addMonthsFromStart(startDate, minMonths, 'early');
+      var goalLate = addMonthsFromStart(startDate, maxMonths, 'late');
+
+      document.getElementById('outPounds').textContent = round(poundsToLose) + ' lbs';
+      document.getElementById('outGoalWindow').textContent = textRange(minMonths, maxMonths, ' months');
+      document.getElementById('outBmi').textContent = round(cBmi) + ' → ' + round(gBmi);
+      document.getElementById('outTenPercent').textContent = round(tenPercent) + ' lbs';
+      document.getElementById('out1Month').textContent = textRange(month1Low, month1High, ' lbs');
+      document.getElementById('out3Month').textContent = textRange(month3Low, month3High, ' lbs');
+      document.getElementById('out6Month').textContent = textRange(month6Low, month6High, ' lbs');
+      document.getElementById('out12Month').textContent = textRange(month12Low, month12High, ' lbs');
+      document.getElementById('out5lbs').textContent = formatDate(addMonthsFromStart(startDate, fiveLbsMonths));
+      document.getElementById('out10lbs').textContent = formatDate(addMonthsFromStart(startDate, tenLbsMonths));
+      document.getElementById('out10pctDate').textContent = formatDate(addMonthsFromStart(startDate, tenPctMonths));
+      document.getElementById('outGoalDateRange').textContent = formatDate(goalEarly) + ' to ' + formatDate(goalLate);
+
+      var notes = [];
+      if (input.activity === 'sedentary') {
+        notes.push('Increasing weekly activity can improve consistency of fat-loss outcomes and support lean mass retention.');
+      }
+      if (input.proteinGoal > 0 && input.proteinGoal < 80) {
+        notes.push('Protein intake appears lower than many GLP-1 nutrition targets. Ask your provider about a personalized daily protein range.');
+      } else if (input.proteinGoal >= 100) {
+        notes.push('Your protein target supports satiety and lean mass preservation during a calorie deficit.');
+      }
+      if (input.waterGoal > 0 && input.waterGoal < 64) {
+        notes.push('Hydration may be below common daily goals; adequate fluid intake can support appetite control and GI tolerance.');
+      }
+      if (input.weeksOnProgram < 8) {
+        notes.push('You may still be in early dose-titration. Progress often accelerates after dose stabilization.');
+      } else if (input.weeksOnProgram > 52) {
+        notes.push('Long-term phase focus: preserve strength, maintain adherence habits, and review maintenance strategy with your provider.');
+      }
+      notes.push('These ranges assume consistent medication adherence, nutrition structure, and ongoing provider supervision.');
+
+      notesList.innerHTML = notes.map(function (note) {
+        return '<li>' + note + '</li>';
+      }).join('');
+
+      results.classList.add('show');
+      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    form.addEventListener('reset', function () {
+      results.classList.remove('show');
+      notesList.innerHTML = '';
+    });
+  })();
+</script>
+</body>
+</html>
