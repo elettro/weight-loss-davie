@@ -155,18 +155,6 @@ a[href^="tel:"]:active {
   padding: 24px 20px;
 }
 
-.hero-slide--comparison::after {
-  content: "";
-  position: absolute;
-  right: 8%;
-  bottom: 18%;
-  width: 180px;
-  height: 90px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
-}
-
 .hero-slider-control {
   position: absolute;
   top: 50%;
