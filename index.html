@@ -254,6 +254,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         <a href="https://weightlossdavie.com/top-10-reasons-to-start/">Top 10 Reasons</a>
         <a href="https://weightlossdavie.com/testimonials/">Testimonials</a>
         <a href="https://weightlossdavie.com/faqs/">FAQs</a>
+        <a href="https://weightlossdavie.com/calculator/">Calculator</a>
         <a href="https://weightlossdavie.com/provider/">Provider</a>
         <a href="https://weightlossdavie.com/contact-us/">Contact</a>
       </nav>
@@ -261,14 +262,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </header>
 
   <section class="hero">
-    <div class="hero-eyebrow">Medical Weight Loss Provider In Davie, Florida</div>
-    <h1>Provider-Led<br><span>Weight Loss Care</span></h1>
-    <p class="hero-desc">
-      Medical weight loss and weight management services based in Davie, Florida — including provider-led semaglutide and tirzepatide care — with a focus on individualized treatment planning, clinical oversight, and ongoing support. In-person visits are available in Davie, direct with provider follow-up care across Florida when appropriate.
-    </p>
+    <div class="hero-slider" aria-roledescription="carousel" aria-label="Homepage highlights">
+      <button class="hero-slider-control prev" type="button" aria-label="Previous slide">&#8249;</button>
+      <div class="hero-slides">
+        <article class="hero-slide is-active" data-slide="0">
+          <div class="hero-eyebrow">Medical Weight Loss Provider In Davie, Florida</div>
+          <h1>Provider-Led<br><span>Weight Loss Care</span></h1>
+          <p class="hero-desc">
+            Medical weight loss and weight management services based in Davie, Florida — including provider-led semaglutide and tirzepatide care — with a focus on individualized treatment planning, clinical oversight, and ongoing support. In-person visits are available in Davie, direct with provider follow-up care across Florida when appropriate.
+          </p>
+          <div class="cta-row" style="justify-content:center; position:relative; z-index:1;">
+            <a class="btn-secondary" href="https://weightlossdavie.com/contact-us/">CONTACT US</a>
+          </div>
+        </article>
 
-    <div class="cta-row" style="justify-content:center; position:relative; z-index:1;">
-      <a class="btn-secondary" href="https://weightlossdavie.com/contact-us/">CONTACT US</a>
+        <article class="hero-slide hero-slide--comparison" data-slide="1">
+          <div class="hero-eyebrow">Exclusive to Weight Loss Davie</div>
+          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(42px,6vw,72px);font-weight:900;line-height:0.95;text-transform:uppercase;letter-spacing:-0.01em;position:relative;z-index:1;">Compare Semaglutide vs Tirzepatide<br><span style="color:transparent;-webkit-text-stroke:2px rgba(255,255,255,0.4);">Weight Loss Timelines</span></h2>
+          <p class="hero-desc" style="margin-top:20px;">
+            Use our exclusive calculator to estimate milestone dates, pace of progress, and projected goal windows based on your medication path.
+          </p>
+          <div class="cta-row" style="justify-content:center; position:relative; z-index:1;">
+            <a class="btn-secondary" href="https://weightlossdavie.com/calculator/">Try The Calculator</a>
+            <a class="btn-secondary" href="https://weightlossdavie.com/calculator/">See The Comparison</a>
+          </div>
+        </article>
+      </div>
+      <button class="hero-slider-control next" type="button" aria-label="Next slide">&#8250;</button>
+      <div class="hero-slider-dots" role="tablist" aria-label="Slide indicators">
+        <button class="is-active" type="button" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+      </div>
     </div>
   </section>
 
@@ -597,12 +621,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     (function () {
       var navToggle = document.querySelector('.nav-toggle');
       var nav = document.getElementById('main-nav');
-      if (!navToggle || !nav) return;
+      if (navToggle && nav) {
+        navToggle.addEventListener('click', function () {
+          var isOpen = nav.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
 
-      navToggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
+      var slides = document.querySelectorAll('.hero-slide');
+      var dots = document.querySelectorAll('.hero-slider-dots button');
+      var prev = document.querySelector('.hero-slider-control.prev');
+      var next = document.querySelector('.hero-slider-control.next');
+      if (!slides.length || !dots.length) return;
+
+      var current = 0;
+      var timer;
+      var intervalMs = 9000;
+
+      function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function (slide, i) {
+          slide.classList.toggle('is-active', i === current);
+        });
+        dots.forEach(function (dot, i) {
+          var active = i === current;
+          dot.classList.toggle('is-active', active);
+          dot.setAttribute('aria-selected', String(active));
+        });
+      }
+
+      function restartTimer() {
+        clearInterval(timer);
+        timer = setInterval(function () { showSlide(current + 1); }, intervalMs);
+      }
+
+      dots.forEach(function (dot, idx) {
+        dot.addEventListener('click', function () {
+          showSlide(idx);
+          restartTimer();
+        });
       });
+
+      if (prev) prev.addEventListener('click', function () { showSlide(current - 1); restartTimer(); });
+      if (next) next.addEventListener('click', function () { showSlide(current + 1); restartTimer(); });
+
+      var startX = null;
+      var slider = document.querySelector('.hero-slider');
+      if (slider) {
+        slider.addEventListener('touchstart', function (e) { startX = e.changedTouches[0].clientX; }, {passive: true});
+        slider.addEventListener('touchend', function (e) {
+          if (startX === null) return;
+          var delta = e.changedTouches[0].clientX - startX;
+          if (Math.abs(delta) > 40) showSlide(current + (delta < 0 ? 1 : -1));
+          restartTimer();
+          startX = null;
+        }, {passive: true});
+      }
+
+      showSlide(0);
+      restartTimer();
     })();
   </script>
 <!DOCTYPE html>
@@ -845,6 +922,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         <li><a href="https://weightlossdavie.com/top-10-reasons-to-start/">Top 10 Reasons</a></li>
         <li><a href="https://weightlossdavie.com/testimonials/">Testimonials</a></li>
         <li><a href="https://weightlossdavie.com/faqs/">FAQs</a></li>
+        <li><a href="https://weightlossdavie.com/calculator/">Calculator</a></li>
       </ul>
     </div>
     <div class="footer-col">
