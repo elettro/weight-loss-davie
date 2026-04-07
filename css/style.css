@@ -149,7 +149,7 @@ a[href^="tel:"]:active {
 }
 
 .hero-slide--comparison {
-  background: linear-gradient(90deg, rgba(255,255,255,0.06) 0 49%, rgba(122,164,255,0.12) 49% 51%, rgba(255,255,255,0.03) 51% 100%);
+  background: var(--deep);
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 16px;
   padding: 24px 20px;
