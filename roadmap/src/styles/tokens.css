@@ -1,0 +1,18 @@
+:root {
+  --primary: #4d9166;
+  --primary-container: #d8ecd9;
+  --secondary: #7d8f84;
+  --surface: #f3f6f4;
+  --surface-container-low: #ffffff;
+  --surface-container-highest: #e3ebe6;
+  --surface-container-lowest: #f8fbf9;
+  --on-surface: #191c1d;
+  --outline-variant: rgb(25 28 29 / 0.12);
+  --gradient-primary: linear-gradient(130deg, #4d9166 0%, #73a88d 55%, #9fb9ad 100%);
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --space-section: clamp(2rem, 5vw, 4.5rem);
+  --space-card: clamp(1.1rem, 2vw, 1.7rem);
+}
