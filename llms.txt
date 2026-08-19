@@ -1,0 +1,44 @@
+# Weight Loss Davie
+
+> Provider-led medical weight management information and consultation intake for adults in Davie, Broward County, and South Florida.
+
+## Business facts
+
+- Website: https://weightlossdavie.com/
+- Location: 2231 SW 97th Road, Davie, FL 33324
+- Phone: +1-310-408-6687
+- Email: contact@weightlossdavie.com
+- Provider: Marie-Claude Dubuc, PA-C
+- Florida license: PA9105167
+- License verification: https://mqa-internet.doh.state.fl.us/MQASearchServices/HealthcareProviders/LicenseVerification?LicInd=8036&ProCde=1512
+- Languages listed by the practice: English, French, and Haitian Creole
+
+## Primary pages
+
+- Home: https://weightlossdavie.com/
+- Why choose the practice: https://weightlossdavie.com/why-us/
+- Provider credentials: https://weightlossdavie.com/provider/
+- Frequently asked questions: https://weightlossdavie.com/faqs/
+- Educational semaglutide and tirzepatide calculator: https://weightlossdavie.com/glp1-calculator/
+- Medical information and primary sources: https://weightlossdavie.com/medical-information/
+- Consultation intake: https://weightlossdavie.com/start/
+- Contact: https://weightlossdavie.com/contact-us/
+
+## Content and safety boundaries
+
+- Website content is educational and is not a diagnosis, prescription, or substitute for individualized medical care.
+- Medication eligibility, contraindications, dose, and treatment choice require evaluation by a licensed clinician.
+- Semaglutide and tirzepatide are discussed using FDA-approved brand indications where applicable. Generic ingredient names do not imply that every formulation or use is FDA approved.
+- Calculator estimates illustrate broad published ranges and are not a personal outcome prediction or guarantee.
+- In an emergency, call 911. For urgent medication or health questions, contact a qualified clinician.
+
+## Editorial standards and sources
+
+- Editorial policy: https://weightlossdavie.com/editorial-policy/
+- Medical source library: https://weightlossdavie.com/medical-information/
+- FDA Wegovy prescribing information: https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/215256s025lbl.pdf
+- FDA Zepbound prescribing information: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/217806Orig1s020lbl.pdf
+- NIDDK prescription weight-management medicines: https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity
+- CDC adult BMI categories: https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html
+
+Last substantive review: 2026-08-19
