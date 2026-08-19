@@ -1,0 +1,10 @@
+{
+  "name": "weight-loss-davie-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:faq": "node scripts/sync-faq-schema.mjs",
+    "audit": "node scripts/site-audit.mjs",
+    "test": "npm run sync:faq && npm run audit"
+  }
+}
